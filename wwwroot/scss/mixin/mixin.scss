@@ -1,0 +1,96 @@
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+@mixin e($element) {
+    &_#{$element} {
+        @content;
+    }
+}
+
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin m($modifier) {
+    &-#{$modifier} {
+        @content;
+    }
+}
+
+@mixin f-thin{
+    font-family: $font-main;
+    font-weight: 100;
+    font-style: normal;
+}
+@mixin f-thin-i{
+    font-family: $font-main;
+    font-weight: 100;
+    font-style: italic;
+}
+@mixin f-light{
+    font-family: $font-main;
+    font-weight: 300;
+    font-style: normal;
+}
+@mixin f-light-i{
+    font-family: $font-main;
+    font-weight: 300;
+    font-style: italic;
+}
+@mixin f-regular{
+    font-family: $font-main;
+    font-weight: 400;
+    font-style: normal;
+}
+@mixin f-regular-i{
+    font-family: $font-main;
+    font-weight: 400;
+    font-style: italic;
+}
+@mixin f-medium{
+    font-family: $font-main;
+    font-weight: 500;
+    font-style: normal;
+}
+@mixin f-medium-i{
+    font-family: $font-main;
+    font-weight: 500;
+    font-style: italic;
+}
+@mixin f-bold{
+    font-family: $font-main;
+    font-weight: 700;
+    font-style: normal;
+}
+@mixin f-bold-i{
+    font-family: $font-main;
+    font-weight: 700;
+    font-style: italic;
+}
+@mixin f-black{
+    font-family: $font-main;
+    font-weight: 900;
+    font-style: normal;
+}
+@mixin f-black-i{
+    font-family: $font-main;
+    font-weight: 900;
+    font-style: italic;
+}

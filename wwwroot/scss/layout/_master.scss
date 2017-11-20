@@ -1,0 +1,35 @@
+#wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    height: 100vw;
+}
+
+body {
+    z-index: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    @include f-regular;
+}
+header {
+    width: 100%;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+input, button{
+    &:focus, &:active{
+        outline: none;
+    }
+}
+
+h2, h3{
+    text-transform: uppercase;
+    text-align: center;
+}

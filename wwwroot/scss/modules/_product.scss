@@ -1,0 +1,18 @@
+.products{
+    margin-top: 65px;
+    @include element("title"){
+        text-transform: uppercase;
+        font-size: 1.7em;
+        text-align: center;
+        margin: 20px 0;
+        &:after{
+            content: '';
+            background: url('http://theme.hstatic.net/1000225663/1000310269/14/icon-featured-2.png?v=439') center center no-repeat;
+            width: 180px;
+            background-size: auto;
+            height: 20px;
+            margin: 13px auto;
+            display: block;
+        }
+    }
+}

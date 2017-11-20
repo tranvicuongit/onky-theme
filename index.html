@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="//theme.hstatic.net/1000225663/1000310269/14/favicon.png?v=438" type="image/png">
+    <title>
+        ONKY – Mỹ phẩm xách tay Nhật, Hàn Quốc. Thời trang, Giày Dép phái đẹp
+    </title>
+    <script src="//hstatic.net/0/0/global/design/js/jquery.min.1.11.0.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>    
+    <script src="//hstatic.net/0/0/global/design/js/bootstrap.min.js"></script>
+    <script src="//hstatic.net/0/0/global/design/theme-default/jquery.flexslider.js" type="text/javascript"></script>
+    
+    <base href="/" />
+
+    <link rel="stylesheet" href="//hstatic.net/0/0/global/design/css/bootstrap.3.3.1.css">
+    <link href="//hstatic.net/0/0/global/design/plugins/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="wwwroot/css/animate.css" rel="stylesheet" type="text/css" media="all">
+    <link href="wwwroot/css/main.css" rel="stylesheet" type="text/css" media="all">
+</head>
+<body ng-app="OnkyApp">
+    <div id="wrapper">
+        <header ng-include="'app/layout/_header.html'" class="row header"></header>
+        <section id="content" ng-view>
+        </section>
+        <footer ng-include="'app/layout/_footer.html'"></footer>
+    </div>
+    <script src="app/app.js" type="text/javascript"></script>
+</body>
+</html>

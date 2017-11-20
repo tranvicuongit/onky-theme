@@ -1,0 +1,61 @@
+<!-- Header -->
+<div class="row header__top">
+    <div class="container">
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-5">
+            <div class="header__top--logo">
+                <a href="">
+                    <img src="//theme.hstatic.net/1000225663/1000310269/14/logo.png?v=438" alt="ONKY LOGO">
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-9 col-sm-8 col-xs-7">
+            <form action="#" class="header__top--search">
+                <input type="hidden" name="type" value="product">
+                <input type="text" name="q" autocomplete="off" class="header__top--search_input" />
+                <button class="header__top--search_btn" type="submit"></button>
+            </form>
+            <ul class="header__top--icon">
+                <li>
+                    <a href="">
+                        <img src="//theme.hstatic.net/1000225663/1000310269/14/fb-icon.png?v=480" alt="FB LOGO">
+                    </a>
+                </li>
+                <li>
+                    <img src="//theme.hstatic.net/1000225663/1000310269/14/icon-phone.png?v=438" alt="Phone LOGO">
+                    <div>
+                        <span>Hotline</span>
+                        <label>1900 123456 78</label>
+                    </div>
+                </li>
+                <li>
+                    <img src="//theme.hstatic.net/1000225663/1000310269/14/icon-cart.png?v=438" alt="Cart LOGO">
+                    <div>
+                        <span>Giỏ hàng</span>
+                        <label>0</label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="container">
+        <ul class="header__menu">
+            <li ng-repeat="item in Menu" class="header__menu_item">
+                <span class="header__menu_item--hot">HOT</span>
+                <a data-ng-href="{{item.Link}}">
+                    <h3><span>{{item.Title}}</span></h3>
+                </a>
+                <div data-ng-if="item.List.length > 0">
+                    <ul class="header__menu_item--submenu animated fadeIn">
+                        <li ng-repeat="itemSub in item.List">
+                            <a data-ng-href="{{item.Link}}">
+                                <h3><span>{{itemSub.Title}}</span></h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
