@@ -1,3 +1,71 @@
-#homepage{
-    background-color: $home-bg;
+#homepage {
+    background-color: $color-white;
+}
+
+.tips {
+    // background: #ffbf8d;
+    // background: -moz-linear-gradient(left, #ffbf8d 0%, #fc87b5 100%);
+    // background: -webkit-linear-gradient(left, #ffbf8d 0%, #fc87b5 100%);
+    // background: linear-gradient(to right, #ffbf8d 0%, #fc87b5 100%);
+    // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbf8d', endColorstr='#fc87b5', GradientType=1);
+    min-height: 643px;
+    background: $color-white url('http://theme.hstatic.net/1000225663/1000310269/14/bg-tips.png?v=445');
+    background-position: center;
+    background-size: cover;
+    padding: 5% 0;
+    color: $color-white;
+}
+
+.promotions{
+    min-height: 830px;
+    background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-protion-product.png?v=446) $color-white repeat;
+    color: $color-black-main;
+    overflow: hidden;
+    padding: 20px 0;
+    background-size: cover;
+}
+
+.dealers {
+    min-height: 690px;
+    padding-top: 80px;
+    padding-bottom: 70px;
+    background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-pattern-dealers.png?v=443) $color-white repeat;
+    color: $color-black-main;
+    background-size: cover;
+}
+
+.certificate {
+    min-height: 161px;
+    background-color: #fafafa;
+    @include element("item") {
+        padding: 10px;
+        margin: 30px 0;
+        @include modifier("img") {
+            float: left;
+            max-width: 48px;
+            max-height: 50px;
+            margin-right: 10px;
+        }
+        @include modifier("text") {
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: left;
+            text-overflow: ellipsis;
+            line-height: 20px;
+            padding-top: 5px;
+            span {
+                color: $color-certificate-pink;
+                text-transform: uppercase;
+                @include f-medium();
+                font-size: 1em;
+            }
+            label {
+                color: $color-grey;
+                font-size: 0.8em;
+                @include f-regular();
+                display: block;
+            }
+        }
+    }
 }

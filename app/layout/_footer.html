@@ -1,1 +1,51 @@
-footer
+<div class="container">
+    <ul class="col-md-12 footer__menu text-center">
+        <li ng-repeat="item in Menu">
+            <a data-ng-href="{{item.Link}}">{{item.Title}}</a>
+        </li>
+    </ul>
+    <ul class="col-md-12 footer__social text-center">
+        <li>
+            <a href="javascript:void(0);">
+                <img src="http://via.placeholder.com/27x27" />
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <img src="http://via.placeholder.com/27x27" />
+            </a>
+        </li>
+        <li>
+            <a href="javascript:void(0);">
+                <img src="http://via.placeholder.com/27x27" />
+            </a>
+        </li>
+    </ul>
+    <div class="col-md-12 footer__link">
+        <div class="footer__link--item" ng-repeat="item in Menu">
+            <h3 class="footer__link--item_title">
+                <a href="javascript:void(0)">{{item.Title}}</a>
+            </h3>
+            <ul class="footer__link--item_sublink">
+                <li ng-repeat="subItem in item.List">
+                    <a data-ng-href="{{subItem.Link}}">{{subItem.Title}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="footer__link--item" ng-repeat="item in Menu">
+            <h3 class="footer__link--item_title">
+                <a href="javascript:void(0)">{{item.Title}}</a>
+            </h3>
+            <ul class="footer__link--item_sublink">
+                <li ng-repeat="subItem in item.List">
+                    <a data-ng-href="{{subItem.Link}}">{{subItem.Title}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-12 footer__copyright text-center">
+        <p>
+                Copyright © 2017 Mỹ phẩm xách tay Nhật, Hàn Quốc. Thời trang, Giày Dép phái đẹp. Powered by Haravan.
+        </p>   
+    </div>
+</div>

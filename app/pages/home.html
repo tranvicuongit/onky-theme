@@ -2,9 +2,63 @@
     <div class="row" style="height: 481px">
         <img src="http://via.placeholder.com/1920x481">
     </div>
-    <div class="row">
-        <div class="products">
+    <div class="row promotions">
+        <div class="container products">
             <h2 class="products__title">Sản phẩm khuyến mãi</h2>
+            <div class="row products__list" ng-include="'app/pages/_products.html'">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container products">
+            <h2 class="products__title">Hàng mới về</h2>
+            <div class="row products__list" ng-include="'app/pages/_products.html'">
+            </div>
+        </div>
+    </div>
+
+    <div class="row tips text-center">
+        <div class="container">
+            <h2 class="tips__title">BEAUTY TIPS FOR YOU</h2>
+            <p class="tips__description">OnKy.net mang đến những thông tin hữu ích giúp bạn đẹp hơn!</p>
+            <div class="row tips__slide">
+            </div>
+        </div>
+    </div>
+
+    <div class="row dealers text-center">
+        <div class="container">
+            <h2 class="dealers__title">ĐẠI LÝ PHÂN PHỐI THƯƠNG HIỆU MỸ PHẨM NỔI TIẾNG - UY TÍN</h2>
+            <div class="row dealers__list">
+            </div>
+            <div class="row dealers__slide">
+            </div>
+        </div>
+    </div>
+    <div class="row certificate">
+        <div class="container">
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 certificate__item">
+                <img class="certificate__item--img" src="http://via.placeholder.com/44x48" alt="">
+                <div class="certificate__item--text">
+                    <span>CHẤT LƯỢNG SẢN PHẨM ĐẢM BẢO 100%</span>
+                    <label>Tất cả mặt hàng đều có bill order từ nước ngoài</label>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 certificate__item">
+                <img class="certificate__item--img" src="http://via.placeholder.com/44x48" alt="">
+                <div class="certificate__item--text">
+                    <span>TÍCH ĐIỂM ĐẾN 10% HÓA ĐƠN</span>
+                    <label>Khách hàng thân thiết Nuty luôn mua được giá rẻ nhất</label>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12 certificate__item">
+                <img class="certificate__item--img" src="http://via.placeholder.com/44x48" alt="">
+                <div class="certificate__item--text">
+                    <span>FREE SHIP TẤT CẢ CÁC QUẬN NỘI THÀNH</span>
+                    <label>Và hỗ trợ phí ship rẻ nhất cho các quận, tỉnh còn lại.</label>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,9 +1,105 @@
-footer{
-    background-size: 100%;
-    z-index: -1;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    text-align: center;
+.footer {
+    border-top: $color-light 1px solid;
+    height: 750px;
+    max-height: 750px;
+    overflow: hidden;
+    background: url("http://theme.hstatic.net/1000225663/1000310269/14/bg-bottom.jpg?v=440") $color-white center center no-repeat;
+    background-size: cover;
+    padding-bottom: 75px;
+    @include element("menu") {
+        margin-top: 37px;
+        list-style: none;
+        li {
+            display: inline-block;
+            * {
+                text-transform: uppercase;
+                color: $color-black-main;
+                transition: all 0.2s ease-in;
+                @include f-medium();
+                text-decoration: none;
+                margin: 0 10px;
+                &:hover {
+                    color: $color-light;
+                }
+            }
+            &:nth-child(1):after {
+                display: none;
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                background-color: #969696;
+                width: 1px;
+                height: 8px;
+                top: 5px;
+                display: block;
+            }
+        }
+    }
+    @include element("social") {
+        list-style: none;
+        margin: 67px 0 87px 0;
+        li {
+            display: inline-block;
+            margin: 0 20px;
+        }
+    }
+    @include element("link") {
+        margin-bottom: 28px;
+        @include modifier("item") {
+            display: inline;
+            float: left;
+            margin-right: 40px;
+            @include e("title") {
+                margin-bottom: 30px;
+                &:after {
+                    content: '';
+                    background: url(https://theme.hstatic.net/1000225663/1000310269/14/bottom-header-after.png?v=441) left center no-repeat;
+                    width: 70px;
+                    background-size: contain;
+                    height: 7px;
+                    margin: 5px 0;
+                    display: block;
+                }
+                * {
+                    text-decoration: none;
+                    color: $color-black-main;
+                    transition: 0.2s ease-in all;
+                    font-size: 1em;
+                    @include f-regular();
+                    &:hover {
+                        color: $color-light;
+                        text-decoration: none;
+                    }
+                }
+            }
+            @include e("sublink"){
+                list-style: none;
+                padding-left: 0;
+                li{
+                    margin: 10px 0;
+                    *{
+                        text-decoration: none;
+                        color: $color-black-main;
+                        transition: 0.2s ease-in all;
+                        font-size: 0.9em;
+                        @include f-regular();
+                        &:hover {
+                            color: $color-light;
+                            text-decoration: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include element("copyright"){
+        margin-top: 28px;
+        margin-bottom: 75px;
+        *{
+            //text-transform: uppercase;
+            color: $color-grey;
+            text-decoration: none;
+        }
+    }
 }

@@ -1,5 +1,7 @@
 .products{
-    margin-top: 65px;
+    margin-top: 75px;
+    margin-bottom: 90px;
+    
     @include element("title"){
         text-transform: uppercase;
         font-size: 1.7em;
@@ -15,4 +17,5 @@
             display: block;
         }
     }
+    
 }

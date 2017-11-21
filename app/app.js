@@ -16,6 +16,8 @@ var app = angular.module('OnkyApp', ['ngRoute'])
       $locationProvider.html5Mode(true);
     }])
   .run(function ($rootScope) {
+
+    // Create menu list
     $rootScope.Menu = [];
     var menu1 = {
       Title: "Trang điểm",
@@ -58,7 +60,6 @@ var app = angular.module('OnkyApp', ['ngRoute'])
       $rootScope.Menu.push(menu3);
     }
 
-
     setTimeout(function(){
       $(".header__menu_item").mouseenter(function(){
         $(this).find(".header__menu_item--submenu").css("display", "block");
@@ -66,6 +67,20 @@ var app = angular.module('OnkyApp', ['ngRoute'])
         $(this).find(".header__menu_item--submenu").css("display", "none");
       });
     },2000);
+    //////////////////////////////
+
+    // Create product list
+    $rootScope.Products = [];
+
+    for(var i = 1; i <= 12; i++){
+      $rootScope.Products.push({
+        Title : "Product 000" + i,
+        Price : i + "0,000,000",
+        Link: "san-pham-000" + i,
+        Compare: i + "0,000"
+      });
+    }
+
   })
   .controller('HomeCtrl', function PhoneListController($scope) {
   });

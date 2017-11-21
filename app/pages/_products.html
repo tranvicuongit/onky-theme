@@ -1,0 +1,26 @@
+<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="item in Products">
+    <div class="product__list--item">
+        <a data-ng-href="{{item.Link}}" ng-attr-title="{{item.Title}}">
+            <img src="http://via.placeholder.com/155x140" alt="">
+        </a>
+        <h3 class="product__list--item_header">
+            <a data-ng-href="{{item.Link}}" ng-attr-title="{{item.Title}}">
+                {{item.Title}}
+            </a>
+        </h3>
+        <div class="product__list--item_prices">
+            <p class="text-center product__list--item_prices-main">{{item.Price}}</p>
+            <p class="text-center product__list--item_prices-compare">{{item.Compare}}</p>
+        </div>
+        <div class="product__list--item_actions">
+            <div class="product__list--item_actions-views">
+                <span class="icon icon-views-fast"></span>
+                Xem nhanh
+            </div>
+            <div class="product__list--item_actions-addcart">
+                <span class="icon icon-cart"></span>
+                Thêm vào giỏ
+            </div>
+        </div>
+    </div>
+</div>
