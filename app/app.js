@@ -1,3 +1,20 @@
+///////////////////// Script ////////////////////
+
+var onkyApp = {
+  openCart : function(){
+
+  },
+  Slide : {
+    next : function(){
+      
+    }
+  }
+}
+
+
+/////////////////////////////////////////////////
+
+
 var app = angular.module('OnkyApp', ['ngRoute'])
   .config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
@@ -66,6 +83,38 @@ var app = angular.module('OnkyApp', ['ngRoute'])
       }).mouseleave(function(){
         $(this).find(".header__menu_item--submenu").css("display", "none");
       });
+
+      if ($('.homeslide li').size() > 0) {
+        $(".homeslide").owlCarousel({
+            singleItem: true,
+            autoPlay: 5000,
+            items: 1,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [980, 1],
+            itemsTablet: [768, 1],
+            itemsMobile: [479, 1],
+            slideSpeed: 500,
+            paginationSpeed: 500,
+            rewindSpeed: 500,
+            addClassActive: true,
+            navigation: true,
+            stopOnHover: true,
+            pagination: false,
+            scrollPerPage: true,
+            afterMove: nextslide,
+            afterInit: nextslide
+        });
+        function nextslide() {
+            $(".hrv-banner-container .owl-item .hrv-banner-caption").css('display', 'none');
+            $(".hrv-banner-container .owl-item .hrv-banner-caption").removeClass('hrv-caption')
+            $(".hrv-banner-container .owl-item.active .hrv-banner-caption").css('display', 'block');
+  
+            var heading = $('.hrv-banner-container .owl-item.active .hrv-banner-caption').clone().removeClass();
+            $('.hrv-banner-container .owl-item.active .hrv-banner-caption').remove();
+            $('.hrv-banner-container .owl-item.active>li').append(heading);
+            $('.hrv-banner-container .owl-item.active>li>div').addClass('hrv-banner-caption hrv-caption');
+        }
+      }
     },2000);
     //////////////////////////////
 
@@ -80,7 +129,8 @@ var app = angular.module('OnkyApp', ['ngRoute'])
         Compare: i + "0,000"
       });
     }
+  });
 
-  })
-  .controller('HomeCtrl', function PhoneListController($scope) {
+  app.controller('HomeCtrl', function PhoneListController($scope) {
+    
   });

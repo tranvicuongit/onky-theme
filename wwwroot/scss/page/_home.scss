@@ -2,6 +2,137 @@
     background-color: $color-white;
 }
 
+.homeslide {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 481px;
+    overflow: hidden;
+    @include element("img") {
+        height: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        width: 100%;
+    }
+    @include element("caption"){
+        position: absolute;
+        top: 0;
+        text-align: center;
+        width: 100%;
+        color: $color-white;
+        display: block;
+        margin-top: 5%;
+        margin-right: 10px;
+        padding: 10px;
+        @include modifier("header1"){
+
+        }
+    }
+
+    .owl-controls {
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        text-align: center;
+        .owl-buttons {
+            //position: absolute;
+            top: 0;
+            height: 100%;
+            div {
+                display: block;
+                width: 30px;
+                //height: 110%;
+                background-color: transparent;
+                position: absolute;
+                z-index: 9;
+                cursor: pointer;
+                top: 0%;
+                margin-top: -23px;
+                -webkit-transition: all 300ms ease-in;
+                -moz-transition: all 300ms ease-in;
+                -ms-transition: all 300ms ease-in;
+                -o-transition: all 300ms ease-in;
+                transition: all 300ms ease-in;
+            }
+            .owl-prev {
+                left: 0;
+                height: 110%;
+                top: 0;
+                bottom: 0;
+                &:before {
+                    content: "";
+                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/left-arrow-banner.png?v=438);
+                    position: absolute;
+                    background-position: center;
+                    display: block;
+                    background-repeat: no-repeat;
+                    left: 0;
+                    width: 250px;
+                    height: 100%;
+                    z-index: 9;
+                    opacity: 0.6;
+                    transition: all 300ms ease-in;
+                }
+                &:after{
+                    content: "";
+                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/banner-tranparent-bg-left.png?v=465);
+                    position: absolute;
+                    background-position: center;
+                    display: block;
+                    background-repeat: repeat-y;
+                    left: -5px;
+                    width: 250px;
+                    height: 100%;
+                }
+                &:hover{
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+            }
+            .owl-next {
+                right: 0;
+                height: 110%;
+                top: 0;
+                bottom: 0;
+                &:before {
+                    content: "";
+                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/right-arrow-banner.png?v=438);
+                    position: absolute;
+                    background-position: center;
+                    display: block;
+                    background-repeat: no-repeat;
+                    right: 0;
+                    width: 250px;
+                    height: 100%;
+                    z-index: 9;
+                    opacity: 0.6;
+                    transition: all 300ms ease-in;
+                }
+                &:after{
+                    content: "";
+                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/banner-tranparent-bg-right.png?v=465);
+                    position: absolute;
+                    background-position: center;
+                    display: block;
+                    background-repeat: repeat-y;
+                    right: -5px;
+                    width: 250px;
+                    height: 100%;
+                }
+                &:hover{
+                    &:before {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .tips {
     // background: #ffbf8d;
     // background: -moz-linear-gradient(left, #ffbf8d 0%, #fc87b5 100%);
@@ -16,7 +147,7 @@
     color: $color-white;
 }
 
-.promotions{
+.promotions {
     min-height: 830px;
     background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-protion-product.png?v=446) $color-white repeat;
     color: $color-black-main;

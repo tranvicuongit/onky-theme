@@ -11,28 +11,34 @@
         <div class="col-lg-10 col-md-9 col-sm-8 col-xs-7">
             <form action="#" class="header__top--search">
                 <input type="hidden" name="type" value="product">
-                <input type="text" name="q" autocomplete="off" class="header__top--search_input" />
+                <input type="text" placeholder="Tìm kiếm..." name="q" autocomplete="off" class="header__top--search_input" />
                 <button class="header__top--search_btn" type="submit"></button>
             </form>
             <ul class="header__top--icon">
                 <li>
-                    <a href="">
+                    <a href="javascript:void(0)">
                         <img src="//theme.hstatic.net/1000225663/1000310269/14/fb-icon.png?v=480" alt="FB LOGO">
                     </a>
                 </li>
                 <li>
-                    <img src="//theme.hstatic.net/1000225663/1000310269/14/icon-phone.png?v=438" alt="Phone LOGO">
+                    <a href="javascript:void(0)">
+                        <img src="//theme.hstatic.net/1000225663/1000310269/14/icon-phone.png?v=438" alt="Phone LOGO">
+                    </a>
                     <div>
                         <span>Hotline</span>
-                        <label>1900 123456 78</label>
+                        <a href="tel:1900 123456 78">
+                            <label>1900 123456 78</label>
+                        </a>
                     </div>
                 </li>
                 <li>
-                    <img src="//theme.hstatic.net/1000225663/1000310269/14/icon-cart.png?v=438" alt="Cart LOGO">
-                    <div>
-                        <span>Giỏ hàng</span>
-                        <label>0</label>
-                    </div>
+                    <a href="javascript:void(0)">
+                        <img src="//theme.hstatic.net/1000225663/1000310269/14/icon-cart.png?v=438" alt="Cart LOGO">
+                        <div>
+                            <span>0</span>
+                            <label>Giỏ hàng</label>
+                        </div>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -44,13 +50,17 @@
             <li ng-repeat="item in Menu" class="header__menu_item">
                 <span class="header__menu_item--hot">HOT</span>
                 <a data-ng-href="{{item.Link}}">
-                    <h3><span>{{item.Title}}</span></h3>
+                    <h3>
+                        <span>{{item.Title}}</span>
+                    </h3>
                 </a>
                 <div data-ng-if="item.List.length > 0">
                     <ul class="header__menu_item--submenu animated fadeIn">
                         <li ng-repeat="itemSub in item.List">
                             <a data-ng-href="{{item.Link}}">
-                                <h3><span>{{itemSub.Title}}</span></h3>
+                                <h3>
+                                    <span>{{itemSub.Title}}</span>
+                                </h3>
                             </a>
                         </li>
                     </ul>
