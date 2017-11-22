@@ -145,6 +145,77 @@
     background-size: cover;
     padding: 5% 0;
     color: $color-white;
+
+    @include element("title"){
+        font-size: 1.7em;
+        margin: 10px 0;
+    }
+    @include element("slide"){
+        list-style: none;
+
+        @include modifier("item"){
+            margin-right: 15px;
+            margin-left: 15px;
+            display: inline;
+            max-height: 250px;
+            overflow: hidden;
+            &:nth-child(1){
+                margin-left: 0;
+            }
+            &:nth-last-child(0){
+                margin-right: 0;
+            }
+            @include e("inner"){
+                padding: 0 15px;
+                img{
+                    max-width: 100%;
+                    max-height: 188px;
+                }
+                @include m("description"){
+                    color: $color-black-main;
+                    margin-top: 15px;
+                    font-size: 1em;
+                    @include f-regular();
+                    white-space: normal;
+                }
+            }
+        }
+
+        .owl-controls{
+            width: 100%;
+            position: absolute;
+            display: block;
+            text-align: center;
+            height: 15px;
+            bottom: -35px;
+
+            .owl-pagination{
+                text-align: center;
+                width: 100%;
+                height: 15px;
+                margin: auto;
+
+                .owl-page{
+                    width: 30px;
+                    height: 30px;
+                    display: inline-block;
+                    span{
+                        width: 12px;
+                        height: 12px;
+                        background-color: $color-white;
+                        display: inherit;
+                        border-radius: 50%;
+                    }
+
+                    &.active{
+                        span{
+                            background-color: #b87061;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .promotions {
@@ -160,9 +231,73 @@
     min-height: 690px;
     padding-top: 80px;
     padding-bottom: 70px;
-    background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-pattern-dealers.png?v=443) $color-white repeat;
+    background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-pattern-dealers.png?v=465) $color-white repeat;
     color: $color-black-main;
-    background-size: cover;
+
+    @include element("title"){
+        color: $color-black-main;
+        text-transform: uppercase;
+        font-size: 1.7em;
+        margin: 10px 0;
+    }
+    @include element("list"){
+        @include modifier("img"){
+            max-width: 100%;
+            margin: 40px 0 80px 0;
+        }
+    }
+    @include element("slide"){
+        list-style: none;
+
+        @include modifier("item"){
+            @include e("inner"){
+                @include m("img"){
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    border: 0;
+                    margin-bottom: 60px;
+                }
+                @include m("message"){
+                    color: $color-grey;
+                }
+            }
+        }
+        .owl-controls{
+            width: 100%;
+            position: absolute;
+            display: block;
+            text-align: center;
+            height: 15px;
+            bottom: -35px;
+
+            .owl-pagination{
+                text-align: center;
+                width: 100%;
+                height: 15px;
+                margin: auto;
+
+                .owl-page{
+                    width: 30px;
+                    height: 30px;
+                    display: inline-block;
+                    span{
+                        width: 12px;
+                        height: 12px;
+                        background-color: $color-black-main;
+                        display: inherit;
+                        border-radius: 50%;
+                    }
+
+                    &.active{
+                        span{
+                            background-color: #b87061;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .certificate {

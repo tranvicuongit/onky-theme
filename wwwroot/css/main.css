@@ -309,6 +309,58 @@
   background-size: cover;
   padding: 5% 0;
   color: #fff; }
+  .tips__title {
+    font-size: 1.7em;
+    margin: 10px 0; }
+  .tips__slide {
+    list-style: none; }
+    .tips__slide--item {
+      margin-right: 15px;
+      margin-left: 15px;
+      display: inline;
+      max-height: 250px;
+      overflow: hidden; }
+      .tips__slide--item:nth-child(1) {
+        margin-left: 0; }
+      .tips__slide--item:nth-last-child(0) {
+        margin-right: 0; }
+      .tips__slide--item_inner {
+        padding: 0 15px; }
+        .tips__slide--item_inner img {
+          max-width: 100%;
+          max-height: 188px; }
+        .tips__slide--item_inner-description {
+          color: #474747;
+          margin-top: 15px;
+          font-size: 1em;
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          white-space: normal; }
+    .tips__slide .owl-controls {
+      width: 100%;
+      position: absolute;
+      display: block;
+      text-align: center;
+      height: 15px;
+      bottom: -35px; }
+      .tips__slide .owl-controls .owl-pagination {
+        text-align: center;
+        width: 100%;
+        height: 15px;
+        margin: auto; }
+        .tips__slide .owl-controls .owl-pagination .owl-page {
+          width: 30px;
+          height: 30px;
+          display: inline-block; }
+          .tips__slide .owl-controls .owl-pagination .owl-page span {
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            display: inherit;
+            border-radius: 50%; }
+          .tips__slide .owl-controls .owl-pagination .owl-page.active span {
+            background-color: #b87061; }
 
 .promotions {
   min-height: 830px;
@@ -322,9 +374,50 @@
   min-height: 690px;
   padding-top: 80px;
   padding-bottom: 70px;
-  background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-pattern-dealers.png?v=443) #fff repeat;
-  color: #474747;
-  background-size: cover; }
+  background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-pattern-dealers.png?v=465) #fff repeat;
+  color: #474747; }
+  .dealers__title {
+    color: #474747;
+    text-transform: uppercase;
+    font-size: 1.7em;
+    margin: 10px 0; }
+  .dealers__list--img {
+    max-width: 100%;
+    margin: 40px 0 80px 0; }
+  .dealers__slide {
+    list-style: none; }
+    .dealers__slide--item_inner-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 0;
+      margin-bottom: 60px; }
+    .dealers__slide--item_inner-message {
+      color: #969696; }
+    .dealers__slide .owl-controls {
+      width: 100%;
+      position: absolute;
+      display: block;
+      text-align: center;
+      height: 15px;
+      bottom: -35px; }
+      .dealers__slide .owl-controls .owl-pagination {
+        text-align: center;
+        width: 100%;
+        height: 15px;
+        margin: auto; }
+        .dealers__slide .owl-controls .owl-pagination .owl-page {
+          width: 30px;
+          height: 30px;
+          display: inline-block; }
+          .dealers__slide .owl-controls .owl-pagination .owl-page span {
+            width: 12px;
+            height: 12px;
+            background-color: #474747;
+            display: inherit;
+            border-radius: 50%; }
+          .dealers__slide .owl-controls .owl-pagination .owl-page.active span {
+            background-color: #b87061; }
 
 .certificate {
   min-height: 161px;
