@@ -94,3 +94,25 @@
     font-weight: 900;
     font-style: italic;
 }
+
+@mixin cart-bg-gradient{
+    background: $cart-bg-1;
+    background: -moz-linear-gradient(left, $cart-bg-2 0%, $cart-bg-1 100%);
+    background: -webkit-linear-gradient(left, $cart-bg-2 0%, $cart-bg-1 100%);
+    background: linear-gradient(to right, $cart-bg-2 0%, $cart-bg-1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbe8d', endColorstr='#f687b3', GradientType=1);
+}
+@mixin cart-bg-gradient-horizontal{
+    background: $cart-bg-2;
+    background: -moz-linear-gradient(left, $cart-bg-1 0%, $cart-bg-2 100%);
+    background: -webkit-linear-gradient(left, $cart-bg-1 0%, $cart-bg-2 100%);
+    background: linear-gradient(to right, $cart-bg-1 0%, $cart-bg-2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f687b3', endColorstr='#ffbe8d', GradientType=1);
+}
+@mixin cart-bg-gradient-destroy{
+    background: $cart-bg-1;
+    background: -moz-linear-gradient(left, $cart-bg-1 0%, $cart-bg-1 100%);
+    background: -webkit-linear-gradient(left, $cart-bg-1 0%, $cart-bg-1 100%);
+    background: linear-gradient(to right, $cart-bg-1 0%, $cart-bg-1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbe8d', endColorstr='#ffbe8d', GradientType=1);
+}

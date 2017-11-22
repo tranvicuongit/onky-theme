@@ -7,3 +7,9 @@
         background-color: $color-bold;
     }
   }
+
+  /* The animation code */
+@keyframes closecart {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}

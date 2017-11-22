@@ -1,12 +1,43 @@
 ///////////////////// Script ////////////////////
 
 var onkyApp = {
-  openCart: function () {
+  cart: {
+    openPreview: function () {
+      // cart content
+      $(".cartpreview").removeClass("cartpreview--closed");
+      $(".cartpreview").addClass("cartpreview--opended");
 
+      //cart backgrop      
+      $(".cartpreview__backdrop").removeClass("fadeOut");
+      $(".cartpreview__backdrop").addClass("fadeIn");
+
+      $(".cartpreview__inner").removeClass("fadeOutRight");
+      $(".cartpreview__inner").addClass("fadeInRight");
+    },
+    closePreview: function () {
+      $(".cartpreview__inner").removeClass("fadeInRight");
+      $(".cartpreview__inner").addClass("fadeOutRight");
+
+
+      //cart backgrop      
+      $(".cartpreview__backdrop").removeClass("fadeIn");
+      $(".cartpreview__backdrop").addClass("fadeOut");
+
+      setTimeout(function () {
+        $(".cartpreview").addClass("cartpreview--closed");
+        $(".cartpreview").removeClass("cartpreview--opended");
+      }, 500);
+    }
   },
-  Slide: {
+  homeSlide: {
     next: function () {
+      $(".homeslide .owl-item .homeslide__caption--inner_header2").css("display", "none");
+      $(".homeslide .owl-item .homeslide__caption--inner_header2").css("display", "none");
+      $(".homeslide .owl-item .homeslide__caption--inner_button").css("display", "none");
 
+      $(".homeslide .owl-item.active .homeslide__caption--inner_header2").css("display", "block");
+      $(".homeslide .owl-item.active .homeslide__caption--inner_header2").css("display", "block");
+      $(".homeslide .owl-item.active .homeslide__caption--inner_button").css("display", "block");
     }
   }
 }
@@ -31,7 +62,8 @@ var app = angular.module('OnkyApp', ['ngRoute'])
         });
 
       $locationProvider.html5Mode(true);
-    }])
+    }
+  ])
   .run(function ($rootScope) {
 
     // Create menu list
@@ -84,6 +116,22 @@ var app = angular.module('OnkyApp', ['ngRoute'])
         $(this).find(".header__menu_item--submenu").css("display", "none");
       });
 
+      $(".products__list--item").mouseenter(function () {
+        $(this).find(".products__list--item_actions").css("opacity", "1");
+      }).mouseleave(function () {
+        $(this).find(".products__list--item_actions").css("opacity", "0");
+      });
+
+
+      $("html, body").click(function (e) {
+        if ($(e.target).hasClass('cartpreview') && !$('.cartpreview').hasClass("cartpreview--opended") && !$(e.target).hasClass("cartpreview__backdrop")) {
+          return false;
+        } else {
+          if ($('.cartpreview').hasClass("cartpreview--opended") && $(e.target).hasClass("cartpreview__backdrop"))
+            onkyApp.cart.closePreview();
+        }
+      });
+
       if ($('.homeslide li').size() > 0) {
         $(".homeslide").owlCarousel({
           singleItem: true,
@@ -101,19 +149,9 @@ var app = angular.module('OnkyApp', ['ngRoute'])
           stopOnHover: true,
           pagination: false,
           scrollPerPage: true,
-          afterMove: nextslide,
-          afterInit: nextslide
+          afterMove: onkyApp.homeSlide.next(),
+          afterInit: onkyApp.homeSlide.next()
         });
-        function nextslide() {
-          $(".hrv-banner-container .owl-item .hrv-banner-caption").css('display', 'none');
-          $(".hrv-banner-container .owl-item .hrv-banner-caption").removeClass('hrv-caption')
-          $(".hrv-banner-container .owl-item.active .hrv-banner-caption").css('display', 'block');
-
-          var heading = $('.hrv-banner-container .owl-item.active .hrv-banner-caption').clone().removeClass();
-          $('.hrv-banner-container .owl-item.active .hrv-banner-caption').remove();
-          $('.hrv-banner-container .owl-item.active>li').append(heading);
-          $('.hrv-banner-container .owl-item.active>li>div').addClass('hrv-banner-caption hrv-caption');
-        }
       }
 
       if ($(".tips__slide li").size() > 0) {
@@ -173,8 +211,16 @@ var app = angular.module('OnkyApp', ['ngRoute'])
         Compare: i + "0,000"
       });
     }
+
+
+
+    // $("html, body").click(function (e) {
+    //   if ($(e.target).hasClass('cartpreview') && !$(e.target).hasClass("cartpreview__close") && !$('.cartpreview').hasClass("cartpreview--opended")) {
+    //     return false;
+    //   }
+    //   //onkyApp.cart.closePreview();
+    // });​
+
   });
 
-app.controller('HomeCtrl', function PhoneListController($scope) {
-
-});
+app.controller('HomeCtrl', function PhoneListController($scope) {});

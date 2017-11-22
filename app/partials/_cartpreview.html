@@ -1,6 +1,6 @@
-<div class="cartpreview__backdrop"></div>
-<div class="cartpreview__close"></div>
-<div class="cartpreview__inner">
+<div class="cartpreview__backdrop animated fadeIn"></div>
+<div class="cartpreview__inner animated fadeInRight">
+    <div class="cartpreview__close" onclick="onkyApp.cart.closePreview();"></div>
     <div class="cartpreview__inner--header">
         <h3>Giỏ hàng</h3>
     </div>
@@ -8,19 +8,64 @@
         <div class="cartpreview__inner--body_list">
             <table>
                 <tr>
-                    <td class="cartpreview__inner--body_list-img"></td>
-                    <td class="cartpreview__inner--body_list-name"></td>
-                    <td class="cartpreview__inner--body_list-price"></td>
+                    <td class="cartpreview__inner--body_list-img">
+                        <a href="">
+                            <img src="http://via.placeholder.com/95x95" alt="">
+                        </a>
+                    </td>
+                    <td class="cartpreview__inner--body_list-product">
+                        <h4 class="cartpreview__inner--body_list-product_name">
+                            <a href="">
+                                Gel Dưỡng Da Vùng Mắt Bioderma Sensibio Eye Gel Contour Des Yeux (15ml)
+                            </a>
+                        </h4>
+                        <div class="cartpreview__inner--body_list-product_price">360,000,000,000 đ</div>
+                        <div class="cartpreview__inner--body_list-product_quantity">
+                            <span class="minus">-</span>
+                            <input value="3" />
+                            <span class="add">+</span>
+                        </div>
+                    </td>
+                    <td class="cartpreview__inner--body_list-price">
+                        1,008,000,000 đ
+                    </td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="cartpreview__inner--body_list-name"></td>
-                    <td class="cartpreview__inner--body_list-price"></td>
+                    <td class="cartpreview__inner--body_list-img">
+                        <a href="">
+                            <img src="http://via.placeholder.com/95x95" alt="">
+                        </a>
+                    </td>
+                    <td class="cartpreview__inner--body_list-product">
+                        <h4 class="cartpreview__inner--body_list-product_name">
+                            <a href="">
+                                Gel Dưỡng Da Vùng Mắt Bioderma Sensibio Eye Gel Contour Des Yeux (15ml)
+                            </a>
+                        </h4>
+                        <div class="cartpreview__inner--body_list-product_price">360,000,000 đ</div>
+                        <div class="cartpreview__inner--body_list-product_quantity">
+                            <span class="minus">-</span>
+                            <input value="3" />
+                            <span class="add">+</span>
+                        </div>
+                    </td>
+                    <td class="cartpreview__inner--body_list-price">
+                        1,008,000 đ
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="cartpreview__inner--body_list-name">
+                        Tổng cộng
+                    </td>
+                    <td class="cartpreview__inner--body_list-price">
+                        3,000,000 đ
+                    </td>
                 </tr>
             </table>
         </div>
         <div class="cartpreview__inner--body_button">
-            <a class="cartpreview__inner--body_button-view">Xem giỏ hàng</a>
-            <a class="cartpreview__inner--body_button-payment">Thanh toán</a>
+            <a class="cartpreview__inner--body_button-view"><span>Xem giỏ hàng</span></a>
+            <a class="cartpreview__inner--body_button-payment"><span>Thanh toán</span></a>
         </div>
     </div>
 </div>

@@ -70,14 +70,15 @@
                 }
             }
             @include e("actions") {
-                display: none;
+                opacity: 0;
                 position: absolute;
                 top: 0;
                 width: 100%;
                 height: 100%;
                 z-index: 3;
+                transition: all 0.3s ease-in-out;
                 @include m("views") {
-                    background: rgba(255, 255, 255, 0.6);
+                    background: rgba(255, 255, 255, 0.8);
                     height: 100%;
                     text-align: center;
                     width: 82%;
@@ -124,7 +125,7 @@
                     margin-left: 5px;
                     padding: 2px;
                     background: $color-white;
-                    bottom: 20px;
+                    bottom: 35px;
                     position: absolute;
                     transition: all 0.25s ease-in;
                     cursor: pointer;
