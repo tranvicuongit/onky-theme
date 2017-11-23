@@ -34,85 +34,128 @@
     }
 }
 
-@mixin f-thin{
+@mixin f-thin {
     font-family: $font-main;
     font-weight: 100;
     font-style: normal;
 }
-@mixin f-thin-i{
+
+@mixin f-thin-i {
     font-family: $font-main;
     font-weight: 100;
     font-style: italic;
 }
-@mixin f-light{
+
+@mixin f-light {
     font-family: $font-main;
     font-weight: 300;
     font-style: normal;
 }
-@mixin f-light-i{
+
+@mixin f-light-i {
     font-family: $font-main;
     font-weight: 300;
     font-style: italic;
 }
-@mixin f-regular{
+
+@mixin f-regular {
     font-family: $font-main;
     font-weight: 400;
     font-style: normal;
 }
-@mixin f-regular-i{
+
+@mixin f-regular-i {
     font-family: $font-main;
     font-weight: 400;
     font-style: italic;
 }
-@mixin f-medium{
+
+@mixin f-medium {
     font-family: $font-main;
     font-weight: 500;
     font-style: normal;
 }
-@mixin f-medium-i{
+
+@mixin f-medium-i {
     font-family: $font-main;
     font-weight: 500;
     font-style: italic;
 }
-@mixin f-bold{
+
+@mixin f-bold {
     font-family: $font-main;
     font-weight: 700;
     font-style: normal;
 }
-@mixin f-bold-i{
+
+@mixin f-bold-i {
     font-family: $font-main;
     font-weight: 700;
     font-style: italic;
 }
-@mixin f-black{
+
+@mixin f-black {
     font-family: $font-main;
     font-weight: 900;
     font-style: normal;
 }
-@mixin f-black-i{
+
+@mixin f-black-i {
     font-family: $font-main;
     font-weight: 900;
     font-style: italic;
 }
 
-@mixin cart-bg-gradient{
+@mixin cart-bg-gradient {
     background: $cart-bg-1;
     background: -moz-linear-gradient(left, $cart-bg-2 0%, $cart-bg-1 100%);
     background: -webkit-linear-gradient(left, $cart-bg-2 0%, $cart-bg-1 100%);
     background: linear-gradient(to right, $cart-bg-2 0%, $cart-bg-1 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbe8d', endColorstr='#f687b3', GradientType=1);
 }
-@mixin cart-bg-gradient-horizontal{
+
+@mixin cart-bg-gradient-horizontal {
     background: $cart-bg-2;
     background: -moz-linear-gradient(left, $cart-bg-1 0%, $cart-bg-2 100%);
     background: -webkit-linear-gradient(left, $cart-bg-1 0%, $cart-bg-2 100%);
     background: linear-gradient(to right, $cart-bg-1 0%, $cart-bg-2 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f687b3', endColorstr='#ffbe8d', GradientType=1);
 }
-@mixin cart-bg-gradient-destroy{
+
+@mixin cart-bg-gradient-vertical {
+    background: $cart-bg-2;
+    background: -moz-linear-gradient(top, $cart-bg-1 0%, $cart-bg-2 100%);
+    background: -webkit-linear-gradient(top, $cart-bg-1 0%, $cart-bg-2 100%);
+    background: linear-gradient(to bottom, $cart-bg-1 0%, $cart-bg-2 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f687b3', endColorstr='#ffbe8d', GradientType=1);
+}
+
+@mixin cart-bg-gradient-destroy {
     background: $cart-bg-1;
     background: -moz-linear-gradient(left, $cart-bg-1 0%, $cart-bg-1 100%);
     background: -webkit-linear-gradient(left, $cart-bg-1 0%, $cart-bg-1 100%);
     background: linear-gradient(to right, $cart-bg-1 0%, $cart-bg-1 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbe8d', endColorstr='#ffbe8d', GradientType=1);
+}
+
+// @function bg_url($url) {
+//     @return "http://theme.hstatic.net/1000225663/1000310269/14/" + $url;
+// }
+@function bg_url($url) {
+    @return "{{'"+$url+"' |  asset_url}}";
+}
+
+@mixin placeholder() {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
 }

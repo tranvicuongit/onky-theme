@@ -1,0 +1,107 @@
+<div id="cart">
+    <!--Empty-->
+    <!-- <div class="row">
+        <div class="col-md-12  cart--empty">
+            <img class="cart--empty__img" src="http://theme.hstatic.net/1000225663/1000310269/14/empty_cart.png?v=730" alt="">
+            <p class="cart--empty__message">Không có sản phẩm nào trong giỏ hàng của bạn.</p>
+            <a class="cart--empty__button" href="/collections/all">Tiếp tục mua sắm</a>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="container cart__status">
+            <div class="cart__status--line cart__status--line-0">
+                <ol>
+                    <li class="cart__status--item cart__status--item-active" style="left: 0%">
+                        <span class="cart__status--item_step">1</span>
+                        <span class="cart__status--item_text">Giỏ hàng</span>
+                    </li>
+                    <li class="cart__status--item" style="left: calc(50% - 18px)">
+                        <span class="cart__status--item_step">2</span>
+                        <span class="cart__status--item_text">Địa chỉ giao hàng</span>
+                    </li>
+                    <li class="cart__status--item" style="left: calc(100% - 36px)">
+                        <span class="cart__status--item_step">3</span>
+                        <span class="cart__status--item_text">Thanh toán đặt mua</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="container">
+            <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12 cart__list">
+                <div class="row">
+                    <div class="col-md-12 cart__list--main">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Sản phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="n in [] | range:10">
+                                    <td class="cartpreview__inner--body_list-img">
+                                        <a href="/products/kem-chong-nang-biore-uv-aqua-rich-watery-essence-spf-50-pa" class="item-url">
+                                            <img class="item-image" src=" //product.hstatic.net/1000225663/product/s-l300__1__small.jpg  " alt="Kem chống nắng Biore UV Aqua Rich Watery Essence SPF 50+/ PA++++">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <h4 class="cartpreview__inner--body_list-product_name">
+                                            <a href="/products/kem-chong-nang-biore-uv-aqua-rich-watery-essence-spf-50-pa" class="item-title">Kem chống nắng Biore UV Aqua Rich Watery Essence SPF 50+/ PA++++</a>
+                                        </h4>
+                                    </td>
+                                    <td class="cartpreview__inner--body_list-product_price">
+                                        220,000₫
+                                    </td>
+                                    <td class="cartpreview__inner--body_list-product_quantity">
+                                        <span class="minus">-</span>
+                                        <input class="item-quantity" value="1">
+                                        <span class="add">+</span>
+                                    </td>
+                                    <td class="cartpreview__inner--body_list-price">
+                                        <span>220,000₫</span>
+                                    </td>
+                                    <td>
+                                        <a href="javascript:void(0);" class="cartpreview__inner--body_list-remove">x</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-12 cart__list--promotion">
+                        <form class="col-md-8">
+                            <input type="text" class="cart__list--promotion_code" placeholder="Mã giảm giá">
+                            <button type="submit" class="cart__list--promotion_apply">ÁP DỤNG MÃ GIẢM GIÁ</button>
+                        </form>
+                        <form class="col-md-4 text-right">
+                            <button type="submit" class="cart__list--promotion_update">CẬP NHẬT</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+                <div class="cart__summary">
+                    <table>
+                        <tr>
+                            <td>Tổng phụ</td>
+                            <td class="cart__summary--subprice">2,360,000đ</td>
+                        </tr>
+                        <tr>
+                            <td>Phí vận chuyển</td>
+                            <td class="cart__summary--subprice">
+                                <p class="cart__summary--advise">Chi phí vận chuyển sẽ được tính ngay khi bạn nhập thông tin địa chỉ</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Tổng</td>
+                            <td class="cart__summary--totalprice">2,360,000đ</td>
+                        </tr>
+                    </table>
+                    <button class="cart__summary--payment">Thanh toán</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

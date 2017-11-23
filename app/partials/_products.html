@@ -1,11 +1,14 @@
 <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="item in Products">
     <div class="products__list--item">
-        <a data-ng-href="{{item.Link}}" ng-attr-title="{{item.Title}}">
-            <img class="products__list--item_img" src="http://product.hstatic.net/1000225663/product/3173443bf52891b7beed7ffa124e52a4_large.jpg" alt="">
-        </a>
+        <div class="products__list--item_img">
+            <a data-ng-href="{{item.Link}}" ng-attr-title="{{item.Title}}">
+                <img src="http://product.hstatic.net/1000225663/product/22264618_1595376423845969_351636564_n_large.jpg" alt="">
+            </a>
+        </div>
         <h3 class="products__list--item_header">
             <a data-ng-href="{{item.Link}}" ng-attr-title="{{item.Title}}">
-                <p>{{item.Title}}<br/>{{item.Title}} giá {{item.Price}}</p>
+                <p>{{item.Title}}
+                    <br/>{{item.Title}} giá {{item.Price}}</p>
             </a>
         </h3>
         <div class="products__list--item_prices">

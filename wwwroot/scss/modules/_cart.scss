@@ -26,7 +26,7 @@
         height: 48px;
         background: $cart-bg-close;
         color: $color-white;
-        background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/cart-close-icon.png?v=467);
+        background-image: url(bg_url('cart-close-icon.png'));
         box-shadow: -3px 0px 6px #383838;
         background-position: center;
         background-repeat: no-repeat;
@@ -50,6 +50,9 @@
         top: 0;
         background-color: $color-white;
         box-shadow: -3px 0px 6px #383838;
+        form {
+            display: inline;
+        }
         @include modifier("header") {
             @include cart-bg-gradient();
             width: 100%;
@@ -82,6 +85,29 @@
                             padding: 5px;
                         }
                     }
+                }
+                &.scroll {
+                    max-height: 70%;
+                    overflow-y: auto;
+                    &::-webkit-scrollbar {
+                        width: 7px;
+                    }
+                    &::-webkit-scrollbar-track {
+                        //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+                        -webkit-border-radius: 0px;
+                        border-radius: 0px;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        -webkit-border-radius: 1px;
+                        border-radius: 1px;
+                        @include cart-bg-gradient-vertical();
+                    }
+                    &::-webkit-scrollbar-thumb:window-inactive {
+                        @include cart-bg-gradient-destroy();
+                    }
+                }
+                &.total {
+                    font-size: 1.15em;
                 }
                 @include m("img") {
                     max-width: 100%;
@@ -153,12 +179,29 @@
                     color: $color-hot-orange;
                     text-align: right;
                 }
+                @include m("remove") {
+                    height: 10px;
+                    width: 10px;
+                    background: none;
+                    color: #474747;
+                    padding: 5px;
+                    margin-top: -55px;
+                    display: block;
+                    position: relative;
+                    margin-right: 7px;
+                    @include f-light;
+                    float: right;
+                    &:hover {
+                        @include f-regular;
+                    }
+                }
             }
             @include e("button") {
                 height: 60px;
                 width: 100%;
                 position: relative;
-                a {
+                a,
+                button {
                     height: 55px;
                     width: 100%;
                     display: block;
@@ -166,6 +209,7 @@
                     display: table;
                     border-radius: 3px;
                     transition: all 0.4s ease-in-out;
+                    border: none;
                     span {
                         display: table-cell;
                         vertical-align: middle;
@@ -175,6 +219,11 @@
                     &:hover {
                         cursor: pointer;
                         box-shadow: 0px -1px 10px #999;
+                    }
+                }
+                button[type="submit"] {
+                    span {
+                        display: block;
                     }
                 }
                 @include m('view') {
@@ -200,6 +249,170 @@
                     &:hover {
                         @include cart-bg-gradient-destroy();
                     }
+                }
+            }
+        }
+    }
+}
+
+.cart {
+    @include modifier("empty") {
+        text-align: center;
+        color: $color-black-main;
+        padding: 5% 10%;
+        @include element("img") {
+            width: auto;
+            max-height: 450px;
+        }
+        @include element("message") {
+            font-size: 1em;
+            margin: 1% 0% 3% 0;
+        }
+        @include element("button") {
+            @include cart-bg-gradient();
+            text-transform: capitalize;
+            font-size: 1em;
+            padding: 15px 35px;
+            color: $color-white;
+            @include f-bold;
+            margin-left: -55px;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                @include cart-bg-gradient-destroy();
+                color: $color-white;
+            }
+        }
+    }
+    @include element("status") {
+        position: relative;
+        height: 250px;
+        margin: auto; //overflow: hidden;
+        max-width: 600px;
+        margin-bottom: 40px;
+        ol {
+            list-style: none;
+        }
+        @include modifier("line") {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 42px;
+            height: 2px;
+            -webkit-transition: -webkit-transform 0.4s;
+            -moz-transition: -moz-transform 0.4s;
+            transition: transform 0.4s;
+            width: 100%;
+            margin: auto;
+            @include m("0") {
+                background: $color-grey;
+            }
+            @include m("50") {
+                background: $color-grey;
+                background: -moz-linear-gradient(right, $color-grey 0%, $color-grey 50%, $cart-bg-1 51%, $cart-bg-1 100%);
+                background: -webkit-linear-gradient(right, $color-grey 0%, $color-grey 50%, $cart-bg-1 51%, $cart-bg-1 100%);
+                background: linear-gradient(to left, $color-grey 0%, $color-grey 50%, $cart-bg-1 51%, $cart-bg-1 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#969696', endColorstr='#f687b3', GradientType=1);
+            }
+            @include m("100") {
+                background: $cart-bg-1;
+            }
+        }
+        @include modifier("item") {
+            position: absolute;
+            bottom: -15px;
+            z-index: 2;
+            text-align: center;
+            font-size: 1.3rem;
+            padding-bottom: 15px;
+            background: $color-grey;
+            border-radius: 50%;
+            height: 36px;
+            width: 36px;
+            @include e("step") {
+                color: $color-white;
+                margin-top: 8px;
+                display: block;
+            }
+            @include e("text") {
+                margin-top: 16px;
+                position: absolute;
+                width: 120px;
+                text-align: center;
+                float: left;
+                left: -40px;
+            }
+            @include m("active") {
+                @include cart-bg-gradient;
+                border: 2px solid $cart-bg-1;
+            }
+        }
+    }
+    @include element("list"){
+        box-shadow: 0px 1px 6px $color-grey;
+        @include modifier("main"){
+            padding: 0;
+            border-bottom: 2px solid #f48693;
+            table{
+                width: 100%;
+                padding: 0;
+                thead{
+                    background-color: #f6f6f6;
+                    th{
+                        padding: 15px;
+                        text-align: center;
+                        height: 40px;
+                    }
+                }
+                tbody{
+                    background-color: $color-white;
+                    td{
+                        padding: 30px 10px;
+                    }
+                }
+            }
+        }
+        @include modifier("promotion"){
+            padding: 26px 34px;
+            @include e("code"){
+                border: 1px $color-main solid;
+                border-radius: 3px 0 0 3px;
+                height: 41px;
+                padding: 14px;
+                color: $color-black-main;
+                @include f-regular;
+                font-size: 0.9em;
+                margin: 0;
+                min-width: 245px;
+                @include placeholder(){
+                    color: $color-black-main;
+                }
+            }
+            @include e("apply"){
+                height: 41px;
+                padding: 10px 14px;
+                border: 1px $color-main solid;
+                color: $color-white;
+                background-color: $color-main;
+                margin-left: 0px;
+                position: absolute;
+                min-width: 190px;
+                border-radius: 0 3px 3px 0;
+                font-size: 0.9em;
+            }
+            @include e("update"){
+                background-color: #f9f0f0;
+                height: 41px;
+                padding: 10px 14px;
+                border: 1px #f9f0f0 solid;
+                color: $color-black-main;
+                margin-left: 0px;
+                border-radius: 3px;
+                font-size: 0.9em;
+                transition: all 0.23s ease-in;
+                &:hover{
+                    background-color: $color-grey-light;
+                    box-shadow: 0px 2px 6px $color-grey;
+
                 }
             }
         }

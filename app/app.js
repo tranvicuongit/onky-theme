@@ -55,6 +55,11 @@ var app = angular.module('OnkyApp', ['ngRoute'])
           controller: 'HomeCtrl',
           controllerAs: 'home'
         })
+        .when('/cart', {
+          templateUrl: 'app/pages/cart.html',
+          controller: 'CartCtrl',
+          controllerAs: 'cart'
+        })
         .when('/Book/:bookId/ch/:chapterId', {
           templateUrl: 'chapter.html',
           controller: 'ChapterCtrl',
@@ -223,4 +228,17 @@ var app = angular.module('OnkyApp', ['ngRoute'])
 
   });
 
+  app.filter('range', function() {
+    return function(input, total) {
+      total = parseInt(total);
+  
+      for (var i=0; i<total; i++) {
+        input.push(i);
+      }
+  
+      return input;
+    };
+  });
+
 app.controller('HomeCtrl', function PhoneListController($scope) {});
+app.controller('CartCtrl', function PhoneListController($scope) {});

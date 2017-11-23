@@ -10,7 +10,7 @@
         z-index: 4;
         &:after {
             content: '';
-            background: url('http://theme.hstatic.net/1000225663/1000310269/14/icon-featured-2.png?v=439') center center no-repeat;
+            background: url(bg_url('icon-featured-2.png')) center center no-repeat;
             width: 180px;
             background-size: auto;
             height: 20px;
@@ -25,13 +25,18 @@
             margin-right: -5px;
             border: 1px dashed $color-grey-light;
             max-height: 260px;
+            height: 260px;
             overflow: hidden;
             @include e("img") {
                 max-width: 100%;
                 max-height: 156px;
-                overflow: hidden; //width: 100%;
+                height: 156px;
+                overflow: hidden;
                 margin: auto;
-                display: block;
+                img{
+                    width: 100%;
+                    margin: -10px 0 0 0;
+                }
             }
             @include e("header") {
                 max-height: 42px;
@@ -77,12 +82,13 @@
                 height: 100%;
                 z-index: 3;
                 transition: all 0.3s ease-in-out;
+                pointer-events: none;
                 @include m("views") {
                     background: rgba(255, 255, 255, 0.8);
                     height: 100%;
                     text-align: center;
-                    width: 82%;
-                    max-width: 82%;
+                    width: 88%;
+                    max-width: 100%;
                     max-height: 160px;
                     overflow: hidden;
                     display: table;
@@ -90,6 +96,7 @@
                     @include f-regular();
                     line-height: 5px;
                     text-decoration: none;
+                    pointer-events: auto;
                     *{
                         text-decoration: none;
                         img {
@@ -98,8 +105,9 @@
                             margin: 35% auto 0 auto;
                             display: block;
                             margin-bottom: 14px;
-                            filter: grayscale(1);
+                            filter: grayscale(0.5);
                             transition: 0.25s all ease;
+                            padding-left: -10px;
                         }
                         span {
                             text-transform: capitalize;
@@ -129,11 +137,12 @@
                     position: absolute;
                     transition: all 0.25s ease-in;
                     cursor: pointer;
+                    pointer-events: auto;
                     img {
                         width: 20px;
                         height: 20px;
                         margin-right: 5px;
-                        filter: grayscale(1);
+                        filter: grayscale(0.5);
                         transition: all 0.25s ease-in;
                     }
                     span {

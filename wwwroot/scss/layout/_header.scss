@@ -25,7 +25,7 @@
                 }
             }
             @include e("btn") {
-                background-image: url('https://theme.hstatic.net/1000225663/1000310269/14/icon-search.png?v=438');
+                background-image: url(bg_url('icon-search.png'));
                 border: none;
                 height: 31px;
                 width: 31px;
@@ -156,6 +156,15 @@
                     transform: rotate(45deg);
                     z-index: -1;
                     -webkit-animation: colorhotchange 1s infinite alternate;
+                }
+            }
+            @include modifier("active"){
+                a.current {
+                    text-decoration: none;
+                    span {
+                        color: $color-main;
+                        border-bottom: 2px solid $color-hot-orange;
+                    }
                 }
             }
         }

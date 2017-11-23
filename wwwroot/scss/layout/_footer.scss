@@ -1,9 +1,9 @@
 .footer {
     border-top: $color-light 1px solid;
-    height: 750px;
+    height: auto;
     max-height: 750px;
     overflow: hidden;
-    background: url("http://theme.hstatic.net/1000225663/1000310269/14/bg-bottom.jpg?v=440") $color-white center center no-repeat;
+    background: url(bg_url('bg-bottom.jpg')) $color-white center center no-repeat;
     background-size: cover;
     padding-bottom: 75px;
     @include element("menu") {
@@ -54,7 +54,7 @@
                 margin-bottom: 30px;
                 &:after {
                     content: '';
-                    background: url(https://theme.hstatic.net/1000225663/1000310269/14/bottom-header-after.png?v=441) left center no-repeat;
+                    background: url(bg_url('bottom-header-after.png')) left center no-repeat;
                     width: 70px;
                     background-size: contain;
                     height: 7px;

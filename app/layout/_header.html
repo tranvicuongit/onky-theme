@@ -47,7 +47,7 @@
 <div class="row">
     <div class="container">
         <ul class="header__menu">
-            <li ng-repeat="item in Menu" class="header__menu_item">
+            <li ng-repeat="item in Menu" class="header__menu_item header__menu_item--active">
                 <span class="header__menu_item--hot">HOT</span>
                 <a data-ng-href="{{item.Link}}">
                     <h3>
@@ -55,7 +55,7 @@
                     </h3>
                 </a>
                 <div data-ng-if="item.List.length > 0">
-                    <ul class="header__menu_item--submenu animated fadeIn">
+                    <ul class="header__menu_item--submenu header__menu_item--submenu-active animated fadeIn">
                         <li ng-repeat="itemSub in item.List">
                             <a data-ng-href="{{item.Link}}">
                                 <h3>

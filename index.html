@@ -36,7 +36,115 @@
 
     <!--cart -->
     <div class="cartpreview cartpreview--closed" ng-include="'app/partials/_cartpreview.html'"></div>
+    <div id="quick-view-modal" class="wrapper-quickview" style="display: none">
+        <div class="quickviewOverlay"></div>
+        <div class="jsQuickview">
+            <div class="modal-header clearfix" style="width:100%">
+                <a href="/products/set-day-mau-sac" class="quickview-title text-left" title="Set dây màu sắc">
+                    <h4 class="p-title modal-title">Set dây màu sắc</h4>
+                </a>
+                <div class="quickview-close">
+                    <a href="javascript:void(0);"></a>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="quickview-image image-zoom">
+                    <img class="p-product-image-feature" src="//product.hstatic.net/1000225663/product/20621091_852897198208239_2375694055693119084_n_large.jpg"
+                        alt="Set dây màu sắc">
+                </div>
+                <div id="quickview-sliderproduct">
 
+                    <div class="quickview-slider">
+                        <ul class="owl-carousel">
+                            <li class="product-thumb">
+                                <a href="javascript:void(0);" data-image="//product.hstatic.net/1000225663/product/20621091_852897198208239_2375694055693119084_n_large.jpg">
+                                    <img src="//product.hstatic.net/1000225663/product/20621091_852897198208239_2375694055693119084_n_small.jpg">
+                                </a>
+                            </li>
+                            <li class="product-thumb">
+                                <a href="javascript:void(0);" data-image="//product.hstatic.net/1000225663/product/20621951_852897151541577_274571170507405601_n_large.jpg">
+                                    <img src="//product.hstatic.net/1000225663/product/20621951_852897151541577_274571170507405601_n_small.jpg">
+                                </a>
+                            </li>
+                            <li class="product-thumb">
+                                <a href="javascript:void(0);" data-image="//product.hstatic.net/1000225663/product/20637931_852897298208229_1743938299608690541_n_large.jpg">
+                                    <img src="//product.hstatic.net/1000225663/product/20637931_852897298208229_1743938299608690541_n_small.jpg">
+                                </a>
+                            </li>
+                            <li class="product-thumb">
+                                <a href="javascript:void(0);" data-image="//product.hstatic.net/1000225663/product/20664041_852897121541580_6705176786567160915_n_large.jpg">
+                                    <img src="//product.hstatic.net/1000225663/product/20664041_852897121541580_6705176786567160915_n_small.jpg">
+                                </a>
+                            </li>
+                            <li class="product-thumb">
+                                <a href="javascript:void(0);" data-image="//product.hstatic.net/1000225663/product/20664624_852897148208244_8045322959818142314_n_large.jpg">
+                                    <img src="//product.hstatic.net/1000225663/product/20664624_852897148208244_8045322959818142314_n_small.jpg">
+                                </a>
+                            </li>
+                            <li class="product-thumb">
+                                <a href="javascript:void(0);" data-image="//product.hstatic.net/1000225663/product/untitled_large.png">
+                                    <img src="//product.hstatic.net/1000225663/product/untitled_small.png">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <form id="form-quickview" method="post" action="/cart/add">
+                    <div class="quickview-information">
+
+                        <div class="form-input">
+                            <div class="quickview-price product-price">
+                                <span>170,000₫</span>
+                                <del>250,000₫</del>
+                            </div>
+                        </div>
+                        <div class="quickview-variants variant-style clearfix">
+                            <div class="selector-wrapper">
+                                <label>Màu sắc</label>
+                                <select class="single-option-selector" data-option="option1" id="quickview-select-option-0">
+                                    <option value="Chấm bi xanh">Chấm bi xanh</option>
+                                    <option value="Chấm tim đỏ">Chấm tim đỏ</option>
+                                    <option value="Gấu nền trắng">Gấu nền trắng</option>
+                                    <option value="Tim nền trắng">Tim nền trắng</option>
+                                    <option value="Họa tiết đủ màu">Họa tiết đủ màu</option>
+                                    <option value="Bông xanh nền vàng">Bông xanh nền vàng</option>
+                                </select>
+                            </div>
+                            <select name="id" class="" id="quickview-select" style="display: none;">
+                                <option value="1016393633">Chấm bi xanh - 17000000</option>
+                                <option value="1016393635">Chấm tim đỏ - 17000000</option>
+                                <option value="1016393636">Gấu nền trắng - 17000000</option>
+                                <option value="1016393637">Tim nền trắng - 17000000</option>
+                                <option value="1016393638">Họa tiết đủ màu - 17000000</option>
+                                <option value="1016393639">Bông xanh nền vàng - 17000000</option>
+                            </select>
+                        </div>
+                        <div class="quickview-description"></div>
+                        <div class="form-input ">
+                            <label>Số lượng</label>
+
+                            <input id="quantity-quickview" name="quantity" type="number" min="1" value="1">
+                        </div>
+
+                        <div class="form-input" style="width: 100%">
+                            <button type="submit" class="btn-detail  btn-color-add btn-min-width btn-mgt btn-addcart" style="display: block;">Thêm vào giỏ</button>
+                            <button disabled="" class="btn-detail addtocart btn-color-add btn-min-width btn-mgt btn-soldout" style="display: none;">Hết hàng</button>
+                            <div class="qv-readmore">
+                                <span> hoặc </span>
+                                <a class="read-more p-url" href="" role="button">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <a href="javascript:void(0);" class="scrollToTop show">
+        <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-totop.png" alt="">
+    </i>
+    </a>
     <script src="app/app.js" type="text/javascript"></script>
 </body>
 

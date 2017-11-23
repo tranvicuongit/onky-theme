@@ -89,7 +89,7 @@
                 bottom: 0;
                 &:before {
                     content: "";
-                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/left-arrow-banner.png?v=438);
+                    background-image: url(bg_url('left-arrow-banner.png'));
                     position: absolute;
                     background-position: center;
                     display: block;
@@ -103,7 +103,7 @@
                 }
                 &:after {
                     content: "";
-                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/banner-tranparent-bg-left.png?v=465);
+                    background-image: url(bg_url('banner-tranparent-bg-left.png'));
                     position: absolute;
                     background-position: center;
                     display: block;
@@ -125,7 +125,7 @@
                 bottom: 0;
                 &:before {
                     content: "";
-                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/right-arrow-banner.png?v=438);
+                    background-image: url(bg_url('right-arrow-banner.png'));
                     position: absolute;
                     background-position: center;
                     display: block;
@@ -139,7 +139,7 @@
                 }
                 &:after {
                     content: "";
-                    background-image: url(http://theme.hstatic.net/1000225663/1000310269/14/banner-tranparent-bg-right.png?v=465);
+                    background-image: url(bg_url('banner-tranparent-bg-right.png'));
                     position: absolute;
                     background-position: center;
                     display: block;
@@ -165,7 +165,7 @@
     // background: linear-gradient(to right, #ffbf8d 0%, #fc87b5 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbf8d', endColorstr='#fc87b5', GradientType=1);
     min-height: 643px;
-    background: $color-white url('http://theme.hstatic.net/1000225663/1000310269/14/bg-tips.png?v=445');
+    background: $color-white url(bg_url('bg-tips.png'));
     background-position: center;
     background-size: cover;
     padding: 5% 0;
@@ -239,7 +239,7 @@
 
 .promotions {
     min-height: 830px;
-    background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-protion-product.png?v=446) $color-white repeat;
+    background: url(bg_url('bg-protion-product.png')) $color-white repeat;
     color: $color-black-main;
     overflow: hidden;
     padding: 20px 0;
@@ -250,7 +250,7 @@
     min-height: 690px;
     padding-top: 80px;
     padding-bottom: 70px;
-    background: url(http://theme.hstatic.net/1000225663/1000310269/14/bg-pattern-dealers.png?v=465) $color-white repeat;
+    background: url(bg_url('bg-pattern-dealers.png')) $color-white repeat;
     color: $color-black-main;
     @include element("title") {
         color: $color-black-main;

@@ -16,6 +16,7 @@ body {
     overflow-x: hidden;
     @include f-regular;
 }
+
 header {
     width: 100%;
     display: block;
@@ -23,19 +24,66 @@ header {
     padding: 0;
 }
 
-input, button{
-    &:focus, &:active{
+input,
+button {
+    &:focus,
+    &:active {
         outline: none;
     }
 }
 
-h2, h3{
+h2,
+h3 {
     text-transform: uppercase;
     text-align: center;
 }
 
-a{
-    &:hover, &:focus, &:hover{
+a {
+    &:hover,
+    &:focus,
+    &:hover {
         text-decoration: none
+    }
+}
+
+.scrollToTop {
+    top: auto!important;
+    padding: 12px;
+    border-radius: 100%;
+    bottom: -38px;
+    height: 50px;
+    opacity: 0;
+    position: fixed;
+    right: 50px;
+    -webkit-transition: all .6s ease;
+    transition: all .3s ease;
+    transition: all .6s ease;
+    visibility: hidden;
+    width: 50px;
+    z-index: 99;
+    border: none;
+    @include cart-bg-gradient();
+    box-shadow: 0px 1px 2px #000;
+    &.show {
+        bottom: 100px;  
+        opacity: 1;
+        visibility: visible;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        transform: scale(1.1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -webkit-transform: scale(1);
+        transition: .2s all ease;
+        -moz-transition: .2s all ease;
+        -o-transition: .2s all ease;
+        -webkit-transition: .2s all ease;
+    }
+    &:hover {
+        @include cart-bg-gradient-destroy();
+        transform: scale(.91);
+        -moz-transform: scale(.91);
+        -o-transform: scale(.91);
+        -webkit-transform: scale(.91);
     }
 }
