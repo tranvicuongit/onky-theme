@@ -1,0 +1,143 @@
+/****sort collection **/
+.sort-collection {
+	padding-bottom: 10px;
+	text-transform: uppercase;
+	font-size: 12px;
+	color: $color-black-main;
+	font-weight: 400;
+}
+
+/*** menu sidebar left **/
+.list-group {
+	clear: both;
+	background: #fff;
+	margin-top: 0px;
+}
+.group_sidebar .sb-title,.main-content .sb-title-content,.AccountTitle {
+	margin-bottom: 10px;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 500;
+	text-transform: uppercase;
+	text-align: left;
+	position: relative;
+	border-bottom: none;
+	padding-bottom: 10px;
+}
+.sb-title:before,.AccountTitle:before {
+	position: absolute;
+	top: 100%;
+	content: '';
+	width: 45px;
+	height: 2px;
+	background-color: $color-hot-orange;
+}
+.group_sidebar .sidebar > li.item {
+	border-bottom: 1px solid $header-color-boder-bottom;
+}
+.sidebar > li.item > a {
+	text-transform: uppercase;
+    font-size: 13px!important;
+    color: $color-black-main;
+
+    &:hover{
+        color: $color-black;
+    }
+}
+.group_sidebar .sidebar   a{
+	padding: 15px 20px;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+	background: none;
+}
+
+.group_sidebar .sign.drop-down {
+	position: absolute;
+	right: 10px;
+	padding: 15px 0;
+	top: 0;
+	font-weight: normal;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+}
+.group_sidebar .sign.drop-down:before {
+	content: "\f107" !important;
+	font-family: 'FontAwesome'!important;
+}
+.group_sidebar .sign.drop-down.open-nav:before {
+	content: "\f105" !important;
+}
+.group_sidebar .nav.children {
+	left: 0 !important;
+	position: static;
+	box-shadow: none;
+	min-width: 210px;
+	margin: 0;
+	padding: 0;
+    background-color: $color-grey-light;
+    color: $color-black-main;
+	opacity: 1;
+	visibility: visible;
+}
+.group_sidebar .sidebar .children>li {
+	padding: 0px!important;
+}
+.group_sidebar .sidebar > li.has-sub>ul >li {
+	border-bottom: none;
+}
+.group_sidebar .sidebar > li.has-sub>ul >li a {
+	line-height: 22px;
+	color: #999;
+	font-size: 14px;
+	padding: 10px 50px;
+}
+.group_sidebar .sidebar > li.item>ul >li> a {
+	margin-left: 0;
+	padding-left: 30px;
+}
+
+.products{
+    @include element("title"){
+        @include modifier("h1"){
+            font-size: 2.3em;
+            color: $color-black-main;
+            @include f-bold;
+        }
+    }
+}
+.browse-tags{
+    text-align: right;
+    @include element("text"){
+        color: $color-black-main;
+        text-transform: none;
+        text-align: right;
+        //display: block;
+    }
+}
+.custom-dropdown__select--onky{
+    text-align: right;
+    height: 29px;
+    overflow: hidden;
+    width: 240px;
+    select{
+        border: 1px solid #ccc;
+        font-size: 16px;
+        height: 34px;
+        width: 268px;
+        color: $color-black-main;
+        font-size: 1em;
+        @include f-medium;
+    }
+}
+
+.banner-collection-header {
+    margin-bottom: 30px;
+    max-height: 100%;
+    overflow: hidden;
+    height: 290px;
+    img{
+        max-width: 100%;
+        width: 100%;
+        margin-top: -100px;
+    }
+}

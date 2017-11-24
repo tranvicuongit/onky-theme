@@ -38,11 +38,13 @@ h3 {
     text-align: center;
 }
 
-a {
+a, button, input, textarea, select {
     &:hover,
     &:focus,
+    &:active,
     &:hover {
-        text-decoration: none
+        text-decoration: none;
+        outline: none;
     }
 }
 

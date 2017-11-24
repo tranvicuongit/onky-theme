@@ -1,0 +1,100 @@
+.payment {
+    @include element("summary") {
+        border-top: 4px solid $color-header-pro;
+        margin-left: 12px;
+        box-shadow: 0px 1px 6px $color-grey;
+        padding: 35px 20px;
+        margin-bottom: 34px;
+        form {
+            display: inherit;
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            tr {
+                //border-bottom: 1px dashed $color-black-main;
+                &:nth-child(2n) {
+                    background-color: #fbfbfb;
+                }
+                td {
+                    padding: 15px 0;
+                    margin-top: 10px;
+                    font-size: 1em;
+                    @include f-medium;
+                    &:nth-child(1) {
+                        text-align: left;
+                        width: 60%;
+                    }
+                    &:nth-child(2) {
+                        text-align: right;
+                        width: 40%;
+                    }
+                    a {
+                        color: $color-black-main;
+                        transition: 0.23s all ease-in-out;
+                        &:hover {
+                            color: $color-main;
+                        }
+                    }
+                }
+            }
+        }
+        @include m("dotted") {
+            tr {
+                border-bottom: 1px dashed $color-black-main;
+                &:nth-last-child(1) {
+                    border-bottom: none;
+                }
+                &:nth-child(2n) {
+                    background-color: $color-white;
+                }
+            }
+        }
+        @include modifier("payment") {
+            border: none;
+            height: 55px;
+            width: 100%;
+            display: block;
+            text-align: center;
+            display: table;
+            border-radius: 3px;
+            transition: all 0.15s ease-in-out;
+            border: none;
+            span {
+                display: block;
+                vertical-align: middle;
+                text-transform: uppercase;
+                @include f-medium;
+            }
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0px -1px 10px #999;
+            }
+        }
+        @include modifier("notes") {
+            input,
+            textarea {
+                max-width: 100%;
+                border: 1px solid #d1d1d1;
+                width: 100%;
+                border-radius: 3px;
+                padding: 10px 15px;
+                transition: 0.21s all ease-in-out;
+                color: $color-black-main;
+                font-size: 0.9em;
+                @include f-regular;
+                &:active,
+                &:focus {
+                    border: 1px solid $color-main;
+                    color: $color-hot-orange;
+                }
+            }
+            label {
+                @include f-medium;
+                display: block;
+            }
+        }
+    }
+}

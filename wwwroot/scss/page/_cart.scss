@@ -208,7 +208,7 @@
                     text-align: center;
                     display: table;
                     border-radius: 3px;
-                    transition: all 0.4s ease-in-out;
+                    transition: all 0.15s ease-in-out;
                     border: none;
                     span {
                         display: table-cell;
@@ -285,10 +285,10 @@
     }
     @include element("status") {
         position: relative;
-        height: 250px;
+        height: 150px;
         margin: auto; //overflow: hidden;
         max-width: 600px;
-        margin-bottom: 40px;
+        margin-top: 20px;
         ol {
             list-style: none;
         }
@@ -298,9 +298,7 @@
             left: 0;
             top: 42px;
             height: 2px;
-            -webkit-transition: -webkit-transform 0.4s;
-            -moz-transition: -moz-transform 0.4s;
-            transition: transform 0.4s;
+            transition: transform 0.15s;
             width: 100%;
             margin: auto;
             @include m("0") {
@@ -336,7 +334,7 @@
             @include e("text") {
                 margin-top: 16px;
                 position: absolute;
-                width: 120px;
+                width: 135px;
                 text-align: center;
                 float: left;
                 left: -40px;
@@ -344,36 +342,50 @@
             @include m("active") {
                 @include cart-bg-gradient;
                 border: 2px solid $cart-bg-1;
+                color: $color-hot-orange;
+            }
+            @include m("pass") {
+                @include cart-bg-gradient-destroy;
+                border: 2px solid $cart-bg-1;
             }
         }
     }
-    @include element("list"){
+    @include element("list") {
         box-shadow: 0px 1px 6px $color-grey;
-        @include modifier("main"){
+        margin-bottom: 42px;
+        @include modifier("main") {
             padding: 0;
             border-bottom: 2px solid #f48693;
-            table{
+            table {
                 width: 100%;
                 padding: 0;
-                thead{
+                thead {
                     background-color: #f6f6f6;
-                    th{
+                    th {
                         padding: 15px;
                         text-align: center;
                         height: 40px;
                     }
                 }
-                tbody{
+                tbody {
                     background-color: $color-white;
-                    td{
+                    td {
                         padding: 30px 10px;
                     }
                 }
             }
+            @include m("remove") {
+                color: $color-black-main;
+                transition: all 0.2s ease-in;
+                &:hover {
+                    color: $color-black;
+                    transform: scale(1.2);
+                }
+            }
         }
-        @include modifier("promotion"){
+        @include modifier("promotion") {
             padding: 26px 34px;
-            @include e("code"){
+            @include e("code") {
                 border: 1px $color-main solid;
                 border-radius: 3px 0 0 3px;
                 height: 41px;
@@ -383,11 +395,11 @@
                 font-size: 0.9em;
                 margin: 0;
                 min-width: 245px;
-                @include placeholder(){
+                @include placeholder() {
                     color: $color-black-main;
                 }
             }
-            @include e("apply"){
+            @include e("apply") {
                 height: 41px;
                 padding: 10px 14px;
                 border: 1px $color-main solid;
@@ -398,8 +410,12 @@
                 min-width: 190px;
                 border-radius: 0 3px 3px 0;
                 font-size: 0.9em;
+                transition: all 0.23s ease-in-out;
+                &:hover {
+                    box-shadow: 2px 1px 10px #bbb1b1;
+                }
             }
-            @include e("update"){
+            @include e("update") {
                 background-color: #f9f0f0;
                 height: 41px;
                 padding: 10px 14px;
@@ -409,11 +425,89 @@
                 border-radius: 3px;
                 font-size: 0.9em;
                 transition: all 0.23s ease-in;
-                &:hover{
+                &:hover {
                     background-color: $color-grey-light;
-                    box-shadow: 0px 2px 6px $color-grey;
-
+                    box-shadow: 2px 1px 10px #bbb1b1;
                 }
+            }
+        }
+    }
+    @include element("summary") {
+        border-top: 4px solid $color-header-pro;
+        margin-left: 12px;
+        box-shadow: 0px 1px 6px $color-grey;
+        padding: 35px 20px;
+        margin-bottom: 34px;
+        form {
+            display: inherit;
+        }
+        table {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: auto;
+            margin-bottom: 20px;
+            tr {
+                border-bottom: 1px dashed $color-black-main;
+                // &:nth-last-child(1) {
+                //     border-bottom: none;
+                // }
+                td {
+                    padding: 15px 0;
+                    margin-top: 10px;
+                    font-size: 1em;
+                    @include f-medium;
+                    &:nth-child(1) {
+                        text-align: left;
+                        width: 40%;
+                    }
+                    &:nth-child(2) {
+                        text-align: right;
+                        width: 60%;
+                    }
+                }
+            }
+        }
+        @include modifier("payment") {
+            border: none;
+            height: 55px;
+            width: 100%;
+            display: block;
+            text-align: center;
+            display: table;
+            border-radius: 3px;
+            transition: all 0.15s ease-in-out;
+            border: none;
+            span {
+                display: block;
+                vertical-align: middle;
+                text-transform: uppercase;
+                @include f-medium;
+            }
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0px -1px 10px #999;
+            }
+        }
+        @include modifier("notes") {
+            input, textarea{
+                max-width: 100%;
+                border: 1px solid #d1d1d1;
+                width: 100%;
+                border-radius: 3px;
+                padding: 10px 15px;
+                transition: 0.21s all ease-in-out;
+                color: $color-black-main;
+                font-size: 0.9em;
+                @include f-regular;
+                
+                &:active, &:focus{
+                    border: 1px solid $color-main;
+                    color: $color-hot-orange;
+                }
+            }
+            label{
+                @include f-medium;
+                display: block;
             }
         }
     }

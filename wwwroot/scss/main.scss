@@ -10,11 +10,16 @@
 /** Import module **/
 @import './modules/_animation';
 @import './modules/_product';
-@import './modules/_cart';
 @import './modules/_quick-view';
+@import './modules/_pagination';
 
 /** Import page  **/
 @import './page/_home';
+@import './page/_cart';
+@import './page/_detail-news';
+@import './page/_contact';
+@import './page/_product';
+@import './page/_payment';
 
 /** Import responsive  **/
 

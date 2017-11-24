@@ -2,6 +2,8 @@
     max-height: 145px;
     height: 145px;
     border-bottom: $color-grey-light 1px solid;
+    background-color: $color-white;
+    z-index: 999;
     @include element("top") {
         background-color: $hd-bg;
         border-top: $color-light 2px solid;
@@ -93,7 +95,8 @@
     }
     @include element("menu") {
         max-height: 100px;
-        overflow: hidden;
+        height: 85px;
+        //overflow: hidden;
         display: table;
         list-style: none;
         @include e("item") {
@@ -105,7 +108,7 @@
                     color: $color-black-main;
                     transition: all 0.15s ease-in;
                     text-transform: uppercase;
-                    padding-bottom: 5px;
+                    padding-bottom: 3px;
                     &:hover {
                         color: $color-main;
                         border-bottom: 2px solid $color-hot-orange;
@@ -115,7 +118,7 @@
                 h4,
                 h5,
                 h6 {
-                    font-size: 1.1em;
+                    font-size: 1em;
                     text-align: left;
                     padding-left: 10px;
                 }
@@ -134,27 +137,27 @@
             @include modifier("hot") {
                 background-color: $color-hot-orange;
                 border-radius: 3px;
-                width: 37px;
-                height: 14px;
-                font-size: 0.7em;
+                width: 30px;
+                height: 12px;
+                font-size: 0.65em;
                 text-transform: uppercase;
-                @include f-light();
+                @include f-regular();
                 color: $color-white;
                 position: relative;
                 display: block;
                 text-align: center;
                 float: right;
-                right: -5px;
+                right: -15px;
                 -webkit-animation: colorhotchange 1s infinite alternate;
                 &:before {
                     content: '';
-                    height: 7px;
-                    width: 7px;
+                    height: 6px;
+                    width: 6px;
                     position: absolute;
                     background-color: $color-hot-orange;
                     bottom: -3px;
                     transform: rotate(45deg);
-                    z-index: -1;
+                    z-index: 0;
                     -webkit-animation: colorhotchange 1s infinite alternate;
                 }
             }

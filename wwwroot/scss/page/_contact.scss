@@ -1,0 +1,105 @@
+.contact{
+    margin-bottom: 40px;
+    @include element("title"){
+        font-size: 2.3em;
+        color: $color-black-main;
+        @include f-bold;
+        margin: 15px 0 0 0px;
+    }
+    @include element("form"){
+        @include modifier("tut"){
+            text-align: left;
+            color: $color-grey;
+            font-size: 1em;
+            @include f-regular;
+            margin: 15px 0 25px 0;
+        }
+        @include modifier("group"){
+            color: $color-black-main;
+            font-size: 1em;
+            @include f-regular;
+
+            input, textarea{
+                color: $color-black-main;
+                border-radius: 3px;
+                font-size: 1em;
+                max-width: 100%;
+                min-width: 100%;
+                border: 1px solid $color-grey;
+                
+                @include placeholder(){
+                    color: $color-grey;
+                    font-size: 1em;
+                }
+                &:hover, &:focus, &:active{
+                    outline: none;
+                    border-color: $input-color-border;
+                    color: $color-hot-orange;
+                    box-shadow: 0 2px 6px $color-grey-light;
+                }
+            }
+        }
+        @include modifier("button"){
+            border: none;
+            height: 55px;
+            width: 100%;
+            display: block;
+            text-align: center;
+            display: table;
+            border-radius: 3px;
+            transition: all 0.15s ease-in-out;
+            span{
+                display: block;
+                vertical-align: middle;
+                text-transform: uppercase;
+                @include f-regular;
+            }
+            &:hover{
+                cursor: pointer;
+                -webkit-box-shadow: 0px -1px 10px #999;
+                box-shadow: 0px -1px 10px #999;
+            }
+        }
+        @include modifier("success"){
+            color: $color-white;
+            background-color: $color-green;
+            padding: 20px 25px;
+        }
+    }
+    @include element("address"){
+        iframe{
+            min-height: 380px;
+            width: 100%;
+        }
+        @include modifier("company"){
+            font-size: 1.7em;
+            @include f-bold;
+            text-transform: uppercase;
+        }
+        @include modifier("detail"){
+            line-height: 1.3em;
+            @include e("addr"){
+                @include f-medium;
+                white-space: normal;
+                font-size: 1.1em;
+                margin-bottom: 6px;
+                padding: 10px;
+                text-align: center;
+            }
+            @include e("email"){
+                text-align: left;
+                padding: 5px 10px;
+            }
+            @include e("phone"){
+                padding: 5px 10px;
+                a{
+                    color: $color-black-main;
+                    &:hover{
+                        color: $color-black;
+                    }
+                }
+                text-align: right;
+            }
+        }
+    }
+}

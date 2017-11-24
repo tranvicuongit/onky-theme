@@ -42,10 +42,6 @@ var onkyApp = {
   }
 }
 
-
-/////////////////////////////////////////////////
-
-
 var app = angular.module('OnkyApp', ['ngRoute'])
   .config(['$routeProvider', '$locationProvider',
     function ($routeProvider, $locationProvider) {
@@ -60,11 +56,27 @@ var app = angular.module('OnkyApp', ['ngRoute'])
           controller: 'CartCtrl',
           controllerAs: 'cart'
         })
-        .when('/Book/:bookId/ch/:chapterId', {
-          templateUrl: 'chapter.html',
-          controller: 'ChapterCtrl',
-          controllerAs: 'chapter'
-        });
+        .when('/payment', {
+          templateUrl: 'app/pages/payment.html',
+          controller: 'PaymentCtrl',
+          controllerAs: 'pay'
+        })
+        .when('/payment/done', {
+          templateUrl: 'app/pages/payment-done.html',
+          controller: 'PaymentCtrl',
+          controllerAs: 'pay'
+        })
+        .when('/news/detail-news', {
+          templateUrl: 'app/pages/detail-news.html',
+          controller: 'NewsCtrl',
+          controllerAs: 'news'
+        })
+        .when('/contact', {
+          templateUrl: 'app/pages/contact.html',
+          controller: 'ContactCtrl',
+          controllerAs: 'contact'
+        })
+        .otherwise({redirectTo: '/'});
 
       $locationProvider.html5Mode(true);
     }
@@ -202,6 +214,7 @@ var app = angular.module('OnkyApp', ['ngRoute'])
           // afterInit: nextslide
         });
       }
+        $(".header").sticky({  });
     }, 2000);
     //////////////////////////////
 
@@ -240,5 +253,114 @@ var app = angular.module('OnkyApp', ['ngRoute'])
     };
   });
 
-app.controller('HomeCtrl', function PhoneListController($scope) {});
-app.controller('CartCtrl', function PhoneListController($scope) {});
+app.controller('HomeCtrl', function HomeController($scope) {})
+.controller('CartCtrl', function CartController($scope) {})
+.controller('NewsCtrl', function NewsController($scope) {})
+.controller('PaymentCtrl', function PaymentController($scope) {})
+.controller('ContactCtrl', function ContactController($scope) {
+});
+
+
+
+///////////////////  Sticky /////////////////////
+(function($) {
+  var defaults = {
+          topSpacing: 0,
+          bottomSpacing: 0,
+          className: 'is-sticky',
+          wrapperClassName: 'sticky-wrapper'
+      },
+      $window = $(window),
+      $document = $(document),
+      sticked = [],
+      windowHeight = $window.height(),
+      scroller = function() {
+          var scrollTop = $window.scrollTop(),
+              documentHeight = $document.height(),
+              dwh = documentHeight - windowHeight,
+              extra = (scrollTop > dwh) ? dwh - scrollTop : 0;
+          for (var i = 0; i < sticked.length; i++) {
+              var s = sticked[i],
+                  elementTop = s.stickyWrapper.offset().top,
+                  etse = elementTop - s.topSpacing - extra;
+              if (scrollTop <= etse) {
+                  if (s.currentTop !== null) {
+                      s.stickyElement
+                          .css('position', '')
+                          .css('top', '')
+                          .removeClass(s.className);
+                      s.stickyElement.parent().removeClass(s.className);
+                      s.currentTop = null;
+                  }
+              }
+              else {
+                  var newTop = documentHeight - s.stickyElement.outerHeight()
+                      - s.topSpacing - s.bottomSpacing - scrollTop - extra;
+                  if (newTop < 0) {
+                      newTop = newTop + s.topSpacing;
+                  } else {
+                      newTop = s.topSpacing;
+                  }
+                  if (s.currentTop != newTop) {
+                      s.stickyElement
+                          .css('position', 'fixed')
+                          .css('top', newTop)
+                          .addClass(s.className);
+                      s.stickyElement.parent().addClass(s.className);
+                      s.currentTop = newTop;
+                  }
+              }
+          }
+      },
+      resizer = function() {
+          windowHeight = $window.height();
+      },
+      methods = {
+          init: function(options) {
+              var o = $.extend(defaults, options);
+              return this.each(function() {
+                  var stickyElement = $(this);
+
+                  stickyId = stickyElement.attr('id');
+                  var wrapper = $("<div></div>")
+                      .attr('id', stickyId + '-sticky-wrapper')
+                      .addClass(o.wrapperClassName);
+                  stickyElement.wrapAll(wrapper);
+                  var stickyWrapper = stickyElement.parent();
+                  stickyWrapper.css('height', stickyElement.outerHeight());
+                  sticked.push({
+                      topSpacing: o.topSpacing,
+                      bottomSpacing: o.bottomSpacing,
+                      stickyElement: stickyElement,
+                      currentTop: null,
+                      stickyWrapper: stickyWrapper,
+                      className: o.className
+                  });
+              });
+          },
+          update: scroller
+      };
+
+  // should be more efficient than using $window.scroll(scroller) and $window.resize(resizer):
+  if (window.addEventListener) {
+      window.addEventListener('scroll', scroller, false);
+      window.addEventListener('resize', resizer, false);
+  } else if (window.attachEvent) {
+      window.attachEvent('onscroll', scroller);
+      window.attachEvent('onresize', resizer);
+  }
+
+  $.fn.sticky = function(method) {
+      if (methods[method]) {
+          return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+      } else if (typeof method === 'object' || !method ) {
+          return methods.init.apply( this, arguments );
+      } else {
+          $.error('Method ' + method + ' does not exist on jQuery.sticky');
+      }
+  };
+  $(function() {
+      setTimeout(scroller, 0);
+  });
+})(jQuery);
+/////////////////////////////////////////////////

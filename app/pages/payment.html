@@ -9,15 +9,15 @@
     </div> -->
     <div class="row cart">
         <div class="container cart__status">
-            <div class="cart__status--line cart__status--line-0">
+            <div class="cart__status--line cart__status--line-50">
                 <ol>
-                    <li class="cart__status--item cart__status--item-active" style="left: 0%">
+                    <li class="cart__status--item cart__status--item-pass" style="left: 0%">
                         <span class="cart__status--item_step">1</span>
                         <span class="cart__status--item_text">Giỏ hàng</span>
                     </li>
-                    <li class="cart__status--item" style="left: calc(50% - 18px)">
+                    <li class="cart__status--item cart__status--item-active" style="left: calc(50% - 18px)">
                         <span class="cart__status--item_step">2</span>
-                        <span class="cart__status--item_text">Địa chỉ giao hàng</span>
+                        <span class="cart__status--item_text">Thanh toán - giao hàng</span>
                     </li>
                     <li class="cart__status--item" style="left: calc(100% - 36px)">
                         <span class="cart__status--item_step">3</span>
@@ -88,32 +88,41 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                <div class="cart__summary">
-                    <form>
-                        <table>
-                            <tr>
-                                <td>Tổng phụ</td>
-                                <td class="cart__summary--subprice cartpreview__inner--body_list-price">2,360,000đ</td>
-                            </tr>
-                            <tr>
-                                <td>Phí vận chuyển</td>
-                                <td class="cart__summary--subprice">
-                                    <p class="cart__summary--advise">Chi phí vận chuyển sẽ được tính ngay khi bạn nhập thông tin địa chỉ</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tổng</td>
-                                <td class="cart__summary--totalprice cartpreview__inner--body_list-price">2,360,000đ</td>
-                            </tr>
-                        </table>
-                        <div class="cart__summary--notes checkout-buttons clearfix">
-                            <label for="note">Ghi chú </label>
-                            <textarea id="note" name="note" rows="5" cols="50">{{ cart.note }}</textarea>
-                        </div>
-                        <a href="/payment" class="cart__summary--payment cartpreview__inner--body_button-payment" type="submit">
-                            <span>Thanh toán</span>
-                        </a>
-                    </form>
+                <div class="payment__summary">
+                    <table>
+                        <tr ng-repeat="n in [] | range:7">
+                            <td>
+                                <a href="javascript:void(0)">
+                                    Gel Dưỡng Da Vùng Mắt Bioderma Sensibio Eye Gel Contour Des Yeux (15ml) x
+                                    <b>1</b>
+                                </a>
+                            </td>
+                            <td class="cart__summary--subprice cartpreview__inner--body_list-price">2,360,000đ</td>
+                        </tr>
+                    </table>
+                    <table class="payment__summary-dotted">
+                        <tr>
+                            <td>Tổng phụ</td>
+                            <td class="cart__summary--subprice cartpreview__inner--body_list-price">2,360,000đ</td>
+                        </tr>
+                        <tr>
+                            <td>Phí vận chuyển</td>
+                            <td class="cart__summary--subprice">
+                                <p class="cart__summary--advise">Chi phí vận chuyển sẽ được tính ngay khi bạn nhập thông tin địa chỉ</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Giảm</td>
+                            <td class="cart__summary--totalprice cartpreview__inner--body_list-price">2,360,000đ</td>
+                        </tr>
+                        <tr>
+                            <td>Tổng</td>
+                            <td class="cart__summary--totalprice cartpreview__inner--body_list-price">2,360,000đ</td>
+                        </tr>
+                    </table>
+                    <button class="cart__summary--payment cartpreview__inner--body_button-payment" type="submit">
+                        <span>Thanh toán</span>
+                    </button>
                 </div>
             </div>
         </div>
