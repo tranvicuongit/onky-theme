@@ -1,0 +1,26 @@
+.color{
+    @include element("hot-orange"){
+        color: $color-hot-orange!important;
+    }
+    @include element("black"){
+        color: $color-black!important;
+    }
+    @include element("black-main"){
+        color: $color-black-main!important;
+    }
+    @include element("green"){
+        color: $color-green!important;
+    }
+    @include element("main"){
+        color: $color-main!important;
+        &:hover{
+            color: $color-header-pro!important;
+        }
+    }
+    @include element("header-bold"){
+        color: $color-header-pro!important;
+        &:hover{
+            color: $color-main!important;
+        }
+    }
+}

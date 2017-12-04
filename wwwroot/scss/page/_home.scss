@@ -6,13 +6,14 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    max-height: 481px;
+    max-height: 580px;
     overflow: hidden;
     @include element("img") {
         height: 100%;
         max-width: 100%;
         overflow: hidden;
         width: 100%;
+        margin: auto;
     }
     @include element("caption") {
         position: absolute;
@@ -56,12 +57,7 @@
         }
     }
     .owl-controls {
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
         user-select: none;
-        -webkit-tap-highlight-color: transparent;
         text-align: center;
         .owl-buttons {
             //position: absolute;
@@ -91,30 +87,32 @@
                     content: "";
                     background-image: url(bg_url('left-arrow-banner.png'));
                     position: absolute;
-                    background-position: center;
+                    background-position: center right;
                     display: block;
                     background-repeat: no-repeat;
                     left: 0;
                     width: 250px;
                     height: 100%;
                     z-index: 9;
-                    opacity: 0.6;
+                    opacity: 1;
                     transition: all 300ms ease-in;
                 }
                 &:after {
+                    display: none;
                     content: "";
                     background-image: url(bg_url('banner-tranparent-bg-left.png'));
                     position: absolute;
                     background-position: center;
-                    display: block;
+                    //display: block;
+                    display: none;
                     background-repeat: repeat-y;
                     left: -5px;
-                    width: 250px;
+                    width: 200px;
                     height: 100%;
                 }
                 &:hover {
                     &:before {
-                        opacity: 1;
+                        transform: scale(0.95);
                     }
                 }
             }
@@ -127,14 +125,14 @@
                     content: "";
                     background-image: url(bg_url('right-arrow-banner.png'));
                     position: absolute;
-                    background-position: center;
+                    background-position: center left;
                     display: block;
                     background-repeat: no-repeat;
                     right: 0;
-                    width: 250px;
+                    width: 200px;
                     height: 100%;
                     z-index: 9;
-                    opacity: 0.6;
+                    opacity: 1;
                     transition: all 300ms ease-in;
                 }
                 &:after {
@@ -142,15 +140,16 @@
                     background-image: url(bg_url('banner-tranparent-bg-right.png'));
                     position: absolute;
                     background-position: center;
-                    display: block;
+                    //display: block;
                     background-repeat: repeat-y;
                     right: -5px;
                     width: 250px;
                     height: 100%;
+                    display: none;
                 }
                 &:hover {
                     &:before {
-                        opacity: 1;
+                        transform: scale(0.95);
                     }
                 }
             }
@@ -181,6 +180,7 @@
             margin-left: 15px;
             display: inline;
             max-height: 250px;
+            min-height: 250px;
             overflow: hidden;
             &:nth-child(1) {
                 margin-left: 0;
@@ -190,16 +190,22 @@
             }
             @include e("inner") {
                 padding: 0 15px;
-                img {
-                    max-width: 100%;
-                    max-height: 188px;
-                }
                 @include m("description") {
                     color: $color-black-main;
                     margin-top: 15px;
                     font-size: 1em;
-                    @include f-regular();
+                    @include f-medium();
                     white-space: normal;
+                }
+                @include m("img"){
+                    overflow: hidden;
+                    max-width: 100%;
+                    max-height: 100%;
+                    height: 188px;
+                    img {
+                        max-height: 100%;
+                        margin: auto;
+                    }
                 }
             }
         }
@@ -329,10 +335,9 @@
         @include modifier("text") {
             max-width: 100%;
             overflow: hidden;
-            white-space: nowrap;
+            white-space: normal;
             text-align: left;
             text-overflow: ellipsis;
-            line-height: 20px;
             padding-top: 5px;
             span {
                 color: $color-certificate-pink;
@@ -345,6 +350,7 @@
                 font-size: 0.8em;
                 @include f-regular();
                 display: block;
+                margin-top: 0px;
             }
         }
     }

@@ -1,4 +1,4 @@
-<div id="cart">
+<div id="payment">
     <!--Empty-->
     <!-- <div class="row">
         <div class="col-md-12  cart--empty">
@@ -7,8 +7,8 @@
             <a class="cart--empty__button" href="/collections/all">Tiếp tục mua sắm</a>
         </div>
     </div> -->
-    <div class="row cart">
-        <div class="container cart__status">
+    <div class="payment">
+        <div class="cart__status">
             <div class="cart__status--line cart__status--line-50">
                 <ol>
                     <li class="cart__status--item cart__status--item-pass" style="left: 0%">
@@ -26,69 +26,80 @@
                 </ol>
             </div>
         </div>
-        <div class="container">
-            <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 cart__list">
-                <div class="row">
-                    <div class="col-md-12 cart__list--main">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th colspan="2">Sản phẩm</th>
-                                    <th>Giá</th>
-                                    <th>Số lượng</th>
-                                    <th>Tổng</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="n in [] | range:10">
-                                    <td class="cartpreview__inner--body_list-img">
-                                        <a href="/products/kem-chong-nang-biore-uv-aqua-rich-watery-essence-spf-50-pa" class="item-url">
-                                            <img class="item-image" src=" //product.hstatic.net/1000225663/product/s-l300__1__small.jpg  " alt="Kem chống nắng Biore UV Aqua Rich Watery Essence SPF 50+/ PA++++">
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <h4 class="cartpreview__inner--body_list-product_name">
-                                            <a href="/products/kem-chong-nang-biore-uv-aqua-rich-watery-essence-spf-50-pa" class="item-title">Kem chống nắng Biore UV Aqua Rich Watery Essence SPF 50+/ PA++++</a>
-                                        </h4>
-                                    </td>
-                                    <td>
-                                        <span class="cartpreview__inner--body_list-product_price">
-                                            220,000₫
-                                        </span>
-                                    </td>
-                                    <td class="">
-                                        <div class="cartpreview__inner--body_list-product_quantity">
-                                            <span class="minus">-</span>
-                                            <input class="item-quantity" value="1">
-                                            <span class="add">+</span>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <span class="cartpreview__inner--body_list-price">220,000₫</span>
-                                    </td>
-                                    <td>
-                                        <a href="javascript:void(0);" class="cart__list--main-remove">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 payment__info">
+                <div class="col-md-12 payment__info--header">
+                    <h3>ĐỊA CHỈ GIAO HÀNG</h3>
+                </div>
+                <div class="col-md-12 payment__info--form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="payment__info--form_label">Họ tên *</label>
+                            <input type="text" class="payment__info--form_input">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="payment__info--form_label">Số điện thoại *</label>
+                            <input type="text" class="payment__info--form_input">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="payment__info--form_label">Email -
+                                <span class="payment__info--form_sub">không bắt buộc</span>
+                            </label>
+                            <input type="text" class="payment__info--form_input">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="payment__info--form_label">Yêu cầu khác -
+                                <span class="payment__info--form_sub">không bắt buộc</span>
+                            </label>
+                            <textarea rows="3" placeholder="Yêu cầu khi mua hàng" class="payment__info--form_textarea"></textarea>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="payment__info--form_label">Địa chỉ</label>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <select class="payment__info--form_select" id="">
+                                        <option ng-repeat="n in [] | range:5">Test {{n}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <select class="payment__info--form_select" id="">
+                                        <option ng-repeat="n in [] | range:5">Test {{n}}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <select class="payment__info--form_select" id="">
+                                        <option ng-repeat="n in [] | range:5">Test {{n}}</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <input type="checkbox" id="checkebox1" checked />
+                            <label for="checkebox1" class="payment__info--form_sub">Tạo tài khoản mới</span>
+                        </div>
                     </div>
-                    <div class="col-md-12 cart__list--promotion">
-                        <form class="col-md-8">
-                            <input type="text" class="cart__list--promotion_code" placeholder="Mã giảm giá">
-                            <button type="submit" class="cart__list--promotion_apply">ÁP DỤNG MÃ GIẢM GIÁ</button>
-                        </form>
-                        <form class="col-md-4 text-right">
-                            <button type="submit" class="cart__list--promotion_update">CẬP NHẬT</button>
-                        </form>
+                </div>
+                <div class="col-md-12 payment__info--form_radio">
+                    <div class="col-md-12">
+                        <input type="radio" checked name="radio1" id="radio1" />
+                        <label class="payment__info--form_label-bold" for="radio1">THANH TOÁN KHI NHẬN HÀNG</label>
+                        <span class="payment__info--form_label-note">Áp dụng cho toàn quốc</span>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="radio" checked name="radio1" id="radio2" />
+                        <label class="payment__info--form_label-bold" for="radio2">CHUYỂN KHOẢN NGÂN HÀNG</label>
+                        <span class="payment__info--form_label-note">Bằng thẻ ATM, VISA, Master</span>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                 <div class="payment__summary">
+                    <div class="payment__summary--repromotion">
+                        <input type="text" class="payment__summary--repromotion_input" placeholder="Mã giảm giá" />
+                        <button type="text" class="payment__summary--repromotion_button">
+                            <span>ÁP DỤNG MÃ GIẢM GIÁ</span>
+                        </button>
+                    </div>
                     <table>
                         <tr ng-repeat="n in [] | range:7">
                             <td>
@@ -96,6 +107,7 @@
                                     Gel Dưỡng Da Vùng Mắt Bioderma Sensibio Eye Gel Contour Des Yeux (15ml) x
                                     <b>1</b>
                                 </a>
+                                <span class="payment__summary--promotion">Đã giảm: 100.000đ</span>
                             </td>
                             <td class="cart__summary--subprice cartpreview__inner--body_list-price">2,360,000đ</td>
                         </tr>
@@ -108,6 +120,7 @@
                         <tr>
                             <td>Phí vận chuyển</td>
                             <td class="cart__summary--subprice">
+                                <span class="cartpreview__inner--body_list-price">120.000 d</span>
                                 <p class="cart__summary--advise">Chi phí vận chuyển sẽ được tính ngay khi bạn nhập thông tin địa chỉ</p>
                             </td>
                         </tr>
@@ -121,7 +134,7 @@
                         </tr>
                     </table>
                     <button class="cart__summary--payment cartpreview__inner--body_button-payment" type="submit">
-                        <span>Thanh toán</span>
+                        <span>Đặt hàng</span>
                     </button>
                 </div>
             </div>

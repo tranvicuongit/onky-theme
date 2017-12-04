@@ -1,19 +1,32 @@
-<div class="col-lg-2 col-md-3 col-sm-4 col-xs-6" ng-repeat="item in Products">
+<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" ng-repeat="item in Products">
     <div class="products__list--item">
+            <div class="products__list--item_soldout">
+                <span>Hết hàng</span>
+            </div>
+        <div class="products__list--item_promotion">
+            <span>-15%</span>
+        </div>
         <div class="products__list--item_img">
-            <a data-ng-href="{{item.Link}}" ng-attr-title="{{item.Title}}">
+            <a data-ng-href="/detail-products" ng-attr-title="{{item.Title}}">
                 <img src="http://product.hstatic.net/1000225663/product/22264618_1595376423845969_351636564_n_large.jpg" alt="">
             </a>
         </div>
         <h3 class="products__list--item_header">
-            <a data-ng-href="{{item.Link}}" ng-attr-title="{{item.Title}}">
+            <a data-ng-href="/detail-products" ng-attr-title="{{item.Title}}">
                 <p>{{item.Title}}
                     <br/>{{item.Title}} giá {{item.Price}}</p>
             </a>
         </h3>
         <div class="products__list--item_prices">
-            <p class="text-center products__list--item_prices-main">{{item.Price}} đ</p>
-            <p class="text-center products__list--item_prices-compare">{{item.Compare}} đ</p>
+            <p class="text-center products__list--item_prices-main">
+                <span class="products__list--item_prices-compare">
+                    {{item.Compare}} đ
+                </span>
+                <span class="products__list--item_prices-main">
+                    {{item.Price}} đ
+                </span>
+            </p>
+            <!-- <p class="text-center products__list--item_prices-compare">{{item.Compare}} đ</p> -->
         </div>
         <div class="products__list--item_actions">
             <div class="products__list--item_actions-views">
@@ -23,7 +36,7 @@
                 </a>
             </div>
             <div class="products__list--item_actions-addcart">
-                <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-cart-add.png?v=448">
+                <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-cart-add.png?v=1499">
                 <span>Thêm vào giỏ</span>
             </div>
         </div>

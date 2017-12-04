@@ -12,6 +12,8 @@
 @import './modules/_product';
 @import './modules/_quick-view';
 @import './modules/_pagination';
+@import './modules/_color';
+@import './modules/_breakcrum';
 
 /** Import page  **/
 @import './page/_home';
@@ -20,6 +22,7 @@
 @import './page/_contact';
 @import './page/_product';
 @import './page/_payment';
+@import './page/_detail-product';
 
 /** Import responsive  **/
 
@@ -28,4 +31,5 @@
 @import './layout/_header';
 @import './layout/_footer';
 @import './layout/_responsive';
+@import './layout/_toolbar';
 /** Import partials  **/

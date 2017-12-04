@@ -14,14 +14,17 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
     <script src="//hstatic.net/0/0/global/design/js/bootstrap.min.js"></script>
     <script src="//hstatic.net/0/0/global/design/theme-default/jquery.flexslider.js" type="text/javascript"></script>
-    <script src="//cdnjs.cat.net/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-rating-input/0.4.0/bootstrap-rating-input.min.js" type="text/javascript"></script>
+    <script src="wwwroot/js/mobile-detect.min.js" type="text/javascript"></script>
+    <script src="wwwroot/js/responsive.js" type="text/javascript"></script>
 
     <base href="/" />
 
     <link rel="stylesheet" href="//hstatic.net/0/0/global/design/css/bootstrap.3.3.1.css">
     <link href="//hstatic.net/0/0/global/design/plugins/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css"
         media="all">
-    <link href="//cdnjs.cat.net/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css" rel="stylesheet" type="text/css" media="all">
     <link href="wwwroot/css/animate.css" rel="stylesheet" type="text/css" media="all">
     <link href="wwwroot/css/main.css" rel="stylesheet" type="text/css" media="all">
 </head>
@@ -29,6 +32,24 @@
 <body ng-app="OnkyApp">
     <div id="wrapper">
         <header ng-include="'app/layout/_header.html'" class="header"></header>
+        <div class="breadcrumb">
+            <div class="container">
+                <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5 "> -->
+                    <ol class="breadcrumb breadcrumb-arrows">
+                        <li>
+                            <a href="/" target="_self">
+                                <i class="fa fa-home"></i> Trang chủ</a>
+                        </li>
+                        <li>
+                            <a href="/collections/quan-ao-nu" target="_self">Quần áo nữ</a>
+                        </li>
+                        <li class="active">
+                            <span> Py Satin TNQL</span>
+                        </li>
+                    </ol>
+                <!-- </div> -->
+            </div>
+        </div>
         <section id="content" ng-view>
         </section>
         <footer ng-include="'app/layout/_footer.html'" class="footer"></footer>
@@ -53,7 +74,6 @@
                         alt="Set dây màu sắc">
                 </div>
                 <div id="quickview-sliderproduct">
-
                     <div class="quickview-slider">
                         <ul class="owl-carousel">
                             <li class="product-thumb">
@@ -93,11 +113,17 @@
             <div class="col-md-7">
                 <form id="form-quickview" method="post" action="/cart/add">
                     <div class="quickview-information">
-
-                        <div class="form-input">
-                            <div class="quickview-price product-price">
-                                <span>170,000₫</span>
-                                <del>250,000₫</del>
+                        <h5>THƯƠNG HIỆU: <span class="color__hot-orange">TEST</span></h5>
+                        <h3 class="quickview-title-text text-left">Set dây màu sắc</h3>
+                        <div class="row">
+                            <div class="col-md-4 quickview-price products__list--item_prices">
+                                <p class="products__list--item_prices-main quickview-price">220.000đ</p>
+                                <p class="products__list--item_prices-compare quickview-price">120.000đ</p>
+                            </div>
+                            <div class="cartpreview__inner--body_list-product_quantity">
+                                <span class="minus">-</span>
+                                <input id="quantity-quickview" name="quantity" min="1" class="item-quantity" value="1">
+                                <span class="add">+</span>
                             </div>
                         </div>
                         <div class="quickview-variants variant-style clearfix">
@@ -122,19 +148,37 @@
                             </select>
                         </div>
                         <div class="quickview-description"></div>
-                        <div class="form-input ">
-                            <label>Số lượng</label>
 
-                            <input id="quantity-quickview" name="quantity" type="number" min="1" value="1">
+
+                        <div class="quickview-button">
+                            <button type="submit" class="quickview-btn-detail quickview-btn-addcart btn-addcart">Thêm vào giỏ</button>
+                            <button class="quickview-btn-detail quickview-btn-buynow btn-min-width btn-mgt btn-addcart">Mua ngay</button>
+                            <a href="javascript:void(0);" class="quickview-btn-detail quickview-btn-quickcheckout  btn-min-width btn-mgt btn-quickcheckout">Đặt hàng nhanh</a>
+                            <button disabled class="quickview-btn-detail addtocart btn-color-add btn-min-width btn-mgt btn-soldout" style="display: none">Hết hàng</button>
                         </div>
-
-                        <div class="form-input" style="width: 100%">
-                            <button type="submit" class="btn-detail  btn-color-add btn-min-width btn-mgt btn-addcart" style="display: block;">Thêm vào giỏ</button>
-                            <button disabled="" class="btn-detail addtocart btn-color-add btn-min-width btn-mgt btn-soldout" style="display: none;">Hết hàng</button>
-                            <div class="qv-readmore">
-                                <span> hoặc </span>
-                                <a class="read-more p-url" href="" role="button">Xem chi tiết</a>
-                            </div>
+                        <div class="quickview-moreinfo">
+                            <p>
+                                <label>Danh mục: </label>
+                                <span>Kem dưỡng mắt</span>
+                            </p>
+                            <p>
+                                <label>Từ khóa: </label>
+                                <span>Bioderma, Contour Des Yeux, Eye Gel, Gel dưỡng da, salebioderma, Sensibio, Vùng Mắt</span>
+                            </p>
+                        </div>
+                        <div class="quickview-contact">
+                            <p>
+                                <img src="http://theme.hstatic.net/1000225663/1000310269/14/fb-icon.png" alt=""> Chia sẻ &nbsp; &nbsp; &nbsp;
+                                <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-messenger.png" alt=""> Gởi tin nhắn
+                            </p>
+                            <p>
+                                Gọi đặt mua:
+                                <b class="color__hot-orange">1900 636 737</b> (Ấn phím 1)
+                            </p>
+                            <p>
+                                Hotline:
+                                <b class="color__hot-orange">0886 838 939</b> (09h:00 - 21h:00)
+                            </p>
                         </div>
                     </div>
                 </form>
@@ -143,9 +187,12 @@
     </div>
     <a href="javascript:void(0);" class="scrollToTop show">
         <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-totop.png" alt="">
-    </i>
+    </a>
+    <a href="https://m.me/XYZ" class="messengerButton show">
+        <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-messenger-tranparent.png" alt="">
     </a>
     <script src="app/app.js" type="text/javascript"></script>
+    <div ng-include="'app/layout/_toolbar.html'"></div>
 </body>
 
 </html>

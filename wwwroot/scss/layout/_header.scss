@@ -59,7 +59,7 @@
                     height: 32px;
                     margin: 0 5px;
                 }
-                a{
+                a {
                     text-decoration: none;
                     color: $color-black-main;
                     cursor: pointer;
@@ -92,12 +92,17 @@
                 }
             }
         }
+        @include modifier("logo"){
+            @include e("togglemobile"){
+                display: none;
+            }
+        }
     }
     @include element("menu") {
-        max-height: 100px;
-        height: 85px;
+        max-height: 80px; //height: 85px;
         //overflow: hidden;
         display: table;
+        padding: 0;
         list-style: none;
         @include e("item") {
             display: table-cell;
@@ -161,7 +166,7 @@
                     -webkit-animation: colorhotchange 1s infinite alternate;
                 }
             }
-            @include modifier("active"){
+            @include modifier("active") {
                 a.current {
                     text-decoration: none;
                     span {
@@ -170,6 +175,126 @@
                     }
                 }
             }
+        }
+    }
+}
+
+///////
+/// Responsive
+.mobile {
+    .header {
+        height: 65px!important;
+        border-bottom: none;
+
+        @include element("top") {
+            height: 70px;
+            @include modifier("search") {
+                @include e("desktop") {
+                    display: none;
+                }
+            }
+            @include modifier("icon") {
+                padding: 0;
+                width: 100%;
+                overflow: unset!important;
+                margin-bottom: 0;
+                li {
+                    border-left: 1px dashed $color-grey-light;
+                    padding-left: 0px;
+                    line-height: 12px;
+                    img {
+                        height: 22px;
+                    }
+                    &:nth-child(1){
+                        border-left: none;
+                        width: 20%;
+                    }
+                    &:nth-child(2){
+                        display: none;   
+                    }
+                    &:nth-child(3){
+                        width: 80%;
+                    }
+                    div{
+                        label{
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+            @include modifier("logo"){
+                img{
+                    max-width: 88px;
+                    height: 22px;
+                }
+                @include e("togglemobile"){
+                    display: inline;
+                    margin-right: 11px;
+                }
+            }
+        }
+        @include element("menu") {
+            display: none!important;
+        }
+    }
+}
+
+.tablet {
+    .header {
+        height: 65px!important;
+        border-bottom: none;
+
+        @include element("top") {
+            .container{
+                padding: 0;
+            }
+            height: 70px;
+            @include modifier("search") {
+                @include e("desktop") {
+                    display: none;
+                }
+            }
+            @include modifier("icon") {
+                padding: 0;
+                width: 160px;
+                overflow: unset!important;
+                margin-bottom: 0;
+                float: right;
+                li {
+                    padding-left: 10px;
+                    line-height: 12px;
+                    img {
+                        height: 22px;
+                    }
+                    &:nth-child(1){
+                        border-left: none;
+                    }
+                    &:nth-child(2){
+                        display: none;
+                    }
+                    &:nth-child(3){
+                        width: 80%;
+                    }
+                    div{
+                        label{
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+            @include modifier("logo"){
+                img{
+                    max-width: 88px;
+                    height: 22px;
+                }
+                @include e("togglemobile"){
+                    display: inline;
+                    margin-right: 11px;
+                }
+            }
+        }
+        @include element("menu") {
+            display: none!important;
         }
     }
 }

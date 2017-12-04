@@ -23,17 +23,18 @@
             background: $color-white;
             margin-bottom: 25px;
             margin-right: -5px;
-            border: 1px dashed $color-grey-light;
-            max-height: 260px;
-            height: 260px;
+            border: 1px dashed $color-grey-bold;
+            max-height: 360px;
+            height: 360px;
             overflow: hidden;
+            //padding: 10px 0;
             @include e("img") {
                 max-width: 100%;
-                max-height: 156px;
-                height: 156px;
+                max-height: 260px;
+                height: 260px;
                 overflow: hidden;
                 margin: auto;
-                img{
+                img {
                     width: 100%;
                     margin: -10px 0 0 0;
                 }
@@ -50,11 +51,11 @@
                 @include f-medium();
                 * {
                     text-decoration: none;
-                    color: $color-header-pro;
+                    color: $color-black-main;
                     transition: 0.3s color ease-in-out;
                     &:hover {
                         text-decoration: none;
-                        color: $color-green;
+                        color: $color-header-pro;
                     }
                 }
             }
@@ -62,7 +63,7 @@
                 margin-top: 15px;
                 line-height: 0.4em;
                 @include m("main") {
-                    color: $color-hot-orange;
+                    color: $color-hot-orange2;
                     text-decoration: none;
                     font-size: 0.95em;
                     @include f-medium();
@@ -74,8 +75,27 @@
                     @include f-regular();
                 }
             }
+            &:hover {
+                .products {
+                    @include element("list") {
+                        @include modifier("item") {
+                            @include e("actions") {
+                                @include m("addcart") {
+                                    opacity: 1; //transform: scaleY(1);
+                                    transform: translateY(0);
+                                }
+                                @include m("views") {
+                                    opacity: 1;
+                                    transform: scaleX(1);
+                                    transform: scaleY(1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             @include e("actions") {
-                opacity: 0;
+                opacity: 1;
                 position: absolute;
                 top: 0;
                 width: 100%;
@@ -84,12 +104,13 @@
                 transition: all 0.3s ease-in-out;
                 pointer-events: none;
                 @include m("views") {
+                    display: none!important;
                     background: rgba(255, 255, 255, 0.8);
                     height: 100%;
                     text-align: center;
-                    width: 88%;
+                    width: 91%;
                     max-width: 100%;
-                    max-height: 160px;
+                    max-height: 206px;
                     overflow: hidden;
                     display: table;
                     font-size: 1em;
@@ -97,12 +118,16 @@
                     line-height: 5px;
                     text-decoration: none;
                     pointer-events: auto;
-                    *{
+                    opacity: 0;
+                    transform: scaleX(0);
+                    transform: scaleY(0);
+                    transition: all 0.3s ease-in;
+                    * {
                         text-decoration: none;
                         img {
-                            width: 16px;
-                            height: 16px;
-                            margin: 35% auto 0 auto;
+                            width: 26px;
+                            height: 26px;
+                            margin: 30% auto 0 auto;
                             display: block;
                             margin-bottom: 14px;
                             filter: grayscale(0.5);
@@ -113,10 +138,11 @@
                             text-transform: capitalize;
                             color: $color-grey;
                             transition: 0.25s all ease;
+                            font-size: 1.1em;
                         }
-                        &:hover{                            
+                        &:hover {
                             text-decoration: none;
-                            img{
+                            img {
                                 transform: scale(1.1);
                                 filter: grayscale(0);
                             }
@@ -129,39 +155,129 @@
                 @include m("addcart") {
                     border: 1px solid $color-grey;
                     border-radius: 3px;
-                    width: 75%;
-                    margin-left: 5px;
-                    padding: 2px;
                     background: $color-white;
-                    bottom: 35px;
                     position: absolute;
-                    transition: all 0.25s ease-in;
+                    transition: all 0.45s ease-in; //transition: transform 0.45s ease-in;
                     cursor: pointer;
                     pointer-events: auto;
+                    width: 65%;
+                    padding: 5px 20px;
+                    bottom: 30px;
+                    height: 35px;
+                    font-size: 1.05em;
+                    margin-left: calc(55% - 40.5%);
+                    text-align: center;
+                    opacity: 0; //transform: scaleY(-1);
+                    transform: translateY(10px);
                     img {
                         width: 20px;
                         height: 20px;
                         margin-right: 5px;
-                        filter: grayscale(0.5);
+                        filter: grayscale(0.1);
                         transition: all 0.25s ease-in;
                     }
                     span {
-                        color: $color-grey;
+                        color: $input-payment-border;
                         font-size: 0.9em;
                         @include f-medium;
                         transition: all 0.25s ease-in;
                     }
                     &:hover {
-                        border: 1px solid $color-green;
+                        border: 1px solid $input-payment-border;
                         img {
                             filter: grayscale(0);
                             transform: scale(1.1);
                         }
                         span {
-                            color: $color-green;
+                            color: $input-payment-border;
                         }
                     }
                 }
+            }
+            @include e("promotion") {
+                background: url(bg_url('bg-hot.png')) top center no-repeat;
+                background-size: contain;
+                position: absolute;
+                height: 60px;
+                width: 40px;
+                z-index: 12;
+                margin-top: -5px;
+                right: 10px;
+                text-align: center;
+                padding-top: 10px;
+                span {
+                    font-size: 0.8em;
+                    color: $color-white;
+                    text-align: center;
+                    margin: auto;
+                    @include f-bold;
+                }
+            }
+            @include e("soldout") {
+                background-color: $color-hot-orange;
+                position: absolute;
+                width: 80px;
+                height: 30px;
+                z-index: 12;
+                margin-bottom: -5px;
+                right: 0px;
+                text-align: center;
+                padding-top: 5px;
+                bottom: 115px;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    width: 10px;
+                    height: 10px;
+                    background-color: $color-hot-orange;
+                    transform: rotate(45deg);
+                    left: 10px;
+                    bottom: -5px;
+                }
+                span {
+                    font-size: 0.8em;
+                    color: $color-white;
+                    text-align: center;
+                    margin: auto;
+                    @include f-bold;
+                }
+            }
+        }
+    }
+    @include element("viewmore") {
+        display: table;
+        text-align: center;
+        width: 136px;
+        margin: 24px auto 0 auto;
+        @include modifier("link") {
+            height: 36px;
+            width: 136px;
+            display: table-cell;
+            margin: auto;
+            color: $color-white;
+            @include cart-bg-gradient-horizontal;
+            vertical-align: middle;
+            border-radius: 5px;
+            transition: all 0.15s ease-in;
+            text-transform: uppercase;
+            &:hover {
+                color: $color-white;
+                box-shadow: 0px 0px 13px #c1c1c1;
+                &:after {
+                    margin-left: 10px;
+                }
+            }
+            &:after {
+                content: "";
+                position: absolute;
+                background: url(bg_url("icon-totop-grey.png"));
+                background-repeat: no-repeat;
+                background-size: contain;
+                height: 13px;
+                width: 13px;
+                margin-left: 5px;
+                margin-top: 3px;
+                transition: all 0.15s ease-in;
             }
         }
     }

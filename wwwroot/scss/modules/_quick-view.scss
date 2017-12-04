@@ -1,12 +1,12 @@
 #quick-view-modal {
     background: rgba(0, 0, 0, 0.31);
-    z-index: 9999;
+    z-index: 1001;
     .modal-footer {
         border-top: 1px solid #ccc;
     }
     .selector-wrapper {
         label {
-            width: 25%;
+            margin-right: 5px;
             font-weight: bold;
         }
     }
@@ -24,8 +24,81 @@
         width: 100%;
         float: left;
     }
-    .btn-detail {
-        float: left;
+    .quickview-button{
+        display: table;
+        width: 100%;
+    }
+    .quickview-btn-detail {
+        height: 55px;
+        text-transform: uppercase;
+        color: $color-white;
+        font-size: 1em;
+        padding: 10px 20px;
+        padding-left: 40px;
+        background: transparent;
+        border: none;
+        border-radius: 3px;
+
+        transition: 0.19s all ease-in;
+        &:hover {
+            cursor: pointer;
+            box-shadow: 0px -1px 6px #c3c3c3;
+        }
+        //display: table-cell;
+    }
+    .quickview-btn-addcart {
+        background-color: #a1574a;
+        border: 2px #d5b3ad solid;
+
+        &::before{
+            content: "";
+            position: absolute;
+            background-image: url(bg_url('icon-cart-add-white.png'));
+            width: 20px;
+            height: 20px;
+            margin-left: -25px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+    .quickview-btn-buynow {
+        background-color: #ffb693;
+        border: 2px #ffe2cc solid;
+        padding-left: 45px;
+        margin-left: 7px;
+
+        &::before{
+            content: "";
+            position: absolute;
+            background-image: url(bg_url('icon-scooter-white.png'));
+            width: 30px;
+            height: 20px;
+            margin-left: -30px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+    }
+    .quickview-btn-quickcheckout {
+        @include cart-bg-gradient;
+        border: 2px #faccdf solid;
+        padding-left: 25px;
+        margin-left: 7px;
+        padding: 15px 10px;
+        &:hover{
+            @include cart-bg-gradient-horizontal;
+        }
+    }
+    .quickview-moreinfo{
+        border: none;
+        border-top: 1px dashed #c5c5c5;
+        border-bottom: 1px dashed #c5c5c5;
+        margin: 15px 0;
+        min-height: 110px;
+        background-color: #fcfcfc;
+        padding: 25px 15px;
+    }
+    .quickview-contact{
+        margin-bottom: 30px;
     }
     .form-input {
         float: left;
@@ -127,6 +200,12 @@
             opacity: 1;
         }
     }
+    .single-option-selector{
+        height: 40px;
+        border-radius: 3px;
+        border: 1px solid $color-main;
+        color: $color-black-main;
+    }
     .product-thumb {
         &:hover,
         &.active {
@@ -157,6 +236,22 @@
     .btn-soldout {
         width: 100%;
     }
+    .quickview-price{
+        font-size: 1.1em;
+    }
+    .quickview-quantity{
+        padding-top: 10px;
+    }
+    .quickview-variants{
+
+        border: none;
+        border-top: 1px dashed #c5c5c5;
+        border-bottom: 1px dashed #c5c5c5;
+        margin: 15px 0;
+        min-height: 110px;
+        background-color: #fcfcfc;
+        padding: 25px 15px;
+    }
     .modal-title {
         &.p-title {
             font-weight: bold;
@@ -174,7 +269,7 @@
         left: 0px;
         right: 0px;
         bottom: 0px;
-        z-index: 4;
+        z-index: 1000;
         background-color: rgba(0, 0, 0, 0.4);
     }
     .wrapper-quickview {
@@ -197,7 +292,7 @@
         left: 0px;
         right: 0px;
         padding: 0px;
-        z-index: 5;
+        z-index: 1001;
         background-color: #fff;
     }
     .quickview-close {

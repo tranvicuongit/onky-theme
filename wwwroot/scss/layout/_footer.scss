@@ -22,16 +22,16 @@
                     color: $color-light;
                 }
             }
-            &:nth-child(1):after {
+            &:nth-child(1):before {
                 display: none;
             }
-            &:after {
+            &:before {
                 content: "";
                 position: absolute;
                 background-color: #969696;
                 width: 1px;
                 height: 8px;
-                top: 5px;
+                margin-top: 5px;
                 display: block;
             }
         }

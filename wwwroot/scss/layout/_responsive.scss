@@ -1,0 +1,36 @@
+///
+/// Tablet
+///
+.tablet {    
+    .messengerButton {
+        top: auto !important;
+        bottom: 100px !important;
+        left: 30px;
+    }
+}
+
+///
+/// Mobile
+///
+.mobile {
+    .owl-carousel {
+        max-height: 350px!important;
+        overflow-y: hidden;
+        img {
+            max-height: 100%;
+            max-width: 100%;
+            width: 100%;
+        }
+        .homeslide__caption {
+            display: none;
+        }
+    }
+    .owl-controls {
+        display: none!important;
+    }
+    .messengerButton {
+        top: auto !important;
+        bottom: 100px !important;
+        left: 30px;
+    }
+}

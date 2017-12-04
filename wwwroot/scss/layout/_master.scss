@@ -26,8 +26,7 @@ header {
 
 input,
 button {
-    &:focus,
-    &:active {
+    &:focus, &:active {
         outline: none;
     }
 }
@@ -45,23 +44,28 @@ a, button, input, textarea, select {
     &:hover {
         text-decoration: none;
         outline: none;
+        color: $color-main;
     }
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
 .scrollToTop {
     top: auto!important;
     padding: 12px;
-    border-radius: 100%;
+    border-radius: 50%;
     bottom: -38px;
-    height: 50px;
     opacity: 0;
     position: fixed;
-    right: 50px;
-    -webkit-transition: all .6s ease;
-    transition: all .3s ease;
+    right: 30px;
     transition: all .6s ease;
     visibility: hidden;
     width: 50px;
+    height: 50px;
     z-index: 99;
     border: none;
     @include cart-bg-gradient();
@@ -71,15 +75,40 @@ a, button, input, textarea, select {
         opacity: 1;
         visibility: visible;
         backface-visibility: hidden;
-        -webkit-backface-visibility: hidden;
         transform: scale(1.1);
-        -moz-transform: scale(1);
-        -o-transform: scale(1);
-        -webkit-transform: scale(1);
+    }
+    &:hover {
+        @include cart-bg-gradient-destroy();
+        transform: scale(.91);
+    }
+}
+
+
+.messengerButton {
+    padding: 12px;
+    border-radius: 100%;
+    top: 25%!important;
+    bottom: auto!important;
+    height: 50px;
+    width: 50px;
+    right: 30px;
+    opacity: 0;
+    position: fixed;
+    transition: all .3s ease;
+    visibility: hidden;
+    z-index: 99;
+    border: none;
+    @include cart-bg-gradient();
+    box-shadow: 0px 1px 2px #000;
+    img{
+        width: 100%;
+    }
+    &.show {
+        bottom: 100px;  
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1.1);
         transition: .2s all ease;
-        -moz-transition: .2s all ease;
-        -o-transition: .2s all ease;
-        -webkit-transition: .2s all ease;
     }
     &:hover {
         @include cart-bg-gradient-destroy();

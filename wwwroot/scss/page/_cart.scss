@@ -113,6 +113,10 @@
                     max-width: 100%;
                     border-radius: 3px;
                     max-height: 100%;
+                    img{
+                        margin: auto;
+                        display: block;
+                    }
                 }
                 @include m("product") {
                     padding: 15px 10px;
@@ -138,7 +142,7 @@
                         display: table;
                         text-align: right;
                         span {
-                            background: #d1d1d1;
+                            background: $color-grey-lightmore;
                             height: 37px;
                             width: 22px;
                             color: $color-black-main;
@@ -148,6 +152,7 @@
                             text-align: center;
                             padding: 6px;
                             @include f-medium;
+                            transition: 0.15s all ease-in;
                             &.minus {
                                 margin-left: 0;
                                 border-radius: 5px 0 0 5px;
@@ -157,14 +162,14 @@
                             }
                             &:hover {
                                 cursor: pointer;
-                                background: #bbb;
+                                background: $color-grey;
                             }
                         }
                         input {
                             display: table-cell;
                             width: 62px;
                             height: 37px;
-                            border: 1px solid #d1d1d1;
+                            border: 2px solid $color-grey-lightmore;
                             text-align: center;
                             color: $color-black-main;
                             font-size: 1em;
@@ -185,7 +190,7 @@
                     background: none;
                     color: #474747;
                     padding: 5px;
-                    margin-top: -55px;
+                    margin-top: -50px;
                     display: block;
                     position: relative;
                     margin-right: 7px;
@@ -363,8 +368,9 @@
                     background-color: #f6f6f6;
                     th {
                         padding: 15px;
-                        text-align: center;
+                        text-align: left;
                         height: 40px;
+                        @include f-medium;
                     }
                 }
                 tbody {
@@ -447,8 +453,7 @@
             overflow-x: auto;
             margin-bottom: 20px;
             tr {
-                border-bottom: 1px dashed $color-black-main;
-                // &:nth-last-child(1) {
+                border-bottom: 1px dashed $color-black-main; // &:nth-last-child(1) {
                 //     border-bottom: none;
                 // }
                 td {
@@ -489,7 +494,8 @@
             }
         }
         @include modifier("notes") {
-            input, textarea{
+            input,
+            textarea {
                 max-width: 100%;
                 border: 1px solid #d1d1d1;
                 width: 100%;
@@ -499,16 +505,130 @@
                 color: $color-black-main;
                 font-size: 0.9em;
                 @include f-regular;
-                
-                &:active, &:focus{
+                &:active,
+                &:focus {
                     border: 1px solid $color-main;
                     color: $color-hot-orange;
                 }
             }
-            label{
+            label {
                 @include f-medium;
                 display: block;
             }
+        }
+    }
+}
+
+/////////////////////////// Responsive ////////////////////////
+.mobile {
+    .cartpreview {
+        @include element("inner") {
+            width: calc(100% - 53px);
+
+            @include modifier("header") {
+                height: 52px;
+                border-top: 2px solid $color-header-pro;
+                border-bottom: 2px dashed #fbd4d9;
+                * {
+                    color: $color-white;
+                    font-size: 1.1em;
+                    text-align: left;
+                    padding-left: 10px;
+                }
+            }
+            
+            @include modifier("body") {
+                @include e("list") {
+                    background-color: $color-white;
+                    border-radius: 1px;
+                    height: auto;
+                    width: 100%;
+                    color: $color-black-main;
+                    table {
+                        width: 100%;
+                        tr {
+                            border: 3px solid $cart-body-bg;
+                            td {
+                                padding: 5px;
+                            }
+                        }
+                    }
+                    &.scroll {
+                        max-height: 60%;
+                        overflow-y: auto;
+                        &::-webkit-scrollbar {
+                            width: 3px;
+                        }
+                        &::-webkit-scrollbar-track {
+                            -webkit-border-radius: 0px;
+                            border-radius: 0px;
+                        }
+                        &::-webkit-scrollbar-thumb {
+                            -webkit-border-radius: 1px;
+                            border-radius: 1px;
+                            @include cart-bg-gradient-vertical();
+                        }
+                        &::-webkit-scrollbar-thumb:window-inactive {
+                            @include cart-bg-gradient-destroy();
+                        }
+                    }
+                    &.total {
+                        font-size: 1em;
+                    }
+                    @include m("img") {
+                       width: 30%;
+                    }
+                    @include m("price") {
+                        font-size: 0.7em;
+                    }
+                    @include m("product") {
+                        padding: 5px;
+                        @include e("name") {
+                            font-size: 0.8em;
+                        }
+                        @include e("price") {
+                            font-size: 0.8em;
+                        }
+                        @include e("quantity") {
+                            input {
+                                display: table-cell;
+                                width: 25px;
+                                height: 32px;
+                                border: 2px solid $color-grey-lightmore;
+                                text-align: center;
+                                color: $color-black-main;
+                                font-size: 0.7em;
+                                @include f-medium;
+                            }
+                            span{
+                                font-size: 0.7em;
+                                height: 25px;
+                            }
+                        }
+                    }
+                    @include m("remove"){                        
+                        margin-top: -75px;
+                        font-size: 1.2em;
+                    }
+                }
+                @include e("button") {
+                    height: 55px;
+                    a, button{
+                        height: 40px;
+                    }
+
+                    @include m('view') {
+                        margin-top: 0px;
+                    }
+                    @include m('payment') {
+                        margin-top: 5px;
+                    }
+                }
+            }
+        }
+        @include element("close") {
+            left: 0!important;
+            right: auto!important;
         }
     }
 }
