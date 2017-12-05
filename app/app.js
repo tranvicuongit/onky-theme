@@ -39,6 +39,16 @@ var onkyApp = {
       $(".homeslide .owl-item.active .homeslide__caption--inner_header2").css("display", "block");
       $(".homeslide .owl-item.active .homeslide__caption--inner_button").css("display", "block");
     }
+  },
+  header_mobile: {
+    open: function () {
+      $(".header__mobile").removeClass("header__mobile--closed animated fadeOutDown hidden");
+      $(".header__mobile").addClass("header__mobile--opened");
+    },
+    close: function () {
+      $(".header__mobile").removeClass("header__mobile--opened");
+      $(".header__mobile").addClass("header__mobile--closed animated fadeOutDown hidden");
+    }
   }
 }
 
@@ -148,11 +158,15 @@ var app = angular.module('OnkyApp', ['ngRoute'])
 
 
       $("html, body").click(function (e) {
-        if ($(e.target).hasClass('cartpreview') && !$('.cartpreview').hasClass("cartpreview--opended") && !$(e.target).hasClass("cartpreview__backdrop")) {
+        if ($(e.target).hasClass('cartpreview') && !$('.cartpreview').hasClass("cartpreview--opended") && !$(e.target).hasClass("cartpreview__backdrop") &&
+          $(e.target).hasClass('header__mobile') && !$('.header__mobile').hasClass("header__mobile--opended") && !$(e.target).hasClass("header__mobile--backdrop")) {
           return false;
         } else {
           if ($('.cartpreview').hasClass("cartpreview--opended") && $(e.target).hasClass("cartpreview__backdrop"))
             onkyApp.cart.closePreview();
+
+          if ($('.header__mobile').hasClass("header__mobile--opended") && $(e.target).hasClass("header__mobile--backdrop"))
+            onkyApp.header_mobile.close();
         }
       });
 
@@ -176,6 +190,30 @@ var app = angular.module('OnkyApp', ['ngRoute'])
       });
 
       $('.quickview-slider .owl-carousel .owl-item').first().children('.product-thumb').addClass('active');
+
+      $(".header__mobile--menu_item").click(function () {
+        var $this = $(this);
+        var $submenu = $this.find(".header__mobile--menu_item_submenu");
+        // Deactive element
+        $(".header__mobile--menu_item").removeClass("header__mobile--menu_item-active");
+
+        // Deactive icon plus
+        $(".header__mobile--menu_item-icon").text("+");
+
+
+        if (!$submenu.hasClass("header__mobile--menu_item_submenu-opened")) {
+          $this.addClass("header__mobile--menu_item-active");
+          $(".header__mobile--menu_item_submenu").removeClass("header__mobile--menu_item_submenu-opened");
+
+          $submenu.addClass("header__mobile--menu_item_submenu-opened");
+          $this.find(".header__mobile--menu_item-icon").text("-");
+        } else {
+          $submenu.removeClass("header__mobile--menu_item_submenu-opened");
+          //
+        }
+      });
+
+
     }, 2000);
     //////////////////////////////
 

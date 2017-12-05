@@ -282,3 +282,150 @@
         }
     }
 }
+
+//// Responsive 
+.mobile{
+    .products{
+        @include element("list") {
+            @include modifier("item"){
+                height: 270px;
+                margin-right: 10px;
+                margin-left: 10px;
+                @include e("img") {
+                    max-height: 180px;
+                    height: 170px;
+                    img {
+                        margin: 0;
+                    }
+                }
+                @include e("actions") {
+                    display: none;
+                }
+                @include e("promotion") {
+                    margin-right: 10px;
+                }
+            }
+        }
+        @include element("viewmore") {
+            width: 136px;
+            margin: 14px auto 0 auto;
+            @include modifier("link") {
+                height: 40px;
+                width: 146px;
+                &:after {
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}
+
+.tablet {
+    .products{
+        @include element("list") {
+            @include modifier("item"){
+                height: 280px;
+                margin-right: 10px;
+                margin-left: 10px;
+                @include e("img") {
+                    max-height: 200px;
+                    height: 180px;
+                    img {
+                        margin: 0;
+                    }
+                }
+                @include e("actions") {
+                    display: none;
+                }
+            }
+        }
+        @include element("viewmore") {
+            width: 136px;
+            margin: 14px auto 0 auto;
+            @include modifier("link") {
+                height: 40px;
+                width: 146px;
+                &:after {
+                    margin-left: 10px;
+                }
+            }
+        }
+        @include e("promotion") {
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (orientation: landscape) {
+    .mobile{
+        .products{
+            @include element("list") {
+                @include modifier("item"){
+                    margin-right: 10px;
+                    margin-left: 10px;
+                    height: 300px;
+                    @include e("img") {
+                        max-height: 200px;
+                        height: 190px;
+                        img {
+                            margin: 0;
+                        }
+                    }
+                    @include e("actions") {
+                        display: none;
+                    }
+                    @include e("promotion") {
+                        margin-right: 10px;
+                    }
+                }
+            }
+            @include element("viewmore") {
+                width: 136px;
+                margin: 14px auto 0 auto;
+                @include modifier("link") {
+                    height: 40px;
+                    width: 146px;
+                    &:after {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+    
+    .tablet{
+        .products{
+            @include element("list") {
+                @include modifier("item"){
+                    height: 300px;
+                    margin-right: 10px;
+                    margin-left: 10px;
+                    @include e("img") {
+                        max-height: 220px;
+                        height: 200px;
+                        img {
+                            margin: 0;
+                        }
+                    }
+                    @include e("actions") {
+                        display: none;
+                    }
+                    @include e("promotion") {
+                        margin-right: 10px;
+                    }
+                }
+            }
+            @include element("viewmore") {
+                width: 136px;
+                margin: 14px auto 0 auto;
+                @include modifier("link") {
+                    height: 40px;
+                    width: 146px;
+                    &:after {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

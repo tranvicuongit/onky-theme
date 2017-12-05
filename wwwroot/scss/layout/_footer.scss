@@ -103,3 +103,24 @@
         }
     }
 }
+
+.tablet, .mobile{
+    .footer{
+        @include element("link"){
+            display: none!important;
+        }
+        @include element("menu"){
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+        @include element("social"){
+            margin: 20px 0;
+        }
+        @include element("copyright"){
+            font-size: 0.9em;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            margin-top: 40px;
+        }
+    }
+}

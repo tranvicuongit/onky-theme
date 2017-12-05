@@ -92,8 +92,8 @@
                 }
             }
         }
-        @include modifier("logo"){
-            @include e("togglemobile"){
+        @include modifier("logo") {
+            @include e("togglemobile") {
                 display: none;
             }
         }
@@ -177,6 +177,301 @@
             }
         }
     }
+    @include element("mobile") {
+        //display: none;
+        &.animated {
+            animation-duration: .2s;
+            animation-fill-mode: both;
+        }
+        @include modifier("opened") {
+            display: block;
+            .header {
+                @include element("mobile") {
+                    @include e("inner") {
+                        animation: menumobile 0.46s;
+                        -webkit-animation: menumobile 0.46s;
+                        display: block;
+                    }
+                    @include modifier("close") {
+                        animation: menumobile-right 0.36s;
+                        -webkit-animation: menumobile-right 0.36s;
+                        display: block;
+                        right: 0;
+                    }
+                }
+            }
+        }
+        @include modifier("closed") {
+            .header {
+                animation: fadeOut 0.3s;
+                @include element("mobile") {
+                    @include e("inner") {
+                        animation: menumobile-close 0.46s;
+                        -webkit-animation: menumobile-close 0.46s;
+                    }
+                    @include modifier("close") {
+                        animation: menumobile-right-close 0.36s;
+                        -webkit-animation: menumobile-right-close 0.36s;
+                    }
+                }
+            }
+        }
+        @include modifier("close") {
+            width: 53px;
+            height: 48px;
+            background: $cart-bg-close;
+            color: $color-white;
+            background-image: url(bg_url('cart-close-icon.png'));
+            box-shadow: -3px 0px 6px #383838;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 60%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            border-radius: 0;
+            transition: background-color 0.2s ease-in-out;
+            transform: rotate(180deg);
+            &:hover,
+            &:active,
+            &:focus {
+                cursor: pointer;
+                background-color: $color-bold;
+            }
+        }
+        @include modifier("backdrop") {
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        @include e("inner") {
+            width: calc(100% - 53px);
+            background-color: $hd-bg;
+            height: 100%;
+            position: fixed;
+            display: none;
+            top: 0;
+            background-color: $hd-bg;
+            box-shadow: -3px 0px 6px #383838;
+            z-index: 1001;
+            overflow-y: auto;
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+        @include modifier("search") {
+            width: 100%;
+            height: 100px;
+            display: inline-block;
+            text-align: center;
+            padding: 30px 20px;
+            border-bottom: 1px dashed $header-form-borderbottom;
+            @include e("input") {
+                border: $input-color-border 1px solid;
+                height: 50px;
+                width: 100%;
+                border-radius: 50px;
+                padding: 5px 10px;
+                font-size: 1em;
+                color: $input-color;
+                &:placeholder {
+                    color: $input-color;
+                }
+            }
+            @include e("btn") {
+                background-image: url(bg_url('icon-search.png'));
+                background-repeat: no-repeat;
+                background-size: contain;
+                border: none;
+                height: 42px;
+                width: 42px;
+                position: relative;
+                border-radius: 50%;
+                top: -46px;
+                float: right;
+                right: 5px;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        @include modifier("menu") {
+            padding-left: 0;
+            background-color: $hd-bg;
+            list-style: none;
+            overflow-y: auto;
+            @include modifier("opened") {
+                display: block!important;
+            }
+            @include e("item") {
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+                width: 100%;
+                &:after,
+                &:before {
+                    content: "";
+                    display: block;
+                    height: 1px;
+                    background-image: url(bg_url('mb-submenu-border.jpg'));
+                    background-repeat: repeat-x;
+                    background-position: center;
+                    opacity: 0.3;
+                }
+                h3,
+                h4,
+                h5,
+                h6 {
+                    font-size: 1em;
+                    text-align: left;
+                    text-transform: uppercase;
+                    margin: 15px 20px;
+                    a {
+                        text-decoration: none;
+                        >* {
+                            color: $color-black-main;
+                            transition: all 0.15s ease-in;
+                            text-transform: uppercase;
+                            padding-bottom: 3px;
+                            &:hover,
+                            &:active,
+                            &:focus {
+                                color: $color-main; //border-bottom: 2px solid $color-hot-orange;
+                            }
+                        }
+                    }
+                }
+                @include e("submenu") {
+                    display: none;
+                    position: relative;
+                    list-style: none;
+                    min-width: 100%;
+                    padding: 0px 0px 0 30px;
+                    background-color: $header-form-subbg;
+                    z-index: 99;
+                    padding-left: 0;
+                    transition: 0.12s all ease-in;
+                    animation-duration: 0.3s;
+                    @include m("opened") {
+                        display: block!important;
+                        h3 {
+                            span {
+                                color: $color-black-main!important;
+                                text-transform: none;
+                            }
+                        }
+                    }
+                    @include m("closed") {
+                        display: none!important;
+                    }
+                    li {
+                        &:after,
+                        &:before {
+                            content: "";
+                            display: block;
+                            height: 1px;
+                            background-image: url(bg_url('mb-submenu-border.jpg'));
+                            background-repeat: repeat-x;
+                            background-position: center;
+                        }
+                        h3,
+                        h4,
+                        h5,
+                        h6 {
+                            font-size: 1em;
+                            text-align: left;
+                            text-transform: uppercase;
+                            padding: 0px 20px;
+                            display: inline-block;
+                            color: $color-black-main;
+                        }
+                    }
+                }
+                @include m("hot") {
+                    //display: none;
+                    background-color: $color-hot-orange;
+                    border-radius: 3px;
+                    width: 30px;
+                    height: 12px;
+                    font-size: 0.65em;
+                    text-transform: uppercase;
+                    @include f-regular();
+                    color: $color-white;
+                    position: absolute; //display: block;
+                    text-align: center;
+                    float: right;
+                    right: 20%;
+                    -webkit-animation: colorhotchange 1s infinite alternate;
+                    &:before {
+                        content: '';
+                        height: 6px;
+                        width: 6px;
+                        position: absolute;
+                        background-color: $color-hot-orange;
+                        bottom: -3px;
+                        transform: rotate(45deg);
+                        z-index: 0;
+                        -webkit-animation: colorhotchange 1s infinite alternate;
+                    }
+                }
+                @include m("icon") {
+                    color: $color-black-main;
+                    width: 30px;
+                    height: 12px;
+                    font-size: 1.3em;
+                    @include f-regular();
+                    position: relative;
+                    display: block;
+                    float: right;
+                    right: 0px;
+                    top: 10px;
+                }
+                @include m("active") {
+                    background-color: $header-form-subitem-activebg;
+                    h3 {
+                        span {
+                            color: $color-main;
+                        }
+                    }
+                }
+            }
+        }
+        @include modifier("pinnedbottom") {
+            position: fixed;
+            bottom: 0;
+            max-height: 150px;
+            border-top: 1px dashed $header-form-borderbottom;
+            z-index: 1001;
+            padding: 10px 20px;
+            width: calc(100% - 53px);
+            @include e("inner") {
+                ul {
+                    list-style: none;
+                    padding: 0;
+                    li {
+                        vertical-align: middle;
+                        a {
+                            img {
+                                height: 25px;
+                                width: 25px; //float: left;
+                                margin-right: 5px;
+                            }
+                            span {
+                                text-transform: uppercase;
+                                color: $color-main;
+                                font-size: 1em;
+                                @include f-regular;
+                                padding-top: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 ///////
@@ -185,7 +480,6 @@
     .header {
         height: 65px!important;
         border-bottom: none;
-
         @include element("top") {
             height: 70px;
             @include modifier("search") {
@@ -205,29 +499,29 @@
                     img {
                         height: 22px;
                     }
-                    &:nth-child(1){
+                    &:nth-child(1) {
                         border-left: none;
                         width: 20%;
                     }
-                    &:nth-child(2){
-                        display: none;   
+                    &:nth-child(2) {
+                        display: none;
                     }
-                    &:nth-child(3){
+                    &:nth-child(3) {
                         width: 80%;
                     }
-                    div{
-                        label{
+                    div {
+                        label {
                             font-size: 0.8em;
                         }
                     }
                 }
             }
-            @include modifier("logo"){
-                img{
+            @include modifier("logo") {
+                img {
                     max-width: 88px;
                     height: 22px;
                 }
-                @include e("togglemobile"){
+                @include e("togglemobile") {
                     display: inline;
                     margin-right: 11px;
                 }
@@ -243,9 +537,8 @@
     .header {
         height: 65px!important;
         border-bottom: none;
-
         @include element("top") {
-            .container{
+            .container {
                 padding: 0;
             }
             height: 70px;
@@ -266,28 +559,28 @@
                     img {
                         height: 22px;
                     }
-                    &:nth-child(1){
+                    &:nth-child(1) {
                         border-left: none;
                     }
-                    &:nth-child(2){
+                    &:nth-child(2) {
                         display: none;
                     }
-                    &:nth-child(3){
+                    &:nth-child(3) {
                         width: 80%;
                     }
-                    div{
-                        label{
+                    div {
+                        label {
                             font-size: 0.8em;
                         }
                     }
                 }
             }
-            @include modifier("logo"){
-                img{
+            @include modifier("logo") {
+                img {
                     max-width: 88px;
                     height: 22px;
                 }
-                @include e("togglemobile"){
+                @include e("togglemobile") {
                     display: inline;
                     margin-right: 11px;
                 }

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="col-lg-2 col-md-3 col-sm-6 col-xs-6">
             <div class="header__top--logo">
-                <a href="javascript:void(0);" class="header__top--logo_togglemobile">
+                <a href="javascript:void(0);" onclick="onkyApp.header_mobile.open();" class="header__top--logo_togglemobile">
                     <img src="//theme.hstatic.net/1000225663/1000310269/14/icon-menu.png" alt="ONKY LOGO">
                 </a>
                 <a href="/" class="header__top--logo_desktop">
@@ -46,8 +46,6 @@
             </ul>
         </div>
     </div>
-</div>
-<div>
     <div class="container">
         <ul class="header__menu">
             <li ng-repeat="item in Menu" class="header__menu_item header__menu_item--active">
@@ -70,5 +68,52 @@
                 </div>
             </li>
         </ul>
+    </div>
+</div>
+
+<div class="header__mobile animated fadeOutDown hidden">
+    <div class="header__mobile--backdrop animated fadeIn"></div>
+    <div class="header__mobile--close" onclick="onkyApp.header_mobile.close();"></div>
+    <div class="header__mobile_inner">
+        <form action="/search" class="header__mobile--search">
+            <input type="hidden" name="type" value="product">
+            <input type="text" placeholder="Tìm sản phẩm..." name="q" autocomplete="off" class="header__mobile--search_input">
+            <button class="header__mobile--search_btn" type="submit"></button>
+        </form>
+        <ul class="header__mobile--menu">
+            <li ng-repeat="item in Menu" class="header__mobile--menu_item">  <!-- header__mobile--menu_item-active -->
+                <span class="header__mobile--menu_item-hot">HOT</span>
+                <span class="header__mobile--menu_item-icon">+</span>
+                <a data-ng-href="{{item.Link}}">
+                    <h3>
+                        <span>{{item.Title}}</span>
+                    </h3>
+                </a>
+                <div data-ng-if="item.List.length > 0">
+                    <ul class="header__mobile--menu_item_submenu animated fadeInLeft"> <!-- header__mobile--menu_item_submenu-active -->
+                        <li ng-repeat="itemSub in item.List">
+                            <a data-ng-href="{{item.Link}}">
+                                <h3>
+                                    <span>{{itemSub.Title}}</span>
+                                </h3>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="header__mobile--pinnedbottom">
+        <div class="header__mobile--pinnedbottom_inner">
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-gift-solid.png?v=2091" alt="">
+                        <span>Khuyến mãi
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

@@ -75,11 +75,12 @@ input::-webkit-inner-spin-button {
         opacity: 1;
         visibility: visible;
         backface-visibility: hidden;
-        transform: scale(1.1);
+        transform: scale(1);
     }
     &:hover {
-        @include cart-bg-gradient-destroy();
-        transform: scale(.91);
+        //@include cart-bg-gradient-destroy();        
+        background-color: #044480;
+        transform: scale(1.1);
     }
 }
 
@@ -98,7 +99,8 @@ input::-webkit-inner-spin-button {
     visibility: hidden;
     z-index: 99;
     border: none;
-    @include cart-bg-gradient();
+    //@include cart-bg-gradient();
+    background-color: #0084ff;
     box-shadow: 0px 1px 2px #000;
     img{
         width: 100%;
@@ -107,14 +109,20 @@ input::-webkit-inner-spin-button {
         bottom: 100px;  
         opacity: 1;
         visibility: visible;
-        transform: scale(1.1);
+        transform: scale(1);
         transition: .2s all ease;
     }
     &:hover {
-        @include cart-bg-gradient-destroy();
-        transform: scale(.91);
-        -moz-transform: scale(.91);
-        -o-transform: scale(.91);
-        -webkit-transform: scale(.91);
+        //@include cart-bg-gradient-destroy();        
+        background-color: #044480;
+        transform: scale(1.1);
+    }
+}
+
+.tablet, .mobile{
+    .messengerButton {
+        display: none!important;
+    }
+    .scrollToTop {
     }
 }

@@ -18,3 +18,52 @@
   from {bottom: -200px;}
   to {bottom: 0px;}
 }
+
+@keyframes menumobile {
+  from{
+    left: -100%;
+  }
+  to{
+    left: 0;
+  }
+}
+@keyframes menumobile-close {
+  from{
+    left: 0;
+  }
+  to{
+    left: -100%;
+  }
+}
+@keyframes menumobile-right {
+  from{
+    right: -100px;
+  }
+  to{
+    right: 0;
+  }
+}
+@keyframes menumobile-right-close {
+  from{
+    right: 0;
+  }
+  to{
+    right: -100px;
+  }
+}
+@keyframes display {
+  from{
+    display: none;
+  }
+  to{
+    display: block;
+  }
+}
+@keyframes hidden {
+  from{
+    display: block;
+  }
+  to{
+    display: none;
+  }
+}

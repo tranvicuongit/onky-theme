@@ -49,6 +49,7 @@ function responsive() {
         else
         $('html').removeClass('safari');
     }
+    $(".header").sticky({});
 };
 $(window).scroll(function () {
     var h =50;

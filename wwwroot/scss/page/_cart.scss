@@ -113,7 +113,7 @@
                     max-width: 100%;
                     border-radius: 3px;
                     max-height: 100%;
-                    img{
+                    img {
                         margin: auto;
                         display: block;
                     }
@@ -524,7 +524,6 @@
     .cartpreview {
         @include element("inner") {
             width: calc(100% - 53px);
-
             @include modifier("header") {
                 height: 52px;
                 border-top: 2px solid $color-header-pro;
@@ -536,7 +535,6 @@
                     padding-left: 10px;
                 }
             }
-            
             @include modifier("body") {
                 @include e("list") {
                     background-color: $color-white;
@@ -576,7 +574,7 @@
                         font-size: 1em;
                     }
                     @include m("img") {
-                       width: 30%;
+                        width: 30%;
                     }
                     @include m("price") {
                         font-size: 0.7em;
@@ -600,23 +598,23 @@
                                 font-size: 0.7em;
                                 @include f-medium;
                             }
-                            span{
+                            span {
                                 font-size: 0.7em;
                                 height: 25px;
                             }
                         }
                     }
-                    @include m("remove"){                        
+                    @include m("remove") {
                         margin-top: -75px;
                         font-size: 1.2em;
                     }
                 }
                 @include e("button") {
                     height: 55px;
-                    a, button{
+                    a,
+                    button {
                         height: 40px;
                     }
-
                     @include m('view') {
                         margin-top: 0px;
                     }
@@ -629,6 +627,161 @@
         @include element("close") {
             left: 0!important;
             right: auto!important;
+        }
+    }
+    .cart {
+        margin-top: -20px; //background-color: $cart-body-bg;
+        background-color: $color-grey;
+        @include modifier("empty") {
+            padding: 5% 10%;
+            @include element("img") {
+                width: 80%;
+                max-height: 450px;
+                margin-top: 30px;
+            }
+            @include element("message") {
+                font-size: 0.9em;
+                margin: 3%;
+                padding: 3%;
+                text-align: center;
+                color: $color-header-pro;
+            }
+            @include element("button") {
+                text-transform: capitalize;
+                font-size: 0.8em;
+                padding: 15px 5px;
+                color: $color-white;
+                @include f-bold;
+                transition: all 0.3s ease-in-out;
+                display: block;
+                margin: auto;
+                width: 55%;
+                border-radius: 5px;
+                @include cart-bg-gradient-destroy();
+                &:hover {
+                    background-color: $color-grey;
+                    color: $color-white;
+                }
+            }
+        }
+        @include element("status") {
+            position: relative;
+            height: 90px;
+            margin: auto; //overflow: hidden;
+            max-width: 100%;
+            margin-top: 0;
+            ol {
+                list-style: none;
+            }
+            @include modifier("line") {
+                left: 10%;
+                width: 80%;
+                margin: auto;
+            }
+            @include modifier("item") {
+                font-size: 1rem;
+                @include e("text") {
+                    left: -50px;
+                }
+            }
+        }
+        @include element("list") {
+            box-shadow: unset;
+            margin-bottom: 42px;
+            @include modifier("main") {
+                width: 100%;
+                display: table;
+                margin: auto;
+                background-color: $color-white;
+                table {
+                    width: 100%;
+                    padding: 0;
+                    thead {
+                        display: none!important;
+                    }
+                    tbody {
+                        background-color: $color-white;
+                        tr {
+                            width: 100%;
+                        }
+                        td {
+                            padding: 0px;
+                            text-align: center;
+                            display: block;
+                            &:nth-child(1) {
+                                display: inline;
+                                text-align: center;
+                                img {
+                                    display: block;
+                                    margin: auto;
+                                }
+                            }
+                            &:nth-child(2) {
+                                text-align: center;
+                                * {
+                                    color: $color-black-main;
+                                }
+                            }
+                        }
+                    }
+                }
+                @include m("remove") {
+                    color: $color-black-main;
+                    transition: all 0.2s ease-in;
+                    &:hover {
+                        color: $color-black;
+                        transform: scale(1.2);
+                    }
+                }
+            }
+            @include modifier("promotion") {
+                padding: 26px 34px;
+                @include e("code") {
+                    border: 1px $color-main solid;
+                    border-radius: 3px 0 0 3px;
+                    height: 41px;
+                    padding: 14px;
+                    color: $color-black-main;
+                    @include f-regular;
+                    font-size: 0.9em;
+                    margin: 0;
+                    min-width: 245px;
+                    @include placeholder() {
+                        color: $color-black-main;
+                    }
+                }
+                @include e("apply") {
+                    height: 41px;
+                    padding: 10px 14px;
+                    border: 1px $color-main solid;
+                    color: $color-white;
+                    background-color: $color-main;
+                    margin-left: 0px;
+                    position: absolute;
+                    min-width: 190px;
+                    border-radius: 0 3px 3px 0;
+                    font-size: 0.9em;
+                    transition: all 0.23s ease-in-out;
+                    &:hover {
+                        box-shadow: 2px 1px 10px #bbb1b1;
+                    }
+                }
+                @include e("update") {
+                    background-color: #f9f0f0;
+                    height: 41px;
+                    padding: 10px 14px;
+                    border: 1px #f9f0f0 solid;
+                    color: $color-black-main;
+                    margin-left: 0px;
+                    border-radius: 3px;
+                    font-size: 0.9em;
+                    transition: all 0.23s ease-in;
+                    &:hover {
+                        background-color: $color-grey-light;
+                        box-shadow: 2px 1px 10px #bbb1b1;
+                    }
+                }
+            }
         }
     }
 }
