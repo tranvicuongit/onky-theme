@@ -4,28 +4,29 @@ var onkyApp = {
   cart: {
     openPreview: function () {
       // cart content
-      $(".cartpreview").removeClass("cartpreview--closed");
-      $(".cartpreview").addClass("cartpreview--opended");
+      $(".cartpreview").removeClass("cartpreview--closed").addClass("cartpreview--opended");
+      $(".cartpreview__backdrop").removeClass("fadeOut").addClass("fadeIn");
+      $(".cartpreview__inner").removeClass("fadeOutRight").addClass("fadeInRight");
 
-      //cart backgrop      
-      $(".cartpreview__backdrop").removeClass("fadeOut");
-      $(".cartpreview__backdrop").addClass("fadeIn");
-
-      $(".cartpreview__inner").removeClass("fadeOutRight");
-      $(".cartpreview__inner").addClass("fadeInRight");
+      $(".cartpreview__close").removeClass("fadeOutLeft fadeOutRightBig");
+      if($("html").hasClass("mobile") || $("html").hasClass("tablet")){
+        $(".cartpreview__close").addClass("fadeInLeft");
+      }else{
+        $(".cartpreview__close").addClass("fadeInRightBig");
+      }
     },
     closePreview: function () {
-      $(".cartpreview__inner").removeClass("fadeInRight");
-      $(".cartpreview__inner").addClass("fadeOutRight");
+      $(".cartpreview__inner").removeClass("fadeInRight").addClass("fadeOutRight");
+      $(".cartpreview__backdrop").removeClass("fadeIn").addClass("fadeOut");
 
-
-      //cart backgrop      
-      $(".cartpreview__backdrop").removeClass("fadeIn");
-      $(".cartpreview__backdrop").addClass("fadeOut");
+      if($("html").hasClass("mobile") || $("html").hasClass("tablet")){
+        $(".cartpreview__close").removeClass("fadeInLeft").addClass("fadeOutLeft");
+      }else{
+        $(".cartpreview__close").removeClass("fadeInRightBig").addClass("fadeOutRightBig");
+      }
 
       setTimeout(function () {
-        $(".cartpreview").addClass("cartpreview--closed");
-        $(".cartpreview").removeClass("cartpreview--opended");
+        $(".cartpreview").addClass("cartpreview--closed").removeClass("cartpreview--opended");
       }, 500);
     }
   },
@@ -42,12 +43,18 @@ var onkyApp = {
   },
   header_mobile: {
     open: function () {
-      $(".header__mobile").removeClass("header__mobile--closed animated fadeOutDown hidden");
-      $(".header__mobile").addClass("header__mobile--opened");
+      $(".header__mobile--backdrop").css("animation-duration", "1s");
+      $(".header__mobile--backdrop").removeClass("fadeOut").addClass("fadeIn");
+      $(".header__mobile").removeClass("header__mobile--closed").addClass("header__mobile--opened");
     },
     close: function () {
-      $(".header__mobile").removeClass("header__mobile--opened");
-      $(".header__mobile").addClass("header__mobile--closed animated fadeOutDown hidden");
+      $(".header__mobile--backdrop").css("animation-duration", "1.2s");
+      $(".header__mobile--backdrop").removeClass("fadeIn").addClass("fadeOut");
+      $(".header__mobile").addClass("header__mobile--closed");
+
+			setTimeout(function () {
+        $(".header__mobile").removeClass("header__mobile--opened");
+      }, 1000);
     }
   }
 }
@@ -159,7 +166,7 @@ var app = angular.module('OnkyApp', ['ngRoute'])
 
       $("html, body").click(function (e) {
         if ($(e.target).hasClass('cartpreview') && !$('.cartpreview').hasClass("cartpreview--opended") && !$(e.target).hasClass("cartpreview__backdrop") &&
-          $(e.target).hasClass('header__mobile') && !$('.header__mobile').hasClass("header__mobile--opended") && !$(e.target).hasClass("header__mobile--backdrop")) {
+          $(e.target).hasClass('header__mobile') && !$('.header__mobile').hasClass("header__mobile--opended") && !$(e.target).hasClass("header__mobile--inner")) {
           return false;
         } else {
           if ($('.cartpreview').hasClass("cartpreview--opended") && $(e.target).hasClass("cartpreview__backdrop"))
@@ -170,6 +177,10 @@ var app = angular.module('OnkyApp', ['ngRoute'])
         }
       });
 
+      $("input").click(function(e){
+        $(this).select();
+        $(this).focus();
+      });
 
       $(".header").sticky({});
       $('.quickview-slider .owl-carousel').owlCarousel({
@@ -335,106 +346,3 @@ app.controller('HomeCtrl', function HomeController($scope) {
     }, 300);
   });
 
-
-
-///////////////////  Sticky /////////////////////
-(function ($) {
-  var defaults = {
-      topSpacing: 0,
-      bottomSpacing: 0,
-      className: 'is-sticky',
-      wrapperClassName: 'sticky-wrapper'
-    },
-    $window = $(window),
-    $document = $(document),
-    sticked = [],
-    windowHeight = $window.height(),
-    scroller = function () {
-      var scrollTop = $window.scrollTop(),
-        documentHeight = $document.height(),
-        dwh = documentHeight - windowHeight,
-        extra = (scrollTop > dwh) ? dwh - scrollTop : 0;
-      for (var i = 0; i < sticked.length; i++) {
-        var s = sticked[i],
-          elementTop = s.stickyWrapper.offset().top,
-          etse = elementTop - s.topSpacing - extra;
-        if (scrollTop <= etse) {
-          if (s.currentTop !== null) {
-            s.stickyElement
-              .css('position', '')
-              .css('top', '')
-              .removeClass(s.className);
-            s.stickyElement.parent().removeClass(s.className);
-            s.currentTop = null;
-          }
-        } else {
-          var newTop = documentHeight - s.stickyElement.outerHeight() -
-            s.topSpacing - s.bottomSpacing - scrollTop - extra;
-          if (newTop < 0) {
-            newTop = newTop + s.topSpacing;
-          } else {
-            newTop = s.topSpacing;
-          }
-          if (s.currentTop != newTop) {
-            s.stickyElement
-              .css('position', 'fixed')
-              .css('top', newTop)
-              .addClass(s.className);
-            s.stickyElement.parent().addClass(s.className);
-            s.currentTop = newTop;
-          }
-        }
-      }
-    },
-    resizer = function () {
-      windowHeight = $window.height();
-    },
-    methods = {
-      init: function (options) {
-        var o = $.extend(defaults, options);
-        return this.each(function () {
-          var stickyElement = $(this);
-
-          stickyId = stickyElement.attr('id');
-          var wrapper = $("<div></div>")
-            .attr('id', stickyId + '-sticky-wrapper')
-            .addClass(o.wrapperClassName);
-          stickyElement.wrapAll(wrapper);
-          var stickyWrapper = stickyElement.parent();
-          stickyWrapper.css('height', stickyElement.outerHeight());
-          sticked.push({
-            topSpacing: o.topSpacing,
-            bottomSpacing: o.bottomSpacing,
-            stickyElement: stickyElement,
-            currentTop: null,
-            stickyWrapper: stickyWrapper,
-            className: o.className
-          });
-        });
-      },
-      update: scroller
-    };
-
-  // should be more efficient than using $window.scroll(scroller) and $window.resize(resizer):
-  if (window.addEventListener) {
-    window.addEventListener('scroll', scroller, false);
-    window.addEventListener('resize', resizer, false);
-  } else if (window.attachEvent) {
-    window.attachEvent('onscroll', scroller);
-    window.attachEvent('onresize', resizer);
-  }
-
-  $.fn.sticky = function (method) {
-    if (methods[method]) {
-      return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
-    } else if (typeof method === 'object' || !method) {
-      return methods.init.apply(this, arguments);
-    } else {
-      $.error('Method ' + method + ' does not exist on jQuery.sticky');
-    }
-  };
-  $(function () {
-    setTimeout(scroller, 0);
-  });
-})(jQuery);
-/////////////////////////////////////////////////

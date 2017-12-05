@@ -178,7 +178,7 @@
         }
     }
     @include element("mobile") {
-        //display: none;
+        display: none;
         &.animated {
             animation-duration: .2s;
             animation-fill-mode: both;
@@ -188,14 +188,13 @@
             .header {
                 @include element("mobile") {
                     @include e("inner") {
-                        animation: menumobile 0.46s;
-                        -webkit-animation: menumobile 0.46s;
-                        display: block;
+                        animation: menumobile 1s;
+                        -webkit-animation: menumobile 1s;
+                        z-index: 1005;
                     }
                     @include modifier("close") {
-                        animation: menumobile-right 0.36s;
-                        -webkit-animation: menumobile-right 0.36s;
-                        display: block;
+                        animation: menumobile-right 1s;
+                        -webkit-animation: menumobile-right 1s;
                         right: 0;
                     }
                 }
@@ -203,15 +202,14 @@
         }
         @include modifier("closed") {
             .header {
-                animation: fadeOut 0.3s;
                 @include element("mobile") {
                     @include e("inner") {
-                        animation: menumobile-close 0.46s;
-                        -webkit-animation: menumobile-close 0.46s;
+                        animation: menumobile-close 1s;
+                        -webkit-animation: menumobile-close 1s;
                     }
                     @include modifier("close") {
-                        animation: menumobile-right-close 0.36s;
-                        -webkit-animation: menumobile-right-close 0.36s;
+                        animation: menumobile-right-close 1s;
+                        -webkit-animation: menumobile-right-close 1s;
                     }
                 }
             }
@@ -227,8 +225,9 @@
             background-repeat: no-repeat;
             background-size: 60%;
             position: fixed;
+            right: 0;
             top: 0;
-            z-index: 1000;
+            z-index: 1005;
             border-radius: 0;
             transition: background-color 0.2s ease-in-out;
             transform: rotate(180deg);
@@ -241,19 +240,20 @@
         }
         @include modifier("backdrop") {
             background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
             width: 100%;
             height: 100%;
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 1004;
         }
         @include e("inner") {
             width: calc(100% - 53px);
             background-color: $hd-bg;
             height: 100%;
             position: fixed;
-            display: none;
+            //display: none;
+            left: 0;
             top: 0;
             background-color: $hd-bg;
             box-shadow: -3px 0px 6px #383838;
@@ -440,6 +440,7 @@
             }
         }
         @include modifier("pinnedbottom") {
+            display: none;
             position: fixed;
             bottom: 0;
             max-height: 150px;

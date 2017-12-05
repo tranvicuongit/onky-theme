@@ -13,7 +13,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.js"></script>
     <script src="//hstatic.net/0/0/global/design/js/bootstrap.min.js"></script>
-    <script src="//hstatic.net/0/0/global/design/theme-default/jquery.flexslider.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-rating-input/0.4.0/bootstrap-rating-input.min.js" type="text/javascript"></script>
     <script src="wwwroot/js/mobile-detect.min.js" type="text/javascript"></script>
@@ -31,28 +30,75 @@
 
 <body ng-app="OnkyApp">
     <div id="wrapper">
-        <header ng-include="'app/layout/_header.html'" class="header"></header>
+            <!-- <input type="text" style="width: 100%; height: 100px; position: fixed; top: 0; z-index: 10009" /> -->
+        <div ng-include="'app/layout/_header.html'" class="header"></div>
         <div class="breadcrumb">
             <div class="container">
                 <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5 "> -->
-                    <ol class="breadcrumb breadcrumb-arrows">
-                        <li>
-                            <a href="/" target="_self">
-                                <i class="fa fa-home"></i> Trang chủ</a>
-                        </li>
-                        <li>
-                            <a href="/collections/quan-ao-nu" target="_self">Quần áo nữ</a>
-                        </li>
-                        <li class="active">
-                            <span> Py Satin TNQL</span>
-                        </li>
-                    </ol>
+                <ol class="breadcrumb breadcrumb-arrows">
+                    <li>
+                        <a href="/" target="_self">
+                            <i class="fa fa-home"></i> Trang chủ</a>
+                    </li>
+                    <li>
+                        <a href="/collections/quan-ao-nu" target="_self">Quần áo nữ</a>
+                    </li>
+                    <li class="active">
+                        <span> Py Satin TNQL</span>
+                    </li>
+                </ol>
                 <!-- </div> -->
             </div>
         </div>
         <section id="content" ng-view>
         </section>
         <footer ng-include="'app/layout/_footer.html'" class="footer"></footer>
+        <div class="header__mobile">
+                <div class="header__mobile--backdrop animated fadeIn"></div>
+                <div class="header__mobile--close" onclick="onkyApp.header_mobile.close();"></div>
+                <div class="header__mobile_inner">
+                    <form action="/search" class="header__mobile--search">
+                        <input type="hidden" name="type" value="product">
+                        <input type="text" placeholder="Tìm sản phẩm..." name="q" autocomplete="off" class="header__mobile--search_input">
+                        <button class="header__mobile--search_btn" type="submit"></button>
+                    </form>
+                    <ul class="header__mobile--menu">
+                        <li ng-repeat="item in Menu" class="header__mobile--menu_item">  <!-- header__mobile--menu_item-active -->
+                            <span class="header__mobile--menu_item-hot">HOT</span>
+                            <span class="header__mobile--menu_item-icon">+</span>
+                            <a data-ng-href="{{item.Link}}">
+                                <h3>
+                                    <span>{{item.Title}}</span>
+                                </h3>
+                            </a>
+                            <div data-ng-if="item.List.length > 0">
+                                <ul class="header__mobile--menu_item_submenu animated fadeInLeft"> <!-- header__mobile--menu_item_submenu-active -->
+                                    <li ng-repeat="itemSub in item.List">
+                                        <a data-ng-href="{{item.Link}}">
+                                            <h3>
+                                                <span>{{itemSub.Title}}</span>
+                                            </h3>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="header__mobile--pinnedbottom">
+                    <div class="header__mobile--pinnedbottom_inner">
+                        <ul>
+                            <li>
+                                <a href="">
+                                    <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-gift-solid.png?v=2091" alt="">
+                                    <span>Khuyến mãi
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
     </div>
 
     <!--cart -->
@@ -113,7 +159,9 @@
             <div class="col-md-7">
                 <form id="form-quickview" method="post" action="/cart/add">
                     <div class="quickview-information">
-                        <h5>THƯƠNG HIỆU: <span class="color__hot-orange">TEST</span></h5>
+                        <h5>THƯƠNG HIỆU:
+                            <span class="color__hot-orange">TEST</span>
+                        </h5>
                         <h3 class="quickview-title-text text-left">Set dây màu sắc</h3>
                         <div class="row">
                             <div class="col-md-4 quickview-price products__list--item_prices">
@@ -188,7 +236,7 @@
     <a href="javascript:void(0);" class="scrollToTop show">
         <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-totop.png" alt="">
     </a>
-    <a href="https://m.me/XYZ" class="messengerButton show">
+    <a href="javascript:void(0);" class="messengerButton show">
         <img src="http://theme.hstatic.net/1000225663/1000310269/14/icon-messenger-tranparent.png" alt="">
     </a>
     <script src="app/app.js" type="text/javascript"></script>

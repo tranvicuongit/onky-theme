@@ -2,13 +2,9 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    z-index: 999;
+    z-index: 1004;
     top: 0;
     left: 0;
-    .animated {
-        animation-duration: .5s;
-        animation-fill-mode: both;
-    }
     @include modifier("opened") {
         display: block;
     }
@@ -34,7 +30,9 @@
         position: fixed;
         right: 435px;
         top: 67px;
-        z-index: 1000;
+        animation-duration: 0.9s;
+        z-index: 0;
+        //z-index: 1000;
         border-radius: 5px 0 0 5px;
         transition: background-color 0.2s ease-in-out;
         &:hover {
