@@ -43,18 +43,18 @@ var onkyApp = {
   },
   header_mobile: {
     open: function () {
-      $(".header__mobile--backdrop").css("animation-duration", "1s");
+      $(".header__mobile--backdrop").css("animation-duration", "0.46s");
       $(".header__mobile--backdrop").removeClass("fadeOut").addClass("fadeIn");
       $(".header__mobile").removeClass("header__mobile--closed").addClass("header__mobile--opened");
     },
     close: function () {
-      $(".header__mobile--backdrop").css("animation-duration", "1.2s");
+      $(".header__mobile--backdrop").css("animation-duration", "0.5s");
       $(".header__mobile--backdrop").removeClass("fadeIn").addClass("fadeOut");
       $(".header__mobile").addClass("header__mobile--closed");
 
 			setTimeout(function () {
         $(".header__mobile").removeClass("header__mobile--opened");
-      }, 1000);
+      }, 360);
     }
   }
 }
@@ -166,13 +166,14 @@ var app = angular.module('OnkyApp', ['ngRoute'])
 
       $("html, body").click(function (e) {
         if ($(e.target).hasClass('cartpreview') && !$('.cartpreview').hasClass("cartpreview--opended") && !$(e.target).hasClass("cartpreview__backdrop") &&
-          $(e.target).hasClass('header__mobile') && !$('.header__mobile').hasClass("header__mobile--opended") && !$(e.target).hasClass("header__mobile--inner")) {
+          $(e.target).hasClass('header__mobile_inner') && !$('.header__mobile').hasClass("header__mobile--opended") && !$(e.target).hasClass("header__mobile--backdrop")) {
           return false;
         } else {
           if ($('.cartpreview').hasClass("cartpreview--opended") && $(e.target).hasClass("cartpreview__backdrop"))
             onkyApp.cart.closePreview();
 
-          if ($('.header__mobile').hasClass("header__mobile--opended") && $(e.target).hasClass("header__mobile--backdrop"))
+          
+          if ($('.header__mobile').hasClass("header__mobile--opened") && $(e.target).hasClass("header__mobile--backdrop"))
             onkyApp.header_mobile.close();
         }
       });

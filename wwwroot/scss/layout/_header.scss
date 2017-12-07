@@ -188,13 +188,13 @@
             .header {
                 @include element("mobile") {
                     @include e("inner") {
-                        animation: menumobile 1s;
-                        -webkit-animation: menumobile 1s;
+                        animation: menumobile .46s;
+                        -webkit-animation: menumobile .46s;
                         z-index: 1005;
                     }
                     @include modifier("close") {
-                        animation: menumobile-right 1s;
-                        -webkit-animation: menumobile-right 1s;
+                        animation: menumobile-right .46s;
+                        -webkit-animation: menumobile-right .46s;
                         right: 0;
                     }
                 }
@@ -204,12 +204,12 @@
             .header {
                 @include element("mobile") {
                     @include e("inner") {
-                        animation: menumobile-close 1s;
-                        -webkit-animation: menumobile-close 1s;
+                        animation: menumobile-close .5s;
+                        -webkit-animation: menumobile-close .5s;
                     }
                     @include modifier("close") {
-                        animation: menumobile-right-close 1s;
-                        -webkit-animation: menumobile-right-close 1s;
+                        animation: menumobile-right-close .5s;
+                        -webkit-animation: menumobile-right-close .5s;
                     }
                 }
             }
@@ -387,6 +387,7 @@
                             padding: 0px 20px;
                             display: inline-block;
                             color: $color-black-main;
+                            width: 100%;
                         }
                     }
                 }
@@ -403,7 +404,7 @@
                     position: absolute; //display: block;
                     text-align: center;
                     float: right;
-                    right: 20%;
+                    right: 35%;
                     -webkit-animation: colorhotchange 1s infinite alternate;
                     &:before {
                         content: '';

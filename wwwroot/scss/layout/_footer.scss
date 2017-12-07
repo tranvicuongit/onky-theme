@@ -1,11 +1,16 @@
 .footer {
-    border-top: $color-light 1px solid;
-    height: auto;
-    max-height: 750px;
+    border-top: $color-light 3px solid;
+    height: auto; //max-height: 750px;
     overflow: hidden;
     background: url(bg_url('bg-bottom.jpg')) $color-white center center no-repeat;
     background-size: cover;
     padding-bottom: 75px;
+    @include element("logo") {
+        img {
+            margin-top: 20px;
+            max-width: 350px;
+        }
+    }
     @include element("menu") {
         margin-top: 37px;
         list-style: none;
@@ -73,12 +78,12 @@
                     }
                 }
             }
-            @include e("sublink"){
+            @include e("sublink") {
                 list-style: none;
                 padding-left: 0;
-                li{
+                li {
                     margin: 10px 0;
-                    *{
+                    * {
                         text-decoration: none;
                         color: $color-black-main;
                         transition: 0.2s ease-in all;
@@ -93,10 +98,9 @@
             }
         }
     }
-    @include element("copyright"){
-        margin-top: 28px;
-        margin-bottom: 75px;
-        *{
+    @include element("copyright") {
+        margin-top: 10px;
+        * {
             //text-transform: uppercase;
             color: $color-grey;
             text-decoration: none;
@@ -104,23 +108,47 @@
     }
 }
 
-.tablet, .mobile{
-    .footer{
-        @include element("link"){
+@media screen and (max-width: 1440px) and (min-width: 800px) {
+    .footer {
+        background: url(bg_url('bg-bottom-small.jpg')) $color-white center center no-repeat;
+        background-size: cover;
+        @include element("menu"){
+            padding: 0 100px;
+        }
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .footer {
+        background: url(bg_url('bg-bottom-mb.jpg')) $color-white center center no-repeat;
+        background-size: cover;
+    }
+}
+
+.tablet,
+.phone {
+    .footer {
+        @include element("link") {
             display: none!important;
         }
-        @include element("menu"){
-            margin-top: 10px;
+        @include element("menu") {
+            margin-top: 25px;
             font-size: 0.9em;
+            li{
+                margin-top: 10px;
+                &:before{
+                    display: none;
+                }
+            }
         }
-        @include element("social"){
-            margin: 20px 0;
+        @include element("social") {
+            margin: 25px 0 0 0;
         }
-        @include element("copyright"){
+        @include element("copyright") {
             font-size: 0.9em;
-            text-transform: uppercase;
+            //text-transform: uppercase;
             margin-bottom: 5px;
-            margin-top: 40px;
+            margin-top: 25px;
         }
     }
 }

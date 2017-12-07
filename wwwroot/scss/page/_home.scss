@@ -37,7 +37,7 @@
                 margin-bottom: 5px;
                 @include f-regular;
             }
-            @include e("button"){
+            @include e("button") {
                 color: $color-white;
                 background-color: $color-main;
                 width: 350px;
@@ -47,8 +47,7 @@
                 margin-top: 20px;
                 transition: background-color 0.3s ease-in-out;
                 box-shadow: 0 1px 5px $color-grey;
-
-                &:hover{
+                &:hover {
                     text-decoration: none;
                     color: $color-white;
                     background-color: $color-bold;
@@ -102,8 +101,7 @@
                     content: "";
                     background-image: url(bg_url('banner-tranparent-bg-left.png'));
                     position: absolute;
-                    background-position: center;
-                    //display: block;
+                    background-position: center; //display: block;
                     display: none;
                     background-repeat: repeat-y;
                     left: -5px;
@@ -139,8 +137,7 @@
                     content: "";
                     background-image: url(bg_url('banner-tranparent-bg-right.png'));
                     position: absolute;
-                    background-position: center;
-                    //display: block;
+                    background-position: center; //display: block;
                     background-repeat: repeat-y;
                     right: -5px;
                     width: 250px;
@@ -197,7 +194,7 @@
                     @include f-medium();
                     white-space: normal;
                 }
-                @include m("img"){
+                @include m("img") {
                     overflow: hidden;
                     max-width: 100%;
                     max-height: 100%;
@@ -356,25 +353,30 @@
     }
 }
 
-
-.phone{
-    .tips{
-        padding: 15% 0;
+.phone {
+    .tips {
+        padding: 25% 0;
     }
-    .certificate{
-        @include element("item"){
+    .certificate {
+        @include element("item") {
             margin: 0;
         }
+    }
+    .homeslide {
+        max-height: 350px!important;
     }
 }
 
-.tablet{
-    .tips{
-        padding: 10% 0;
+.tablet {
+    .tips {
+        padding: 20% 0;
     }
-    .certificate{
-        @include element("item"){
+    .certificate {
+        @include element("item") {
             margin: 0;
         }
+    }
+    .homeslide {
+        max-height: 550px!important;
     }
 }

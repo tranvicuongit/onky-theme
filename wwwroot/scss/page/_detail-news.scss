@@ -34,6 +34,9 @@
                 font-size: 1.5em;
                 margin: 10px 0 5px 0;
             }
+            img{
+                max-width: 100%;
+            }
         }
         @include modifier("tags") {
             margin-top: 25px;
@@ -47,8 +50,9 @@
                 margin-left: 0;
                 padding-left: 0;
                 li {
-                    display: inline;
+                    display: inline-block;
                     margin-right: 10px;
+                    margin-top: 10px;
                     padding: 5px 10px;
                     background-color: $color-header-pro;
                     transition: 0.23s all ease-in-out;
@@ -73,6 +77,34 @@
         @include element("content") {
             padding: 0 30px;
             text-align: justify;
+            @include modifier("title"){
+                text-align: center;
+                font-size: 1.5em;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                border-bottom: 1px solid $color-grey-light;
+                margin-top: 0px;
+                padding-bottom: 20px;
+            }
+            @include modifier("text") {
+                color: $color-black-main;
+                p {
+                    margin: 5px 0;
+                }
+                b {
+                    @include f-bold;
+                    font-size: 1em;
+                    margin: 10px 0 5px 0;
+                }
+                h3 {
+                    @include f-bold;
+                    font-size: 1.1em;
+                    margin: 10px 0 5px 0;
+                }
+                img{
+                    max-width: 100%;
+                }
+            }
         }
     }
 }
@@ -82,6 +114,34 @@
         @include element("content") {
             //padding: 0 30px;
             text-align: justify;
+            @include modifier("title"){
+                text-align: center;
+                font-size: 1.67em;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+                border-bottom: 1px solid $color-grey-light;
+                margin-top: 0px;
+                padding-bottom: 20px;     
+            }
+            @include modifier("text") {
+                color: $color-black-main;
+                p {
+                    margin: 5px 0;
+                }
+                b {
+                    @include f-bold;
+                    font-size: 1.05em;
+                    margin: 10px 0 5px 0;
+                }
+                h3 {
+                    @include f-bold;
+                    font-size: 1.1em;
+                    margin: 10px 0 5px 0;
+                }
+                img{
+                    max-width: 100%;
+                }
+            }
         }
     }
 }

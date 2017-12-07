@@ -286,6 +286,9 @@
 //// Responsive 
 .phone{
     .products{
+        @include element("title"){
+            font-size: 1.1em;
+        }
         @include element("list") {
             .col-lg-3, .col-md-3, .col-sm-3, .col-xs-12{
                 padding: 0;
@@ -293,9 +296,8 @@
             @include modifier("item"){
                 //height: 310px;
                 height: 270px;
-
-                margin-right: 10px;
-                margin-left: 10px;
+                margin-right: 20px;
+                margin-left: 20px;
                 @include e("img") {
                     max-height: 180px;
                     height: 170px;
@@ -334,16 +336,25 @@
             }
         }
     }
+
+    .tips{
+        @include element("description"){
+            padding: 0 25px;
+        }
+    }
 }
 
 .tablet {
     .products{
+        @include element("title"){
+            font-size: 1.3em;
+        }
         @include element("list") {
             @include modifier("item"){
                 //height: 280px;
                 height: 230px;
-                margin-right: 10px;
-                margin-left: 10px;
+                //margin-right: 10px;
+                //margin-left: 10px;
                 @include e("img") {
                     max-height: 145px;
                     height: 140px;
@@ -384,78 +395,40 @@
             margin-right: 10px;
         }
     }
+    .tips{
+        @include element("description"){
+            padding: 0 25px;
+        }
+    }
 }
 
-// @media screen and (orientation: landscape) {
-//     .mobile{
-//         .products{
-//             @include element("list") {
-//                 @include modifier("item"){
-//                     margin-right: 10px;
-//                     margin-left: 10px;
-//                     height: 300px;
-//                     @include e("img") {
-//                         max-height: 200px;
-//                         height: 190px;
-//                         img {
-//                             margin: 0;
-//                         }
-//                     }
-//                     @include e("actions") {
-//                         display: none;
-//                     }
-//                     @include e("promotion") {
-//                         margin-right: 10px;
-//                     }
-//                 }
-//             }
-//             @include element("viewmore") {
-//                 width: 136px;
-//                 margin: 14px auto 0 auto;
-//                 @include modifier("link") {
-//                     height: 40px;
-//                     width: 146px;
-//                     &:after {
-//                         margin-left: 10px;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-    
-//     .tablet{
-//         .products{
-//             @include element("list") {
-//                 @include modifier("item"){
-//                     height: 300px;
-//                     margin-right: 10px;
-//                     margin-left: 10px;
-//                     @include e("img") {
-//                         max-height: 220px;
-//                         height: 200px;
-//                         img {
-//                             margin: 0;
-//                         }
-//                     }
-//                     @include e("actions") {
-//                         display: none;
-//                     }
-//                     @include e("promotion") {
-//                         margin-right: 10px;
-//                     }
-//                 }
-//             }
-//             @include element("viewmore") {
-//                 width: 136px;
-//                 margin: 14px auto 0 auto;
-//                 @include modifier("link") {
-//                     height: 40px;
-//                     width: 146px;
-//                     &:after {
-//                         margin-left: 10px;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// }
+@media screen and (orientation: landscape) {   
+    .tablet{
+        .products{
+            @include element("list") {
+                @include modifier("item"){
+                    height: 310px;
+
+                    @include e("img") {
+                        max-height: 220px;
+                        height: 215px;
+                        img {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+            @include element("viewmore") {
+                width: 136px;
+                margin: 14px auto 0 auto;
+                @include modifier("link") {
+                    height: 40px;
+                    width: 146px;
+                    &:after {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
