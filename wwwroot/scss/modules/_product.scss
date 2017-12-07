@@ -161,10 +161,10 @@
                     cursor: pointer;
                     pointer-events: auto;
                     width: 65%;
-                    padding: 5px 20px;
+                    padding: 5px 10px;
                     bottom: 30px;
                     height: 35px;
-                    font-size: 1.05em;
+                    font-size: 0.95em;
                     margin-left: calc(55% - 40.5%);
                     text-align: center;
                     opacity: 0; //transform: scaleY(-1);
@@ -284,11 +284,16 @@
 }
 
 //// Responsive 
-.mobile{
+.phone{
     .products{
         @include element("list") {
+            .col-lg-3, .col-md-3, .col-sm-3, .col-xs-12{
+                padding: 0;
+            }
             @include modifier("item"){
+                //height: 310px;
                 height: 270px;
+
                 margin-right: 10px;
                 margin-left: 10px;
                 @include e("img") {
@@ -300,6 +305,17 @@
                 }
                 @include e("actions") {
                     display: none;
+                    @include m("addcart"){
+                        display: block;
+                        opacity: 1;
+                        bottom: 35px;
+                        transform: translateY(0);
+                        width: 80%;
+                        margin-left: 5%;
+                        span{
+                            font-size: 0.7em;
+                        }
+                    }
                 }
                 @include e("promotion") {
                     margin-right: 10px;
@@ -324,19 +340,33 @@
     .products{
         @include element("list") {
             @include modifier("item"){
-                height: 280px;
+                //height: 280px;
+                height: 230px;
                 margin-right: 10px;
                 margin-left: 10px;
                 @include e("img") {
-                    max-height: 200px;
-                    height: 180px;
+                    max-height: 145px;
+                    height: 140px;
                     img {
                         margin: 0;
                     }
                 }
                 @include e("actions") {
                     display: none;
+                    @include m("addcart"){
+                        display: block;
+                        opacity: 1;
+                        bottom: 35px;
+                        transform: translateY(0);
+                        width: 67%;
+                        margin-left: 3%;
+                        padding: 5px 10px;
+                        span{
+                            font-size: 0.7em;
+                        }
+                    }
                 }
+                
             }
         }
         @include element("viewmore") {
@@ -356,76 +386,76 @@
     }
 }
 
-@media screen and (orientation: landscape) {
-    .mobile{
-        .products{
-            @include element("list") {
-                @include modifier("item"){
-                    margin-right: 10px;
-                    margin-left: 10px;
-                    height: 300px;
-                    @include e("img") {
-                        max-height: 200px;
-                        height: 190px;
-                        img {
-                            margin: 0;
-                        }
-                    }
-                    @include e("actions") {
-                        display: none;
-                    }
-                    @include e("promotion") {
-                        margin-right: 10px;
-                    }
-                }
-            }
-            @include element("viewmore") {
-                width: 136px;
-                margin: 14px auto 0 auto;
-                @include modifier("link") {
-                    height: 40px;
-                    width: 146px;
-                    &:after {
-                        margin-left: 10px;
-                    }
-                }
-            }
-        }
-    }
+// @media screen and (orientation: landscape) {
+//     .mobile{
+//         .products{
+//             @include element("list") {
+//                 @include modifier("item"){
+//                     margin-right: 10px;
+//                     margin-left: 10px;
+//                     height: 300px;
+//                     @include e("img") {
+//                         max-height: 200px;
+//                         height: 190px;
+//                         img {
+//                             margin: 0;
+//                         }
+//                     }
+//                     @include e("actions") {
+//                         display: none;
+//                     }
+//                     @include e("promotion") {
+//                         margin-right: 10px;
+//                     }
+//                 }
+//             }
+//             @include element("viewmore") {
+//                 width: 136px;
+//                 margin: 14px auto 0 auto;
+//                 @include modifier("link") {
+//                     height: 40px;
+//                     width: 146px;
+//                     &:after {
+//                         margin-left: 10px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
     
-    .tablet{
-        .products{
-            @include element("list") {
-                @include modifier("item"){
-                    height: 300px;
-                    margin-right: 10px;
-                    margin-left: 10px;
-                    @include e("img") {
-                        max-height: 220px;
-                        height: 200px;
-                        img {
-                            margin: 0;
-                        }
-                    }
-                    @include e("actions") {
-                        display: none;
-                    }
-                    @include e("promotion") {
-                        margin-right: 10px;
-                    }
-                }
-            }
-            @include element("viewmore") {
-                width: 136px;
-                margin: 14px auto 0 auto;
-                @include modifier("link") {
-                    height: 40px;
-                    width: 146px;
-                    &:after {
-                        margin-left: 10px;
-                    }
-                }
-            }
-        }
-    }
-}
+//     .tablet{
+//         .products{
+//             @include element("list") {
+//                 @include modifier("item"){
+//                     height: 300px;
+//                     margin-right: 10px;
+//                     margin-left: 10px;
+//                     @include e("img") {
+//                         max-height: 220px;
+//                         height: 200px;
+//                         img {
+//                             margin: 0;
+//                         }
+//                     }
+//                     @include e("actions") {
+//                         display: none;
+//                     }
+//                     @include e("promotion") {
+//                         margin-right: 10px;
+//                     }
+//                 }
+//             }
+//             @include element("viewmore") {
+//                 width: 136px;
+//                 margin: 14px auto 0 auto;
+//                 @include modifier("link") {
+//                     height: 40px;
+//                     width: 146px;
+//                     &:after {
+//                         margin-left: 10px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }

@@ -42,27 +42,25 @@
                 border: 1px solid $color-main;
                 color: $color-black-main;
             }
-
-            ul{
+            ul {
                 display: inline-block;
                 width: 100%;
-                list-style: none;    
+                list-style: none;
                 line-height: 2.5em;
                 padding: 0;
-                li{
+                li {
                     float: left;
                     margin-left: 3px;
-                    span{
+                    span {
                         display: inline;
                         border: 1px solid #e0e0e0;
                         font-weight: 500;
                         padding: 5px 8px;
                         cursor: pointer;
                         background: #f7f7f7;
-                        
                     }
-                    &.active{
-                        span{
+                    &.active {
+                        span {
                             border: 1px solid #e42127;
                             background: url(bg_url('bg-check.png')) right bottom no-repeat #f7f7f7;
                         }
@@ -106,8 +104,7 @@
             @include e("buynow") {
                 //background-color: #ffb693;
                 @include cart-bg-gradient;
-                border: 2px #ffe2cc solid;
-                //padding-left: 45px;
+                border: 2px #ffe2cc solid; //padding-left: 45px;
                 padding-left: 55px;
                 padding-right: 45px;
                 margin-left: 7px;
@@ -116,8 +113,7 @@
                     position: absolute;
                     background-image: url(bg_url('icon-scooter-white.png'));
                     width: 30px;
-                    height: 20px;
-                    //margin-left: -30px;
+                    height: 20px; //margin-left: -30px;
                     margin-left: -40px;
                     background-size: contain;
                     background-repeat: no-repeat;
@@ -168,6 +164,8 @@
             padding: 10px 5px;
             li {
                 margin-top: 20px;
+                display: table;
+                widows: 100%;
             }
         }
         @include modifier("img") {
@@ -183,10 +181,13 @@
         }
         @include modifier("text") {
             text-align: justify;
-            margin-left: 20px;
             display: table;
             color: $color-grey;
             font-size: 0.9em;
+        }
+        @include modifier("col"){
+            display: table-cell;
+            vertical-align: middle;
         }
     }
     @include element("similar") {
@@ -205,13 +206,13 @@
             list-style: none;
             padding: 0;
             width: 100%;
-            div{
+            div {
                 display: table-cell;
                 vertical-align: middle;
-                &:nth-child(1){
+                &:nth-child(1) {
                     width: 30%;
                 }
-                &:nth-child(2){
+                &:nth-child(2) {
                     width: 70%;
                 }
             }
@@ -249,7 +250,7 @@
                 color: $color-grey;
                 font-size: 0.85em;
             }
-            @include e("price"){
+            @include e("price") {
                 margin-top: 5px;
                 display: block;
             }
@@ -300,7 +301,7 @@
                     transition: 0.1s all ease-in;
                     &:hover {
                         color: $color-white;
-                        @include cart-bg-gradient-horizontal;                        
+                        @include cart-bg-gradient-horizontal;
                         box-shadow: 0px -1px 6px #c3c3c3;
                     }
                 }
@@ -311,7 +312,7 @@
                 padding: 20px 5px;
                 @include m("item") {
                     display: table;
-                    width: 100%;    
+                    width: 100%;
                     min-height: 200px;
                     @include e("img") {
                         display: table-cell;
@@ -328,7 +329,8 @@
                             margin: auto;
                             margin-bottom: 17px;
                         }
-                        label, span{
+                        label,
+                        span {
                             display: block;
                             margin-bottom: 0px;
                             font-size: 0.9em;
@@ -375,9 +377,9 @@
     }
     .rating-input {
         display: inline;
-        .glyphicon{
+        .glyphicon {
             margin: 0 2px;
-            &:hover{
+            &:hover {
                 cursor: pointer;
             }
         }
@@ -391,11 +393,12 @@
         }
     }
 }
-#detail-pro-danhgia{
+
+#detail-pro-danhgia {
     padding: 10px;
 }
 
-#sliderproduct{
+#sliderproduct {
     .slides {
         padding: 0;
         .owl-controls {
@@ -466,6 +469,130 @@
                             transform: scale(0.9);
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+.phone {
+    .detailpro {
+        @include element("summary") {
+            @include modifier("button") {
+                display: inline-block;
+                width: 100%;
+                @include e("btn") {
+                    height: 55px;
+                    width: 100%;
+                    display: block;
+                    margin-bottom: 10px;
+                    border: none;
+                }
+                @include e("addcart") {
+                    &::before {                        
+                        margin-left: -30px;
+                    }
+                }
+                @include e("buynow") {
+                    margin-left: 0px;
+                    &::before {
+                        margin-left: -40px;
+                    }
+                }                
+            }
+            @include modifier("price") {
+                font-size: 1.3em;
+                line-height: 0.5em;
+                margin-top: 10px;
+                text-align: center;
+            }
+            @include modifier("quantity") {
+                input{
+                    width: 100%;
+                    height: 45px;
+                    font-size: 1.1em;
+                }
+                span{
+                    height: 100%;
+                    width: 35px;
+                }
+            }
+        }
+        @include element("term") {
+            margin: 0px -20px;
+            width: 115%;
+            box-shadow: unset;
+            ul {
+                list-style: none;
+                padding: 5px 3px;
+                li {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+
+.tablet {
+    .detailpro {
+        margin-top: 20px;
+        @include element("summary") {
+            @include modifier("title") {
+                color: $color-black-main;
+                font-size: 1.7em;
+                text-transform: uppercase;
+            }
+            @include modifier("imgfeature") {
+                max-height: 260px;
+                max-width: 100%;
+                img {
+                    max-width: 100%;
+                    max-height: 260px;
+                    margin: auto;
+                    display: block;
+                }
+            }
+            @include modifier("slider") {
+                max-height: 85px;
+                margin: 10px 0;
+                ul {
+                    list-style: none;
+                    li {
+                        img {
+                            max-height: 85px;
+                            width: auto;
+                        }
+                    }
+                }
+            }
+            
+            @include modifier("moreinfo") {
+                border: none;
+                border-top: 1px dashed #c5c5c5;
+                border-bottom: 1px dashed #c5c5c5;
+                margin: 15px 0;
+                min-height: 110px;
+                background-color: #fcfcfc;
+                padding: 25px 15px;
+            }
+            @include modifier("contact") {
+                margin-bottom: 30px;
+            }
+            @include modifier("price") {
+                font-size: 1.3em;
+                line-height: 0.5em;
+                margin-top: 15px;
+            }
+            @include modifier("quantity") {
+                margin-top: 10px;
+                input{
+                    width: 100%;
+                    height: 45px;
+                    font-size: 1.1em;
+                }
+                span{
+                    height: 100%;
+                    width: 50px;
                 }
             }
         }

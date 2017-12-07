@@ -177,11 +177,6 @@ var app = angular.module('OnkyApp', ['ngRoute'])
         }
       });
 
-      $("input").click(function(e){
-        $(this).select();
-        $(this).focus();
-      });
-
       $(".header").sticky({});
       $('.quickview-slider .owl-carousel').owlCarousel({
         items: 3,
@@ -341,7 +336,11 @@ app.controller('HomeCtrl', function HomeController($scope) {
       $("#sliderproduct .slides").owlCarousel({
         items: 3,
         navigation: true,
-        navigationText: ['', '']
+        navigationText: ['', ''],
+        itemsDesktop: [1199, 4],
+        itemsDesktopSmall: [980, 5],
+        itemsTablet: [768, 5],
+        itemsMobile: [479, 4]
       });
     }, 300);
   });

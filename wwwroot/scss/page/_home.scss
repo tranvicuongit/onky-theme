@@ -355,3 +355,26 @@
         }
     }
 }
+
+
+.phone{
+    .tips{
+        padding: 15% 0;
+    }
+    .certificate{
+        @include element("item"){
+            margin: 0;
+        }
+    }
+}
+
+.tablet{
+    .tips{
+        padding: 10% 0;
+    }
+    .certificate{
+        @include element("item"){
+            margin: 0;
+        }
+    }
+}

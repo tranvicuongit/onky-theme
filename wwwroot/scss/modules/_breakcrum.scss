@@ -23,11 +23,34 @@
 }
 
 //// Responsive
-.mobile,
+.phone {
+    .breadcrumb {
+        padding: 0;
+        margin-top: 5px;
+        padding-left: 7px;
+        font-size: 0.85em;
+        height: 30px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        ol {
+            li {
+                a {
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    max-width: 35px;
+
+                }
+            }
+        }
+    }
+}
+
 .tablet {
     .breadcrumb {
         padding: 0;
         margin-top: 5px;
+        padding-left: 0px;
         font-size: 0.85em;
         height: 30px;
         text-overflow: ellipsis;

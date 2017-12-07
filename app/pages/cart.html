@@ -27,21 +27,65 @@
             </div>
         </div>
         <div class="container">
+            <div class="cart_mobile">
+                <div ng-repeat="n in [] | range:10" class="cart_mobile__item">
+                    <div class="col-md-12">
+                        <a href="javascript:void(0);" class="cart_mobile__item--remove">x</a>
+                        <a href="/products/kem-chong-nang-biore-uv-aqua-rich-watery-essence-spf-50-pa" class="item-url">
+                            <img class="item-image cart_mobile__item--img" src=" //product.hstatic.net/1000225663/product/s-l300__1__small.jpg  " alt="Kem chống nắng Biore UV Aqua Rich Watery Essence SPF 50+/ PA++++">
+                        </a>
+                        <h4 class="cart_mobile__item--productname">
+                            <a href="/products/kem-chong-nang-biore-uv-aqua-rich-watery-essence-spf-50-pa" class="item-title">Kem chống nắng Biore UV Aqua Rich Watery Essence SPF 50+/ PA++++</a>
+                        </h4>
+                    </div>
+                    <div class="col-md-12">
+                        <table>
+                            <tr>
+                                <td>Giá</td>
+                                <td class="cartpreview__inner--body_list-product_price">
+                                    220,000₫
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Số lượng</td>
+                                <td>
+                                    <div class="cartpreview__inner--body_list-product_quantity">
+                                        <span class="minus">-</span>
+                                        <input class="item-quantity" value="1">
+                                        <span class="add">+</span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Tổng</td>
+                                <td class="cartpreview__inner--body_list-product_price">
+                                    220,000₫
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
             <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12 cart__list">
                 <div class="row">
                     <div class="col-md-12 cart__list--main">
                         <table>
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th colspan="2">Sản phẩm</th>
                                     <th>Giá</th>
                                     <th>Số lượng</th>
                                     <th>Tổng</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="n in [] | range:10">
+                                    <td>
+                                        <a href="javascript:void(0);" class="cart__list--main-remove">
+                                            x
+                                        </a>
+                                    </td>
                                     <td class="cartpreview__inner--body_list-img">
                                         <a href="/products/kem-chong-nang-biore-uv-aqua-rich-watery-essence-spf-50-pa" class="item-url">
                                             <img class="item-image" src=" //product.hstatic.net/1000225663/product/s-l300__1__small.jpg  " alt="Kem chống nắng Biore UV Aqua Rich Watery Essence SPF 50+/ PA++++">
@@ -67,20 +111,15 @@
                                     <td>
                                         <span class="cartpreview__inner--body_list-price">220,000₫</span>
                                     </td>
-                                    <td>
-                                        <a href="javascript:void(0);" class="cart__list--main-remove">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="col-md-12 cart__list--promotion">
-                        <form class="col-md-8">
+                        <!-- <form class="col-md-8">
                             <input type="text" class="cart__list--promotion_code" placeholder="Mã giảm giá">
                             <button type="submit" class="cart__list--promotion_apply">ÁP DỤNG MÃ GIẢM GIÁ</button>
-                        </form>
+                        </form> -->
                         <form class="col-md-4 text-right">
                             <button type="submit" class="cart__list--promotion_update">CẬP NHẬT</button>
                         </form>
@@ -88,32 +127,34 @@
                 </div>
             </div>
             <div class="col-md-4 col-lg-4 col-sm-12 col-xs-12">
-                <div class="cart__summary">
-                    <form>
-                        <table>
-                            <tr>
-                                <td>Tổng phụ</td>
-                                <td class="cart__summary--subprice cartpreview__inner--body_list-price">2,360,000đ</td>
-                            </tr>
-                            <tr>
-                                <td>Phí vận chuyển</td>
-                                <td class="cart__summary--subprice">
-                                    <p class="cart__summary--advise">Chi phí vận chuyển sẽ được tính ngay khi bạn nhập thông tin địa chỉ</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Tổng</td>
-                                <td class="cart__summary--totalprice cartpreview__inner--body_list-price">2,360,000đ</td>
-                            </tr>
-                        </table>
-                        <div class="cart__summary--notes checkout-buttons clearfix">
-                            <label for="note">Ghi chú </label>
-                            <textarea id="note" name="note" rows="5" cols="50">{{ cart.note }}</textarea>
-                        </div>
-                        <a href="/payment" class="cart__summary--payment cartpreview__inner--body_button-payment" type="submit">
-                            <span>Thanh toán</span>
-                        </a>
-                    </form>
+                <div class="row">
+                    <div class="cart__summary">
+                        <form>
+                            <table>
+                                <tr>
+                                    <td>Tổng phụ</td>
+                                    <td class="cart__summary--subprice cartpreview__inner--body_list-price">2,360,000đ</td>
+                                </tr>
+                                <tr>
+                                    <td>Phí vận chuyển</td>
+                                    <td class="cart__summary--subprice">
+                                        <p class="cart__summary--advise">Chi phí vận chuyển sẽ được tính ngay khi bạn nhập thông tin địa chỉ</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tổng</td>
+                                    <td class="cart__summary--totalprice cartpreview__inner--body_list-price">2,360,000đ</td>
+                                </tr>
+                            </table>
+                            <div class="cart__summary--notes checkout-buttons clearfix">
+                                <label for="note">Ghi chú </label>
+                                <textarea id="note" name="note" rows="5" cols="50">{{ cart.note }}</textarea>
+                            </div>
+                            <a href="/payment" class="cart__summary--payment cartpreview__inner--body_button-payment" type="submit">
+                                <span>Thanh toán</span>
+                            </a>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

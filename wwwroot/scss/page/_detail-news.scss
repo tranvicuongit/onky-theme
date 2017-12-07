@@ -67,3 +67,21 @@
         }
     }
 }
+
+.phone{
+    .newsdetail {
+        @include element("content") {
+            padding: 0 30px;
+            text-align: justify;
+        }
+    }
+}
+
+.tablet{
+    .newsdetail {
+        @include element("content") {
+            //padding: 0 30px;
+            text-align: justify;
+        }
+    }
+}
