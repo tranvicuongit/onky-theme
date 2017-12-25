@@ -5,7 +5,7 @@
     z-index: 1004;
     top: 0;
     left: 0;
-    .animated{
+    .animated {
         animation-duration: 0.46s;
     }
     @include modifier("opened") {
@@ -34,8 +34,7 @@
         right: 435px;
         top: 67px;
         animation-duration: 0.9s;
-        z-index: 1;
-        //z-index: 1000;
+        z-index: 1; //z-index: 1000;
         border-radius: 5px 0 0 5px;
         transition: background-color 0.2s ease-in-out;
         &:hover {
@@ -124,8 +123,9 @@
                     @include e("name") {
                         font-size: 1em;
                         * {
-                            color: $color-header-pro;
-                            @include f-medium();
+                            color: $color-black-main;
+                            @include f-bold();
+                            font-style: 1.05em;
                             transition: color 0.2s ease-in;
                             &:hover {
                                 text-decoration: none;
@@ -134,7 +134,7 @@
                         }
                     }
                     @include e("price") {
-                        @include f-regular();
+                        @include f-medium();
                         font-size: 1em;
                         color: $color-black-main;
                         text-align: left;
@@ -180,28 +180,44 @@
                 }
                 @include m("price") {
                     width: 30%;
-                    @include f-medium();
+                    @include f-bold();
                     font-size: 1em;
-                    color: $color-hot-orange;
+                    color: $color-black-main;
                     text-align: right;
                 }
                 @include m("remove") {
-                    height: 25px;
-                    width: 15px;
+                    //height: 25px;
+                    //width: 15px;
                     background: none;
                     display: block;
                     position: relative;
                     float: right;
-                    overflow: hidden;
+                    //overflow: hidden;
                     transition: 0.23s all ease-in;
                     margin-right: 0px;
                     top: -35px;
                     &:hover {
-                        transform: scale(1.1);
+                        //transform: scale(1.1);
+
+                        span{
+                            background: $color-grey;
+                            //border: 1px solid $color-grey;
+                            //box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+                            //transform: scale(1.1);
+                        }
                     }
-                    img{
+                    img {
                         max-width: 100%;
                         width: 100%;
+                    }
+                    span{
+                        color: $color-white;
+                        background: $color-black;
+                        padding: 3px 7px;
+                        border-radius: 100%;
+                        height: 32px;
+                        width: 32px;
+                        transition: 0.33s all ease;
                     }
                 }
             }
@@ -369,12 +385,15 @@
                 width: 100%;
                 padding: 0;
                 thead {
-                    background-color: #f6f6f6;
+                    //background-color: #f6f6f6;
+                    border-bottom: 2px solid $color-grey-light;
                     th {
-                        padding: 15px;
+                        padding: 20px 10px;
                         text-align: left;
                         height: 40px;
-                        @include f-medium;
+                        @include f-bold;
+                        text-transform: uppercase;
+                        text-align: center!important;
                     }
                 }
                 tbody {
@@ -382,23 +401,44 @@
                     td {
                         padding: 30px 10px;
                     }
+                    tr{
+                        border-bottom: 1px solid $color-grey-light;
+
+                        &:nth-last-child(){
+                            border-bottom: none!important;
+                        }
+                    }
                 }
             }
             @include m("remove") {
                 color: $color-black-main;
                 transition: all 0.2s ease-in;
-                height: 25px;
-                width: 15px;
-                overflow: hidden;
+                height: 32px;
+                width: 32px;
+                //overflow: hidden;
                 display: block;
-            
                 &:hover {
                     color: $color-black;
-                    transform: scale(1.2);
+                    //transform: scale(1.2);
+                    span{
+                        background: $color-grey;
+                        border: 1px solid $color-grey;
+                        box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
+                        transform: scale(1.1);
+                    }
                 }
-                img{
+                img {
                     max-width: 100%;
                     width: 100%;
+                }
+                span{
+                    color: $color-white;
+                    background: $color-black;
+                    padding: 2px 7px;
+                    border-radius: 100%;
+                    height: 32px;
+                    width: 32px;
+                    transition: 0.33s all ease;
                 }
             }
         }
@@ -447,6 +487,8 @@
                 &:hover {
                     background-color: $color-grey-light;
                     box-shadow: 2px 1px 10px #bbb1b1;
+                    color: $color-black-main;
+                    @include f-bold;
                 }
             }
         }
@@ -466,8 +508,7 @@
             overflow-x: auto;
             margin-bottom: 20px;
             tr {
-                border-bottom: 1px dashed $color-black-main; 
-                // &:nth-last-child(1) {
+                border-bottom: 1px dashed $color-black-main; // &:nth-last-child(1) {
                 //     border-bottom: none;
                 // }
                 td {
@@ -531,57 +572,57 @@
             }
         }
     }
-    @include e("mobile"){
+    @include e("mobile") {
         display: none;
         margin: 0 5px;
-        @include element("item"){
+        @include element("item") {
             background-color: $color-white;
             border-radius: 5px;
             margin-bottom: 10px;
             padding-bottom: 5px;
-            @include modifier("remove"){
+            @include modifier("remove") {
                 color: $color-black-main;
                 position: relative;
-                top: 5px;                
+                top: 5px;
                 height: 25px;
                 width: 15px;
                 display: block;
                 overflow: hidden;
-                img{
+                img {
                     width: 100%;
                 }
             }
-            @include modifier("img"){
+            @include modifier("img") {
                 display: block;
                 margin: auto;
                 max-height: 150px;
                 height: 120px;
             }
-            @include modifier("productname"){
+            @include modifier("productname") {
                 text-align: center;
                 margin: 10px 0;
-                *{
+                * {
                     color: $color-black-main;
                     @include f-medium;
                     font-size: 0.9em;
                 }
             }
-            table{
+            table {
                 width: 100%;
                 margin-bottom: 10px;
                 color: $color-black-main;
-                tr{
+                tr {
                     border: 1px dashed #e0e0e0;
-                    td{
+                    td {
                         padding: 5px 10px;
-                        &:nth-child(1){
+                        &:nth-child(1) {
                             background-color: $color-grey-light;
                         }
-                        &:nth-child(2){
+                        &:nth-child(2) {
                             text-align: right!important;
-                            .cartpreview__inner--body_list-product_quantity{
+                            .cartpreview__inner--body_list-product_quantity {
                                 float: right;
-                                input{
+                                input {
                                     width: 60px;
                                 }
                             }
@@ -773,33 +814,35 @@
                     width: 100%;
                     @include cart-bg-gradient-horizontal();
                     color: $color-white;
-                    &:hover, &:focus, &:active{
+                    &:hover,
+                    &:focus,
+                    &:active {
                         @include cart-bg-gradient-destroy();
                     }
                 }
             }
         }
-        @include element("summary"){
+        @include element("summary") {
             margin-left: 0;
         }
-        @include e("mobile"){
+        @include e("mobile") {
             display: block;
         }
     }
 }
 
-.tablet{
-    .cart{
-        @include element("summary"){
+.tablet {
+    .cart {
+        @include element("summary") {
             margin-left: 0px;
         }
     }
 }
 
 @media screen and (orientation: landscape) {
-    .tablet{
-        .cart{
-            @include element("summary"){
+    .tablet {
+        .cart {
+            @include element("summary") {
                 margin-left: 10px!important;
             }
         }

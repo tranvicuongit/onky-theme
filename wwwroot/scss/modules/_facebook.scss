@@ -45,13 +45,9 @@
         opacity: 0;
         bottom: 0;
         right: 24px;
-        border-radius: 5px 5px 0 0;;
-        -o-border-radius: 5px 5px 0 0;;
-        -webkit-border-radius: 5px 5px 0 0;;
+        border-radius: 5px 5px 0 0;
         box-shadow: 0 5px 40px rgba(0, 0, 0, .16);
-        -webkit-box-shadow: 0 5px 40px rgba(0, 0, 0, .16);
-        -moz-box-shadow: 0 5px 40px rgba(0, 0, 0, .16);
-        -o-box-shadow: 0 5px 40px rgba(0, 0, 0, .16);
+        animation: fb-chat 0.4s ease;
 
         .fb-credit {
             text-align: center;

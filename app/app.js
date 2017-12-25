@@ -9,9 +9,9 @@ var onkyApp = {
       $(".cartpreview__inner").removeClass("fadeOutRight").addClass("fadeInRight");
 
       $(".cartpreview__close").removeClass("fadeOutLeft fadeOutRightBig");
-      if($("html").hasClass("mobile") || $("html").hasClass("tablet")){
+      if ($("html").hasClass("mobile") || $("html").hasClass("tablet")) {
         $(".cartpreview__close").addClass("fadeInLeft");
-      }else{
+      } else {
         $(".cartpreview__close").addClass("fadeInRightBig");
       }
     },
@@ -19,9 +19,9 @@ var onkyApp = {
       $(".cartpreview__inner").removeClass("fadeInRight").addClass("fadeOutRight");
       $(".cartpreview__backdrop").removeClass("fadeIn").addClass("fadeOut");
 
-      if($("html").hasClass("mobile") || $("html").hasClass("tablet")){
+      if ($("html").hasClass("mobile") || $("html").hasClass("tablet")) {
         $(".cartpreview__close").removeClass("fadeInLeft").addClass("fadeOutLeft");
-      }else{
+      } else {
         $(".cartpreview__close").removeClass("fadeInRightBig").addClass("fadeOutRightBig");
       }
 
@@ -52,7 +52,7 @@ var onkyApp = {
       $(".header__mobile--backdrop").removeClass("fadeIn").addClass("fadeOut");
       $(".header__mobile").addClass("header__mobile--closed");
 
-			setTimeout(function () {
+      setTimeout(function () {
         $(".header__mobile").removeClass("header__mobile--opened");
       }, 360);
     }
@@ -153,8 +153,17 @@ var app = angular.module('OnkyApp', ['ngRoute'])
     setTimeout(function () {
       $(".header__menu_item").mouseenter(function () {
         $(this).find(".header__menu_item--submenu").css("display", "block");
+
+        if ($(this).find(".header__menu_item--submenu").length > 0) {
+          $(".header__menu--backdrop").css("animation", "");
+          $(".header__menu--backdrop").css("display", "block");
+          $(".header").css("position", "fixed").css("width", "100%");
+        }
       }).mouseleave(function () {
         $(this).find(".header__menu_item--submenu").css("display", "none");
+
+        $(".header__menu--backdrop").css("animation", "backdrop-menu-out 0.4s ease-in both");
+        $(".header__menu--backdrop").css("display", "none");
       });
 
       // $(".products__list--item").mouseenter(function () {
@@ -172,7 +181,7 @@ var app = angular.module('OnkyApp', ['ngRoute'])
           if ($('.cartpreview').hasClass("cartpreview--opended") && $(e.target).hasClass("cartpreview__backdrop"))
             onkyApp.cart.closePreview();
 
-          
+
           if ($('.header__mobile').hasClass("header__mobile--opened") && $(e.target).hasClass("header__mobile--backdrop"))
             onkyApp.header_mobile.close();
         }
@@ -295,10 +304,11 @@ app.controller('HomeCtrl', function HomeController($scope) {
           paginationSpeed: 500,
           rewindSpeed: 500,
           addClassActive: true,
-          navigation: false,
-          stopOnHover: false,
+          navigation: true,
+          stopOnHover: true,
           pagination: true,
           scrollPerPage: true,
+          navigationText: ['', ''],
           // afterMove: nextslide,
           // afterInit: nextslide
         });
@@ -345,4 +355,3 @@ app.controller('HomeCtrl', function HomeController($scope) {
       });
     }, 300);
   });
-

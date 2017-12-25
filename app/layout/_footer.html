@@ -1,6 +1,6 @@
 <div class="container">
     <ul class="col-md-12 footer__logo text-center">
-            <img src="//theme.hstatic.net/1000225663/1000310269/14/logo.png?v=438" alt="ONKY LOGO">
+        <img src="//theme.hstatic.net/1000225663/1000310269/14/logo.png?v=438" alt="ONKY LOGO">
     </ul>
     <ul class="col-md-12 footer__menu text-center">
         <li ng-repeat="item in Menu">
@@ -10,7 +10,25 @@
             <a href="/contact">Liên hệ</a>
         </li>
     </ul>
-    <ul class="col-md-12 footer__social text-center">
+    <div class="footer__social text-center">
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.11&appId=1574510519274916';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div class="fb-page" data-href="https://www.facebook.com/onky.net/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true"
+            data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/onky.net/" class="fb-xfbml-parse-ignore">
+                <a href="https://www.facebook.com/onky.net/">ONKY</a>
+            </blockquote>
+        </div>
+    </div>
+    <!-- <ul class="col-md-12 footer__social text-center">
         <li>
             <a href="javascript:void(0);">
                 <img src="http://via.placeholder.com/27x27" />
@@ -26,7 +44,7 @@
                 <img src="http://via.placeholder.com/27x27" />
             </a>
         </li>
-    </ul>
+    </ul> -->
     <div class="col-md-12 footer__link">
         <div class="footer__link--item" ng-repeat="item in Menu">
             <h3 class="footer__link--item_title">
@@ -51,7 +69,7 @@
     </div>
     <div class="col-md-12 footer__copyright text-center">
         <p>
-                Copyright © 2017 Mỹ phẩm xách tay Nhật, Hàn Quốc. Thời trang, Giày Dép phái đẹp. Powered by Haravan.
-        </p>   
+            Copyright © 2017 Mỹ phẩm xách tay Nhật, Hàn Quốc. Thời trang, Giày Dép phái đẹp. Powered by Haravan.
+        </p>
     </div>
 </div>

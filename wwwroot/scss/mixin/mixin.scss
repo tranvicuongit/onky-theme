@@ -138,12 +138,12 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffbe8d', endColorstr='#ffbe8d', GradientType=1);
 }
 
-// @function bg_url($url) {
-//     @return "http://theme.hstatic.net/1000225663/1000310269/14/" + $url;
-// }
 @function bg_url($url) {
-    @return "{{'"+$url+"' |  asset_url}}";
+    @return "http://theme.hstatic.net/1000225663/1000310269/14/" + $url;
 }
+// @function bg_url($url) {
+//     @return "{{'"+$url+"' |  asset_url}}";
+// }
 
 @mixin placeholder() {
     &::-webkit-input-placeholder {

@@ -31,7 +31,8 @@
 <body ng-app="OnkyApp">
     <div id="wrapper">
         <!-- <input type="text" style="width: 100%; height: 100px; position: fixed; top: 0; z-index: 10009" /> -->
-        <div ng-include="'app/layout/_header.html'" class="header"></div>
+        <div ng-include="'app/layout/_header.html'" class="header"></div>        
+        <div class="header__menu--backdrop"></div>
         <div class="breadcrumb">
             <div class="container">
                 <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pd5 "> -->
@@ -170,7 +171,7 @@
                                 <p class="products__list--item_prices-main quickview-price">220.000đ</p>
                                 <p class="products__list--item_prices-compare quickview-price">120.000đ</p>
                             </div>
-                            <div class="cartpreview__inner--body_list-product_quantity">
+                            <div class="cartpreview__inner--body_list-product_quantity quickview-quantity">
                                 <span class="minus">-</span>
                                 <input id="quantity-quickview" name="quantity" min="1" class="item-quantity" value="1">
                                 <span class="add">+</span>
@@ -243,17 +244,20 @@
     </a>
     <script src="app/app.js" type="text/javascript"></script>
     <div ng-include="'app/layout/_toolbar.html'"></div>
+    
+
 
     <!--Test fb button-->
 
     <style>
-        
+
     </style>
     <div class="fb-livechat">
         <div class="onkyfb fb-overlay"></div>
         <div class="fb-widget">
             <div class="onkyfb fb-close"></div>
-            <div class="fb-page" data-href="https://www.facebook.com/onky.net" data-tabs="messages" data-small-header="true" data-hide-cover="true" data-show-facepile="false"> </div>
+            <div class="fb-page"  data-height="300" data-href="https://www.facebook.com/onky.net" data-tabs="messages" data-small-header="true" data-hide-cover="true"
+                data-show-facepile="false"> </div>
             <div class="fb-credit">
                 <a href="/" target="_blank">ONKY xin chào !</a>
             </div>
@@ -285,9 +289,10 @@
                 $("div.fb-livechat").fadeIn();
             }, 8 * t.delay);
             //if (!detectmob()) {
-            setTimeout(function(){
+            setTimeout(function () {
                 $(".onkyfb").on("click", function (e) {
-                    e.preventDefault(), t.overlay.is(":visible") ? (t.overlay.fadeOut(t.delay), t.widget
+                    e.preventDefault(), t.overlay.is(":visible") ? (t.overlay.fadeOut(t.delay),
+                        t.widget
                         .stop().animate({
                             bottom: 0,
                             opacity: 0
@@ -300,7 +305,7 @@
                         }, 2 * t.delay), t.overlay.fadeIn(t.delay)
                     })
                 })
-            },500);
+            }, 500);
             //}
         });
     </script>
