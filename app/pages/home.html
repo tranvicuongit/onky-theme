@@ -38,7 +38,11 @@
     <div class="row promotions">
         <div class="container products">
             <h2 class="products__title">Sản phẩm khuyến mãi</h2>
-            <div class="row products__list" ng-include="'app/partials/_products.html'">
+            <div class="row products__list" ng-include="'app/partials/_products.html'" data-currentpage="1" data-pagesize="8">
+            </div>
+            <div class="products__button">
+                <a href="javascript:void(0)" class="products__button--prev"></a>
+                <a href="javascript:void(0)" class="products__button--next"></a>
             </div>
             <div class="products__viewmore">
                 <a href="javascript:void(0);" class="products__viewmore--link">Xem thêm</a>
@@ -49,7 +53,11 @@
     <div class="row">
         <div class="container products">
             <h2 class="products__title">Hàng mới về</h2>
-            <div class="row products__list" ng-include="'app/partials/_products.html'">
+            <div class="row products__list" ng-include="'app/partials/_products.html'" data-currentpage="1" data-pagesize="8">
+            </div>
+            <div class="products__button">
+                <a href="javascript:void(0)" class="products__button--prev"></a>
+                <a href="javascript:void(0)" class="products__button--next"></a>
             </div>
             <div class="products__viewmore">
                 <a href="javascript:void(0);" class="products__viewmore--link">Xem thêm</a>

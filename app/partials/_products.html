@@ -1,7 +1,7 @@
-<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated zoomIn" ng-repeat="item in Products">
+<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 animated zoomIn product_item hidden"  ng-class="{'hidden': $index > 7}" ng-repeat="item in Products">
     <div class="products__list--item">
             <div class="products__list--item_soldout">
-                <span>Hết hàng</span>
+                <span>Hết hàng {{$index}}</span>
             </div>
         <div class="products__list--item_promotion">
             <span>-15%</span>

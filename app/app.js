@@ -56,8 +56,83 @@ var onkyApp = {
         $(".header__mobile").removeClass("header__mobile--opened");
       }, 360);
     }
+  },
+  responsive: {
+    productButton: function () {
+      var sW = $(window).width(); // screen width
+      var pW = $(".products__list").width(); // productlist width
+      var haft = Math.floor((sW - pW) / 2) - 50;
+      var __val = haft + "px";
+      $(".products__button--prev").css("left", __val);
+      $(".products__button--next").css("right", __val);
+    }
+  },
+  products: {
+    changePage: function (__type, target) {
+      var __list = $(target).parent().parent().find(".products__list");
+      var totalItem = parseInt($(__list).find(".product_item").length);
+      var currentPage = $(__list).data("currentpage") == undefined ? 1 : parseInt($(__list).data("currentpage"));
+      var pageSize = $(__list).data("pagesize") == undefined ? 1 : parseInt($(__list).data("pagesize"));
+      var totalPage = Math.round(totalItem / pageSize);
+
+      if (__type == 'default') {
+        onkyApp.products.animate(0, pageSize, __list);
+      } else {        
+        // Get type of button and renumber currentPage
+        switch (__type) {
+          case "prev":
+            currentPage = currentPage > 1 ? currentPage - 1 : 1;
+            break;
+          case "next":
+            currentPage = currentPage < totalPage - 1 ? currentPage + 1 : totalPage;
+            break;
+          default:
+            break;
+        }
+        if (currentPage == $(__list).data("currentpage"))
+          return;
+        $(__list).data("currentpage", currentPage);
+
+        // Get number index of product item to SHOW
+        var __from = (currentPage - 1) * pageSize;
+        var __to = currentPage * pageSize > totalItem ? totalItem : (currentPage * pageSize);
+
+        if (currentPage == 1) {
+          $(__list).parent().find(".products__button--prev").addClass("disabled");
+        } else {
+          $(__list).parent().find(".products__button--prev").removeClass("disabled");
+        }
+        if (currentPage == totalPage) {
+          $(__list).parent().find(".products__button--next").addClass("disabled");
+        } else {
+          $(__list).parent().find(".products__button--next").removeClass("disabled");
+        }
+
+        $(__list).find(".product_item").addClass("hidden");
+        onkyApp.products.animate(__from, __to, __list); // animation
+      }
+    },
+    animate: function (from, to, __list) {
+      var listItem = $(__list).find(".product_item");
+
+      if (to - from <= 4) {
+        $(__list).parent().find(".products__button").css("margin-top", "-10%");
+      } else {
+        $(__list).parent().find(".products__button").css("margin-top", "-20%");
+      }
+
+      for (var i = from; i < to; i++) {
+        onkyApp.products.removeHidden(listItem[i], i - from);
+      }
+
+    },
+    removeHidden: function (item, i) {
+      setTimeout(function () {
+        $(item).removeClass("hidden");
+      }, 200 * i);
+    }
   }
-}
+};
 
 var app = angular.module('OnkyApp', ['ngRoute'])
   .config(['$routeProvider', '$locationProvider',
@@ -335,6 +410,23 @@ app.controller('HomeCtrl', function HomeController($scope) {
           // afterInit: nextslide
         });
       }
+
+      // responsive next and prev button in product-list      
+      onkyApp.responsive.productButton(); // first time
+      $(window).resize(function () { // on resize
+        onkyApp.responsive.productButton();
+      });
+      $(".products__button--prev").click(function () {
+        var $this = $(this);
+        onkyApp.products.changePage("prev", $this);
+      });
+      $(".products__button--next").click(function () {
+        var $this = $(this);
+        onkyApp.products.changePage("next", $this);
+      });
+      $(".products__list").each(function(){
+        onkyApp.products.changePage("default", this);
+      });
     }, 300);
 
   })

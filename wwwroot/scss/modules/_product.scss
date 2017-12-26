@@ -84,7 +84,7 @@
                     @include element("list") {
                         @include modifier("item") {
                             @include e("img"){
-                                pointer-events: none;
+                                //pointer-events: none;
                             }
                             @include e("actions") {
 
@@ -245,6 +245,52 @@
                     @include f-bold;
                 }
             }
+        }        
+    }
+    @include element("button"){
+        position: absolute;
+        width: 100%;
+        left: 0%;
+        margin-top: -20%;
+        
+        @include modifier("prev"){
+            width: 50px;
+            height: 50px;
+            background: url(bg_url('arrow-left-small.png')) center center no-repeat;
+            background-size: contain;
+            position: absolute;
+            left: 15%;         
+            cursor: pointer;
+            opacity: 0.4;
+            transition: 0.23s all ease-in-out;
+
+            &:hover{
+                opacity: 1;
+            }
+
+            &.disabled{
+                pointer-events: none;
+                opacity: 0.4;
+            }
+        }
+        @include modifier("next"){
+            width: 50px;
+            height: 50px;
+            background: url(bg_url('arrow-right-small.png')) center center no-repeat;
+            background-size: contain;
+            position: absolute;
+            right: 15%;            
+            cursor: pointer;
+            opacity: 0.4;
+            transition: 0.23s all ease-in-out;
+
+            &:hover{
+                opacity: 1;
+            }
+            &.disabled{
+                pointer-events: none;
+                opacity: 0.4;
+            }
         }
     }
     @include element("viewmore") {
@@ -341,6 +387,9 @@
                 }
             }
         }
+        @include element("button"){
+            display: none!important;
+        }
     }
     .tips {
         @include element("description") {
@@ -397,6 +446,9 @@
         @include e("promotion") {
             margin-right: 10px;
         }
+        @include element("button"){
+            display: none!important;
+        }
     }
     .tips {
         @include element("description") {
@@ -430,6 +482,9 @@
                         margin-left: 10px;
                     }
                 }
+            }
+            @include element("button"){
+                display: none!important;
             }
         }
     }
